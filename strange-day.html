@@ -1,0 +1,131 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Strange Day portfolio case study by Tobias Netzeband."><title>Strange Day | The Boy Bias</title><link rel="stylesheet" href="styles.css"></head><body><header><a class="brand" href="index.html#top"><b>TB</b><span>THE BOY BIAS</span></a><nav aria-label="Primary navigation"><a href="index.html#work">Work</a><a href="games.html">Games</a><a href="index.html#disciplines">Disciplines</a><a href="index.html#about">About</a><a href="assets/docs/CV_Tobias_Netzeband.pdf">Resume</a></nav><div class="header-actions"><a class="status" href="#contact"><i></i>Available</a><a class="header-contact" href="#contact">Contact ↗</a></div></header><main><section class="games-hero"><img src="assets/games/strange-1.webp" alt="Strange Day villa interior"><div class="games-hero-copy"><p class="kicker">4TH SEMESTER PROJECT</p><h1>STRANGE<br><span>DAY.</span></h1><p>Once a year, the villa changes. Strange things happen inside, and this time the only way forward is to understand the house and escape it.</p><div class="game-facts"><i>SOLO PROJECT</i><i>6 MONTHS</i><i>UNREAL ENGINE</i><i>FIRST PERSON PUZZLE</i></div></div></section>
+<section class="section"><div class="game-copy"><div><p class="kicker">THE PROJECT</p><h2>A villa built to feel <span>unpredictable.</span></h2></div><div class="prose"><p><strong>Strange Day</strong> is a first person puzzle game developed during my fourth semester. I created the concept, game design, environment, 3D and 2D assets, UI, lighting and Blueprint implementation as a six month solo project.</p><p>The game is built around a local legend: once every year, the villa behaves strangely. The player must investigate its rooms, solve puzzles and find a way out.</p><p>Voice performance by LEYAH. Licensed audio from Epidemic Sound and WeLoveIndies.</p></div></div></section>
+<section class="section dark"><div class="game-copy"><div><p class="kicker">ENVIRONMENT ART</p><h2>The villa is the <span>main character.</span></h2></div><p class="prose">The complete villa was created as a connected interior and exterior environment. Warm lighting and stylized forms make the space inviting at first, while narrow corridors, changing rooms and unusual events gradually undermine that comfort.</p></div><div class="game-gallery" style="margin-top:55px"><img class="zoomable wide" src="assets/games/strange-5.webp" alt="Strange Day villa"><img class="zoomable" src="assets/games/strange-2.webp" alt="Mirror puzzle"><img class="zoomable" src="assets/games/strange-3.webp" alt="Villa bedroom"></div></section>
+<section class="section"><div class="game-feature"><video muted autoplay loop playsinline preload="metadata" src="assets/games/strange-villa-turnaround.mp4"></video><div><p class="kicker">EXTERIOR</p><h3>One complete location.</h3><p>The villa was designed as a full game environment rather than an isolated render. This project will also connect directly to the Environments section of my 3D portfolio.</p></div></div></section>
+<section class="section dark"><p class="kicker">EARLY DEVELOPMENT</p><div class="head"><h2>From blockout to <span>atmosphere.</span></h2></div><div class="process-pair"><img class="zoomable" src="assets/games/strange-early-1.webp" alt="Early Strange Day environment"><img class="zoomable" src="assets/games/strange-early-2.webp" alt="Early Strange Day development"></div></section>
+<section class="section"><div class="game-gallery"><img class="zoomable" src="assets/games/strange-4.webp" alt="Strange Day puzzle"><img class="zoomable" src="assets/games/strange-1.webp" alt="Strange Day interior"></div><div class="game-cta" style="margin-top:45px"><div><p class="kicker">PLAY THE GAME</p><h3>Explore the villa yourself.</h3></div><a class="btn light" href="https://theboybias.itch.io/strangeday">Play on itch.io ↗</a></div></section><section id="contact" class="contact section"><p class="kicker">LET'S WORK TOGETHER</p><h2>Have a world<br><span>to build?</span></h2><p class="muted">Contact details and professional profiles will be connected here before launch.</p></section></main><footer><span>© 2026 THE BOY BIAS</span><span>GAME ART / VISUAL DESIGN</span><span>PORTFOLIO V4</span></footer><div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" type="button" aria-label="Close image">×</button>
+  <img src="" alt="">
+</div>
+<script>
+(function(){
+  "use strict";
+
+  function safePlay(video){
+    if(!video) return;
+    var promise=video.play();
+    if(promise && typeof promise.catch==="function"){
+      promise.catch(function(){});
+    }
+  }
+
+  document.querySelectorAll(".filters button").forEach(function(button){
+    button.addEventListener("click",function(){
+      document.querySelectorAll(".filters button").forEach(function(x){x.classList.remove("active");});
+      button.classList.add("active");
+      var filter=button.getAttribute("data-filter");
+      document.querySelectorAll(".card").forEach(function(card){
+        card.style.display=(filter==="all" || card.classList.contains(filter)) ? "block" : "none";
+      });
+    });
+  });
+
+  document.querySelectorAll("[data-go]").forEach(function(link){
+    link.addEventListener("click",function(){
+      window.setTimeout(function(){
+        var target=document.querySelector('.filters [data-filter="'+link.getAttribute("data-go")+'"]');
+        if(target) target.click();
+      },150);
+    });
+  });
+
+  var videos=document.querySelectorAll("video[muted]");
+  videos.forEach(function(video){
+    video.setAttribute("autoplay","");
+    video.muted=true;
+    safePlay(video);
+    video.addEventListener("mouseenter",function(){safePlay(video);});
+    video.addEventListener("touchstart",function(){safePlay(video);},{passive:true});
+  });
+
+  if("IntersectionObserver" in window){
+    var observer=new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          safePlay(entry.target);
+        }else{
+          entry.target.pause();
+        }
+      });
+    },{threshold:0.08});
+    videos.forEach(function(video){observer.observe(video);});
+  }
+
+  var lightbox=document.getElementById("lightbox");
+  var lightboxImage=lightbox ? lightbox.querySelector("img") : null;
+  var closeButton=lightbox ? lightbox.querySelector(".lightbox-close") : null;
+
+  function closeLightbox(){
+    if(!lightbox) return;
+    lightbox.classList.remove("open");
+    lightbox.setAttribute("aria-hidden","true");
+    if(lightboxImage) lightboxImage.removeAttribute("src");
+    document.body.style.overflow="";
+  }
+
+  document.querySelectorAll(".zoomable").forEach(function(image){
+    image.addEventListener("click",function(event){
+      if(!lightbox || !lightboxImage) return;
+      event.preventDefault();
+      event.stopPropagation();
+      lightboxImage.src=image.currentSrc || image.src;
+      lightboxImage.alt=image.alt || "Expanded portfolio image";
+      lightbox.classList.add("open");
+      lightbox.setAttribute("aria-hidden","false");
+      document.body.style.overflow="hidden";
+    });
+  });
+
+  if(closeButton){
+    closeButton.addEventListener("click",function(event){
+      event.preventDefault();
+      event.stopPropagation();
+      closeLightbox();
+    });
+  }
+
+  if(lightbox){
+    lightbox.addEventListener("click",function(event){
+      if(event.target===lightbox) closeLightbox();
+    });
+  }
+
+  document.addEventListener("keydown",function(event){
+    if(event.key==="Escape") closeLightbox();
+  });
+
+  var scene=document.getElementById("v3-scene-image");
+  var sceneTitle=document.getElementById("v3-scene-title");
+  var sceneSubtitle=document.getElementById("v3-scene-subtitle");
+
+  if(scene){
+    document.querySelectorAll("[data-v3-scene]").forEach(function(button){
+      button.addEventListener("click",function(){
+        document.querySelectorAll("[data-v3-scene]").forEach(function(x){x.classList.remove("active");});
+        button.classList.add("active");
+
+        var isDay=button.getAttribute("data-v3-scene")==="day";
+        scene.style.opacity=".25";
+
+        window.setTimeout(function(){
+          scene.src=isDay ? "assets/images/v3/day-wide.webp" : "assets/images/v3/night-wide.webp";
+          scene.alt=isDay ? "Bedroom during the day" : "Bedroom at night";
+          if(sceneTitle) sceneTitle.textContent=isDay ? "COMFORT" : "UNEASE";
+          if(sceneSubtitle) sceneSubtitle.textContent=isDay ? "The room in daylight" : "The same space after dark";
+          scene.style.opacity="1";
+        },160);
+      });
+    });
+  }
+})();
+</script></body></html>

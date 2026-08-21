@@ -1,0 +1,132 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Games portfolio case study by Tobias Netzeband."><title>Games | The Boy Bias</title><link rel="stylesheet" href="styles.css"></head><body><header><a class="brand" href="index.html#top"><b>TB</b><span>THE BOY BIAS</span></a><nav aria-label="Primary navigation"><a href="index.html#work">Work</a><a href="games.html">Games</a><a href="index.html#disciplines">Disciplines</a><a href="index.html#about">About</a><a href="assets/docs/CV_Tobias_Netzeband.pdf">Resume</a></nav><div class="header-actions"><a class="status" href="#contact"><i></i>Available</a><a class="header-contact" href="#contact">Contact ↗</a></div></header><main><section class="games-hero"><img src="assets/images/v3/day-wide.webp" alt="Selected game projects"><div class="games-hero-copy"><p class="kicker">GAME PROJECTS</p><h1>WORLDS.<br><span>SYSTEMS.</span><br>EXPERIENCES.</h1><p>Four solo projects developed across my studies, each focused on a different part of game creation, from pixel art and interactive UI to 3D environments and complete art direction.</p></div></section>
+<section class="section"><div class="head"><div><p class="kicker">SELECTED GAMES</p><h2>Built from <span>concept to playable.</span></h2></div><p>Every project was developed as a solo production. Select a game to explore the work behind it.</p></div><div class="games-index">
+<a href="bedtime-is-a-lie.html"><img src="assets/images/v3/day-wide.webp" alt="Bedtime Is A Lie"><div><b>Bedtime Is A Lie</b><small>Graduation Project · Horror · Unreal Engine 5 · 6 Months</small></div></a>
+<a href="strange-day.html"><img src="assets/games/strange-1.webp" alt="Strange Day"><div><b>Strange Day</b><small>4th Semester · Puzzle · Unreal Engine · 6 Months</small></div></a>
+<a href="dungeon-diver.html"><img src="assets/games/dungeon-1.webp" alt="Dungeon Diver"><div><b>Dungeon Diver</b><small>5th Semester · UI Only · Unreal Engine · 6 Months</small></div></a>
+<a href="lost-little-boy.html"><img src="assets/games/lost-1.webp" alt="Lost Little Boy"><div><b>Lost Little Boy</b><small>1st Semester · Pixel Platformer · Unity · 6 Months</small></div></a>
+</div></section><section id="contact" class="contact section"><p class="kicker">LET'S WORK TOGETHER</p><h2>Have a world<br><span>to build?</span></h2><p class="muted">Contact details and professional profiles will be connected here before launch.</p></section></main><footer><span>© 2026 THE BOY BIAS</span><span>GAME ART / VISUAL DESIGN</span><span>PORTFOLIO V4</span></footer><div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" type="button" aria-label="Close image">×</button>
+  <img src="" alt="">
+</div>
+<script>
+(function(){
+  "use strict";
+
+  function safePlay(video){
+    if(!video) return;
+    var promise=video.play();
+    if(promise && typeof promise.catch==="function"){
+      promise.catch(function(){});
+    }
+  }
+
+  document.querySelectorAll(".filters button").forEach(function(button){
+    button.addEventListener("click",function(){
+      document.querySelectorAll(".filters button").forEach(function(x){x.classList.remove("active");});
+      button.classList.add("active");
+      var filter=button.getAttribute("data-filter");
+      document.querySelectorAll(".card").forEach(function(card){
+        card.style.display=(filter==="all" || card.classList.contains(filter)) ? "block" : "none";
+      });
+    });
+  });
+
+  document.querySelectorAll("[data-go]").forEach(function(link){
+    link.addEventListener("click",function(){
+      window.setTimeout(function(){
+        var target=document.querySelector('.filters [data-filter="'+link.getAttribute("data-go")+'"]');
+        if(target) target.click();
+      },150);
+    });
+  });
+
+  var videos=document.querySelectorAll("video[muted]");
+  videos.forEach(function(video){
+    video.setAttribute("autoplay","");
+    video.muted=true;
+    safePlay(video);
+    video.addEventListener("mouseenter",function(){safePlay(video);});
+    video.addEventListener("touchstart",function(){safePlay(video);},{passive:true});
+  });
+
+  if("IntersectionObserver" in window){
+    var observer=new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          safePlay(entry.target);
+        }else{
+          entry.target.pause();
+        }
+      });
+    },{threshold:0.08});
+    videos.forEach(function(video){observer.observe(video);});
+  }
+
+  var lightbox=document.getElementById("lightbox");
+  var lightboxImage=lightbox ? lightbox.querySelector("img") : null;
+  var closeButton=lightbox ? lightbox.querySelector(".lightbox-close") : null;
+
+  function closeLightbox(){
+    if(!lightbox) return;
+    lightbox.classList.remove("open");
+    lightbox.setAttribute("aria-hidden","true");
+    if(lightboxImage) lightboxImage.removeAttribute("src");
+    document.body.style.overflow="";
+  }
+
+  document.querySelectorAll(".zoomable").forEach(function(image){
+    image.addEventListener("click",function(event){
+      if(!lightbox || !lightboxImage) return;
+      event.preventDefault();
+      event.stopPropagation();
+      lightboxImage.src=image.currentSrc || image.src;
+      lightboxImage.alt=image.alt || "Expanded portfolio image";
+      lightbox.classList.add("open");
+      lightbox.setAttribute("aria-hidden","false");
+      document.body.style.overflow="hidden";
+    });
+  });
+
+  if(closeButton){
+    closeButton.addEventListener("click",function(event){
+      event.preventDefault();
+      event.stopPropagation();
+      closeLightbox();
+    });
+  }
+
+  if(lightbox){
+    lightbox.addEventListener("click",function(event){
+      if(event.target===lightbox) closeLightbox();
+    });
+  }
+
+  document.addEventListener("keydown",function(event){
+    if(event.key==="Escape") closeLightbox();
+  });
+
+  var scene=document.getElementById("v3-scene-image");
+  var sceneTitle=document.getElementById("v3-scene-title");
+  var sceneSubtitle=document.getElementById("v3-scene-subtitle");
+
+  if(scene){
+    document.querySelectorAll("[data-v3-scene]").forEach(function(button){
+      button.addEventListener("click",function(){
+        document.querySelectorAll("[data-v3-scene]").forEach(function(x){x.classList.remove("active");});
+        button.classList.add("active");
+
+        var isDay=button.getAttribute("data-v3-scene")==="day";
+        scene.style.opacity=".25";
+
+        window.setTimeout(function(){
+          scene.src=isDay ? "assets/images/v3/day-wide.webp" : "assets/images/v3/night-wide.webp";
+          scene.alt=isDay ? "Bedroom during the day" : "Bedroom at night";
+          if(sceneTitle) sceneTitle.textContent=isDay ? "COMFORT" : "UNEASE";
+          if(sceneSubtitle) sceneSubtitle.textContent=isDay ? "The room in daylight" : "The same space after dark";
+          scene.style.opacity="1";
+        },160);
+      });
+    });
+  }
+})();
+</script></body></html>

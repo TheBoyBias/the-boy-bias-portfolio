@@ -1,14 +1,14 @@
-# The Boy Bias Portfolio V3.3.2
+# The Boy Bias Portfolio V4
 
-Deployment reliability hotfix.
+V4 expands the portfolio into a complete Games section.
 
-Changes:
-- Removed the runtime dependency on the external app.js file
-- Embedded the complete interaction layer directly at the end of both HTML pages
-- Ensured the script runs after the Lightbox markup exists
-- Added autoplay as an HTML fallback to muted turnaround videos
-- Preserved viewport aware play and pause behavior
-- Restored reliable image Lightbox behavior
-- Restored reliable Day and Night switching
-- Made the wide final gallery image clickable too
-- No visual design changes
+New:
+- Games overview page
+- Strange Day case study
+- Dungeon Diver case study
+- Lost Little Boy case study
+- Existing Bedtime Is A Lie graduation case study retained
+- New game cards and filtering on the homepage
+- Cross discipline structure designed for future 3D, UI/UX and 2D sections
+- Curated and web optimized source artwork from the supplied project archives
+- Existing image Lightbox and video interaction system retained

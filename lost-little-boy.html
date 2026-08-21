@@ -1,0 +1,130 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Lost Little Boy portfolio case study by Tobias Netzeband."><title>Lost Little Boy | The Boy Bias</title><link rel="stylesheet" href="styles.css"></head><body><header><a class="brand" href="index.html#top"><b>TB</b><span>THE BOY BIAS</span></a><nav aria-label="Primary navigation"><a href="index.html#work">Work</a><a href="games.html">Games</a><a href="index.html#disciplines">Disciplines</a><a href="index.html#about">About</a><a href="assets/docs/CV_Tobias_Netzeband.pdf">Resume</a></nav><div class="header-actions"><a class="status" href="#contact"><i></i>Available</a><a class="header-contact" href="#contact">Contact ↗</a></div></header><main><section class="games-hero"><img src="assets/games/lost-1.webp" alt="Lost Little Boy shrine"><div class="games-hero-copy"><p class="kicker">1ST SEMESTER PROJECT</p><h1>LOST<br><span>LITTLE BOY.</span></h1><p>A 2D pixel art platformer about crossing elemental worlds to recover the artifacts demanded by a mysterious captor.</p><div class="game-facts"><i>SOLO PROJECT</i><i>6 MONTHS</i><i>UNITY</i><i>2D PIXEL PLATFORMER</i></div></div></section>
+<section class="section"><div class="game-copy"><div><p class="kicker">WHERE IT STARTED</p><h2>My first <span>complete game.</span></h2></div><div class="prose"><p>Lost Little Boy was my first semester project and my introduction to building a complete playable game. Over six months I worked across pixel art, animation, level design, UI and implementation in Unity.</p><p>After his partner is abducted, the protagonist learns that his bloodline allows him to enter elemental worlds. To bring her back, he must travel through them and recover the artifacts his captor demands.</p><p>Licensed audio from Epidemic Sound and WeLoveIndies. External technical helpers and third party resources are credited on the release page.</p></div></div></section>
+<section class="section dark"><p class="kicker">A SMALL JOURNEY</p><div class="head"><h2>Different worlds, <span>one visual language.</span></h2></div><div class="game-gallery"><img class="zoomable wide" src="assets/games/lost-1.webp" alt="Shrine world"><img class="zoomable" src="assets/games/lost-2.webp" alt="Forest world"><img class="zoomable" src="assets/games/lost-4.webp" alt="Elemental world"></div></section>
+<section class="section"><div class="game-copy"><div><p class="kicker">PIXEL ART & ANIMATION</p><h2>Built one frame <span>at a time.</span></h2></div><p class="prose">Characters, environmental art and animation were created to support a readable platforming experience while giving each world a distinct mood.</p></div><div class="pixel-strip" style="margin-top:50px"><figure><img src="assets/games/lost-idle.gif" alt="Idle animation"></figure><figure><img src="assets/games/lost-walk.gif" alt="Walk animation"></figure><figure><img src="assets/games/lost-enemy.gif" alt="Enemy animation"></figure><figure><img src="assets/games/lost-coin.gif" alt="Coin animation"></figure><figure><img src="assets/games/lost-gate.gif" alt="Gate animation"></figure></div></section>
+<section class="section dark"><div class="game-gallery"><img class="zoomable" src="assets/games/lost-3.webp" alt="Green world"><img class="zoomable" src="assets/games/lost-5.webp" alt="Dark story scene"></div><div class="game-cta" style="margin-top:45px"><div><p class="kicker">PLAY THE GAME</p><h3>See where the journey started.</h3></div><a class="btn light" href="https://theboybias.itch.io/lostlittleboy">Play on itch.io ↗</a></div></section><section id="contact" class="contact section"><p class="kicker">LET'S WORK TOGETHER</p><h2>Have a world<br><span>to build?</span></h2><p class="muted">Contact details and professional profiles will be connected here before launch.</p></section></main><footer><span>© 2026 THE BOY BIAS</span><span>GAME ART / VISUAL DESIGN</span><span>PORTFOLIO V4</span></footer><div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" type="button" aria-label="Close image">×</button>
+  <img src="" alt="">
+</div>
+<script>
+(function(){
+  "use strict";
+
+  function safePlay(video){
+    if(!video) return;
+    var promise=video.play();
+    if(promise && typeof promise.catch==="function"){
+      promise.catch(function(){});
+    }
+  }
+
+  document.querySelectorAll(".filters button").forEach(function(button){
+    button.addEventListener("click",function(){
+      document.querySelectorAll(".filters button").forEach(function(x){x.classList.remove("active");});
+      button.classList.add("active");
+      var filter=button.getAttribute("data-filter");
+      document.querySelectorAll(".card").forEach(function(card){
+        card.style.display=(filter==="all" || card.classList.contains(filter)) ? "block" : "none";
+      });
+    });
+  });
+
+  document.querySelectorAll("[data-go]").forEach(function(link){
+    link.addEventListener("click",function(){
+      window.setTimeout(function(){
+        var target=document.querySelector('.filters [data-filter="'+link.getAttribute("data-go")+'"]');
+        if(target) target.click();
+      },150);
+    });
+  });
+
+  var videos=document.querySelectorAll("video[muted]");
+  videos.forEach(function(video){
+    video.setAttribute("autoplay","");
+    video.muted=true;
+    safePlay(video);
+    video.addEventListener("mouseenter",function(){safePlay(video);});
+    video.addEventListener("touchstart",function(){safePlay(video);},{passive:true});
+  });
+
+  if("IntersectionObserver" in window){
+    var observer=new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          safePlay(entry.target);
+        }else{
+          entry.target.pause();
+        }
+      });
+    },{threshold:0.08});
+    videos.forEach(function(video){observer.observe(video);});
+  }
+
+  var lightbox=document.getElementById("lightbox");
+  var lightboxImage=lightbox ? lightbox.querySelector("img") : null;
+  var closeButton=lightbox ? lightbox.querySelector(".lightbox-close") : null;
+
+  function closeLightbox(){
+    if(!lightbox) return;
+    lightbox.classList.remove("open");
+    lightbox.setAttribute("aria-hidden","true");
+    if(lightboxImage) lightboxImage.removeAttribute("src");
+    document.body.style.overflow="";
+  }
+
+  document.querySelectorAll(".zoomable").forEach(function(image){
+    image.addEventListener("click",function(event){
+      if(!lightbox || !lightboxImage) return;
+      event.preventDefault();
+      event.stopPropagation();
+      lightboxImage.src=image.currentSrc || image.src;
+      lightboxImage.alt=image.alt || "Expanded portfolio image";
+      lightbox.classList.add("open");
+      lightbox.setAttribute("aria-hidden","false");
+      document.body.style.overflow="hidden";
+    });
+  });
+
+  if(closeButton){
+    closeButton.addEventListener("click",function(event){
+      event.preventDefault();
+      event.stopPropagation();
+      closeLightbox();
+    });
+  }
+
+  if(lightbox){
+    lightbox.addEventListener("click",function(event){
+      if(event.target===lightbox) closeLightbox();
+    });
+  }
+
+  document.addEventListener("keydown",function(event){
+    if(event.key==="Escape") closeLightbox();
+  });
+
+  var scene=document.getElementById("v3-scene-image");
+  var sceneTitle=document.getElementById("v3-scene-title");
+  var sceneSubtitle=document.getElementById("v3-scene-subtitle");
+
+  if(scene){
+    document.querySelectorAll("[data-v3-scene]").forEach(function(button){
+      button.addEventListener("click",function(){
+        document.querySelectorAll("[data-v3-scene]").forEach(function(x){x.classList.remove("active");});
+        button.classList.add("active");
+
+        var isDay=button.getAttribute("data-v3-scene")==="day";
+        scene.style.opacity=".25";
+
+        window.setTimeout(function(){
+          scene.src=isDay ? "assets/images/v3/day-wide.webp" : "assets/images/v3/night-wide.webp";
+          scene.alt=isDay ? "Bedroom during the day" : "Bedroom at night";
+          if(sceneTitle) sceneTitle.textContent=isDay ? "COMFORT" : "UNEASE";
+          if(sceneSubtitle) sceneSubtitle.textContent=isDay ? "The room in daylight" : "The same space after dark";
+          scene.style.opacity="1";
+        },160);
+      });
+    });
+  }
+})();
+</script></body></html>
