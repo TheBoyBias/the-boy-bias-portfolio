@@ -19,7 +19,7 @@
 <div class="filters"><button class="active" data-filter="all">All</button><button data-filter="games">Games</button><button data-filter="3d">3D</button><button data-filter="uiux">UI / UX</button><button data-filter="2d">2D</button><button data-filter="gameart">Game Art</button></div>
 <div class="grid">
 <a class="card wide games 3d uiux gameart" href="bedtime-is-a-lie.html"><figure><img src="assets/images/v3/day-wide.webp" alt="Bedtime Is A Lie"><label>★ GRADUATION PROJECT</label></figure><div><span><b>Bedtime Is A Lie</b><small>Game · Environment · UI/UX · Unreal Engine 5</small></span><em>↗</em></div></a>
-<a class="card 3d" href="bedtime-is-a-lie.html#assets"><figure><video muted loop playsinline preload="metadata" src="assets/video/teddy-turnaround.mp4"></video><label>3D / PROP</label></figure><div><span><b>Teddy</b><small>Stylized game asset</small></span><em>↗</em></div></a>
+<a class="card 3d" href="bedtime-is-a-lie.html#assets"><figure><video muted autoplay loop playsinline preload="metadata" src="assets/video/teddy-turnaround.mp4"></video><label>3D / PROP</label></figure><div><span><b>Teddy</b><small>Stylized game asset</small></span><em>↗</em></div></a>
 <a class="card 2d" href="#2d"><figure><img src="assets/images/pokemon1.webp" alt="Creature illustration"><label>2D / CREATURE</label></figure><div><span><b>Creature Studies</b><small>Stylized illustration</small></span><em>↗</em></div></a>
 <a class="card uiux" href="#ui"><figure><img src="assets/images/pergament.webp" alt="Parchment UI banner"><label>UI / GRAPHIC</label></figure><div><span><b>Parchment UI</b><small>Game interface asset</small></span><em>↗</em></div></a>
 </div></section>
@@ -27,7 +27,130 @@
 <section class="feature section"><div><p class="kicker">FEATURED PROJECT / 2026</p><h2>Bedtime<br><span>Is A Lie.</span></h2><p>A first-person paranormal horror experience set entirely inside a child's bedroom. The project brings environment art, UI/UX, lighting and Unreal Engine implementation together in one cohesive experience.</p><div class="tags"><i>GRADUATION PROJECT</i><i>UNREAL ENGINE 5</i><i>HORROR</i></div><a class="btn light" href="bedtime-is-a-lie.html">Explore case study ↗</a></div><a class="feature-img" href="bedtime-is-a-lie.html"><img src="assets/images/bedtime-3.webp" alt="Bedtime Is A Lie environment"><span>ENTER PROJECT ↗</span></a></section>
 <section id="about" class="section"><div class="head"><div><p class="kicker">ABOUT</p><h2>Art that serves<br><span>the experience.</span></h2></div></div><div class="about"><p class="big">I’m a game artist and visual designer working across 3D, UI/UX and interactive game experiences.</p><div><p>This portfolio is designed around the work: clear categories, concise case studies and enough process to show how each result was made. As the body of work grows, every discipline can expand independently.</p><div class="tags"><i>UNREAL ENGINE</i><i>BLENDER</i><i>3D ART</i><i>UI / UX</i><i>GAME ART</i></div><a class="textlink" href="assets/docs/CV_Tobias_Netzeband.pdf">View resume ↗</a></div></div></section>
 <section id="contact" class="contact section"><p class="kicker">LET'S WORK TOGETHER</p><h2>Have a world<br><span>to build?</span></h2><p class="muted">Contact details and professional profiles will be connected here before launch.</p></section>
-</main><footer><span>© 2026 THE BOY BIAS</span><span>GAME ART / VISUAL DESIGN</span><span>PORTFOLIO V2</span></footer><script src="app.js"></script><div class="lightbox" id="lightbox" aria-hidden="true">
+</main><footer><span>© 2026 THE BOY BIAS</span><span>GAME ART / VISUAL DESIGN</span><span>PORTFOLIO V2</span></footer><div class="lightbox" id="lightbox" aria-hidden="true">
   <button class="lightbox-close" type="button" aria-label="Close image">×</button>
   <img src="" alt="">
-</div></body></html>
+</div>
+<script>
+(function(){
+  "use strict";
+
+  function safePlay(video){
+    if(!video) return;
+    var promise=video.play();
+    if(promise && typeof promise.catch==="function"){
+      promise.catch(function(){});
+    }
+  }
+
+  document.querySelectorAll(".filters button").forEach(function(button){
+    button.addEventListener("click",function(){
+      document.querySelectorAll(".filters button").forEach(function(x){x.classList.remove("active");});
+      button.classList.add("active");
+      var filter=button.getAttribute("data-filter");
+      document.querySelectorAll(".card").forEach(function(card){
+        card.style.display=(filter==="all" || card.classList.contains(filter)) ? "block" : "none";
+      });
+    });
+  });
+
+  document.querySelectorAll("[data-go]").forEach(function(link){
+    link.addEventListener("click",function(){
+      window.setTimeout(function(){
+        var target=document.querySelector('.filters [data-filter="'+link.getAttribute("data-go")+'"]');
+        if(target) target.click();
+      },150);
+    });
+  });
+
+  var videos=document.querySelectorAll("video[muted]");
+  videos.forEach(function(video){
+    video.setAttribute("autoplay","");
+    video.muted=true;
+    safePlay(video);
+    video.addEventListener("mouseenter",function(){safePlay(video);});
+    video.addEventListener("touchstart",function(){safePlay(video);},{passive:true});
+  });
+
+  if("IntersectionObserver" in window){
+    var observer=new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          safePlay(entry.target);
+        }else{
+          entry.target.pause();
+        }
+      });
+    },{threshold:0.08});
+    videos.forEach(function(video){observer.observe(video);});
+  }
+
+  var lightbox=document.getElementById("lightbox");
+  var lightboxImage=lightbox ? lightbox.querySelector("img") : null;
+  var closeButton=lightbox ? lightbox.querySelector(".lightbox-close") : null;
+
+  function closeLightbox(){
+    if(!lightbox) return;
+    lightbox.classList.remove("open");
+    lightbox.setAttribute("aria-hidden","true");
+    if(lightboxImage) lightboxImage.removeAttribute("src");
+    document.body.style.overflow="";
+  }
+
+  document.querySelectorAll(".zoomable").forEach(function(image){
+    image.addEventListener("click",function(event){
+      if(!lightbox || !lightboxImage) return;
+      event.preventDefault();
+      event.stopPropagation();
+      lightboxImage.src=image.currentSrc || image.src;
+      lightboxImage.alt=image.alt || "Expanded portfolio image";
+      lightbox.classList.add("open");
+      lightbox.setAttribute("aria-hidden","false");
+      document.body.style.overflow="hidden";
+    });
+  });
+
+  if(closeButton){
+    closeButton.addEventListener("click",function(event){
+      event.preventDefault();
+      event.stopPropagation();
+      closeLightbox();
+    });
+  }
+
+  if(lightbox){
+    lightbox.addEventListener("click",function(event){
+      if(event.target===lightbox) closeLightbox();
+    });
+  }
+
+  document.addEventListener("keydown",function(event){
+    if(event.key==="Escape") closeLightbox();
+  });
+
+  var scene=document.getElementById("v3-scene-image");
+  var sceneTitle=document.getElementById("v3-scene-title");
+  var sceneSubtitle=document.getElementById("v3-scene-subtitle");
+
+  if(scene){
+    document.querySelectorAll("[data-v3-scene]").forEach(function(button){
+      button.addEventListener("click",function(){
+        document.querySelectorAll("[data-v3-scene]").forEach(function(x){x.classList.remove("active");});
+        button.classList.add("active");
+
+        var isDay=button.getAttribute("data-v3-scene")==="day";
+        scene.style.opacity=".25";
+
+        window.setTimeout(function(){
+          scene.src=isDay ? "assets/images/v3/day-wide.webp" : "assets/images/v3/night-wide.webp";
+          scene.alt=isDay ? "Bedroom during the day" : "Bedroom at night";
+          if(sceneTitle) sceneTitle.textContent=isDay ? "COMFORT" : "UNEASE";
+          if(sceneSubtitle) sceneSubtitle.textContent=isDay ? "The room in daylight" : "The same space after dark";
+          scene.style.opacity="1";
+        },160);
+      });
+    });
+  }
+})();
+</script>
+</body></html>
