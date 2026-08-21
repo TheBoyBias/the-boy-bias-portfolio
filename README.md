@@ -1,15 +1,10 @@
-# The Boy Bias Portfolio V2.3
+# The Boy Bias Portfolio V3.3
 
-Changes in this pass:
+Targeted update based on V3.2.
 
-- Reduced header height
-- Increased navigation text size
-- Used header space more efficiently
-- Added a clearly visible Contact action on every page
-- Added a dedicated contact section to the Bedtime Is A Lie project page
-- Kept the seamless infinite skills ticker
-- Expanded ticker content with Unity, Blender, ZBrush, Substance 3D, Game Development, Environment Art and Visual Design
-- Preserved responsive behavior
-- Verified that the forbidden punctuation character is absent from all HTML, CSS, JavaScript and documentation files
-
-The next pass should focus on the balance of image scale, section density and visual identity rather than adding more navigation elements.
+Changes:
+- Restored the interactive Day and Night environment switch
+- Fixed the lightbox so enlarged images can always be closed with the close button, background click or Escape
+- Reframed the Bedtime hero lower to show more of the interesting room content and less ceiling
+- Kept the remaining V3.2 design unchanged
+- Verified that the prohibited punctuation character is absent from all site source files
