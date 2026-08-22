@@ -1,7 +1,9 @@
-# The Boy Bias Portfolio V5.3
+# The Boy Bias Portfolio V5.6
 
-Targeted Bedtime fix:
-- Restored Previous / Next project navigation on Bedtime Is A Lie
-- Re-enabled the case-study scroll progress indicator on Bedtime Is A Lie
-- Preserved the existing Bedtime page classes and all V5.2 functionality
-- No other project or visual changes
+Focused branding and discipline polish.
+
+- Replaced the ambiguous logo with a clearly readable TBB monogram
+- Fixed the duplicated The Boy Bias / Boy Bias header text
+- Kept a single THE BOY BIAS wordmark beside the TBB mark
+- Redesigned the four Discipline cards with category micro-labels, graphic line/circle motifs, stronger hover feedback and circular action arrows
+- Bedtime Is A Lie content and layout from V5.5 remain unchanged
