@@ -1,3 +1,7 @@
-# The Boy Bias Portfolio V5
+# The Boy Bias Portfolio V5.3
 
-Added persistent quick contact, contact panel, case study scroll progress, previous and next project navigation, recruiter quick facts, About tools and expertise matrix, animated skill indicators, skill project links, and a Strange Day early/final comparison slider.
+Targeted Bedtime fix:
+- Restored Previous / Next project navigation on Bedtime Is A Lie
+- Re-enabled the case-study scroll progress indicator on Bedtime Is A Lie
+- Preserved the existing Bedtime page classes and all V5.2 functionality
+- No other project or visual changes
