@@ -1183,3 +1183,143 @@ img, video{
  .pixel-strip{grid-template-columns:1fr 1fr}
  .game-cta{align-items:flex-start;flex-direction:column}
 }
+
+
+/* V4.2 contact icons and Work grid refinement */
+.contact-links{
+  width:min(100%,980px);
+  margin:42px auto 0;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+}
+.contact-item{
+  min-width:0;
+  min-height:78px;
+  padding:14px 16px;
+  display:grid;
+  grid-template-columns:42px minmax(0,1fr) auto;
+  align-items:center;
+  gap:14px;
+  border:1px solid var(--line);
+  background:#0d0d0d;
+  text-align:left;
+  text-decoration:none;
+  transition:border-color .2s ease,background .2s ease,transform .2s ease;
+}
+.contact-item:hover{
+  border-color:#5f5f59;
+  background:#131313;
+  transform:translateY(-2px);
+}
+.contact-icon{
+  width:36px;
+  height:36px;
+  display:grid;
+  place-items:center;
+}
+.contact-icon svg{
+  width:30px;
+  height:30px;
+  display:block;
+}
+.contact-copy{
+  min-width:0;
+}
+.contact-copy small{
+  display:block;
+  color:#8f8f89;
+  font:700 9px monospace;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-bottom:4px;
+}
+.contact-copy b{
+  display:block;
+  color:#efefeb;
+  font-size:13px;
+  overflow-wrap:anywhere;
+}
+.contact-item em{
+  font-style:normal;
+  color:#aaa;
+  font-size:17px;
+}
+
+/* Make Work behave like a visible browse grid rather than one oversized hero */
+#work .grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
+}
+#work .card,
+#work .card:first-child,
+#work .card:nth-child(2),
+#work .card.wide{
+  grid-column:span 1;
+  min-height:0;
+}
+#work .card figure,
+#work .card.wide figure,
+#work .card:first-child figure{
+  height:auto;
+  min-height:0;
+  aspect-ratio:16/10;
+}
+#work .card figure img,
+#work .card figure video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+#work .card>div{
+  min-height:76px;
+  padding:16px;
+}
+#work .card b{
+  font-size:18px;
+}
+#work .card small{
+  line-height:1.5;
+}
+
+/* Teddy remains fully visible and centered */
+#work .teddy-card figure{
+  background:#080808;
+}
+#work .teddy-card video{
+  object-fit:contain;
+  object-position:center center;
+}
+
+/* Slightly refine preview crops without replacing the chosen images */
+#work .bedtime-card img{
+  object-position:center 58%;
+}
+#work .strange-card img{
+  object-position:center center;
+}
+#work .dungeon-card img{
+  object-position:center center;
+}
+#work .lost-card img{
+  object-position:center center;
+}
+
+@media(max-width:1150px){
+  #work .grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+@media(max-width:720px){
+  .contact-links{
+    grid-template-columns:1fr;
+  }
+  #work .grid{
+    grid-template-columns:1fr;
+  }
+  #work .card figure,
+  #work .card.wide figure{
+    aspect-ratio:16/10;
+  }
+}

@@ -1,14 +1,13 @@
-# The Boy Bias Portfolio V4
+# The Boy Bias Portfolio V4.2
 
-V4 expands the portfolio into a complete Games section.
+Based on the accepted V4 version.
 
-New:
-- Games overview page
-- Strange Day case study
-- Dungeon Diver case study
-- Lost Little Boy case study
-- Existing Bedtime Is A Lie graduation case study retained
-- New game cards and filtering on the homepage
-- Cross discipline structure designed for future 3D, UI/UX and 2D sections
-- Curated and web optimized source artwork from the supplied project archives
-- Existing image Lightbox and video interaction system retained
+Changes:
+- Added Gmail, Instagram, itch.io and LinkedIn icons to the contact section on every page
+- Added real contact information on every page
+- Kept the original V4 game preview images
+- Rebuilt the Work section as a compact three column browse grid on desktop
+- Bedtime Is A Lie remains marked as the graduation project but no longer dominates the entire visible Work section
+- Filtering between Games, 3D, UI/UX, 2D and Game Art is now immediately visible
+- Teddy preview uses contain scaling so the turnaround stays centered and fully visible
+- No project hero images were replaced
