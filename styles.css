@@ -2435,3 +2435,135 @@ main > .section.dark > .v691-separator{
     opacity:.35!important;
   }
 }
+
+/* V6.9.3 section-specific texture pass */
+
+/* Disable the generic V6.9.2 section texture rules completely.
+   Texture is now opt-in through exactly one explicit class per section. */
+main > .section::before,
+main > .section::after{
+  content:none!important;
+}
+
+/* Full-width divider from V6.9.1 remains independent of texture. */
+.v691-separator{
+  position:absolute!important;
+  top:0!important;
+  left:50%!important;
+  width:100vw!important;
+  min-width:100vw!important;
+  max-width:none!important;
+  height:1px!important;
+  transform:translateX(-50%)!important;
+  background:rgba(255,255,255,.16)!important;
+  pointer-events:none!important;
+  z-index:50!important;
+  display:block!important;
+}
+main > .section.dark > .v691-separator{
+  background:rgba(255,255,255,.18)!important;
+}
+
+/* Shared texture layer: one pseudo-element only */
+main > .section[class*="tex-"]::before{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:1!important;
+  pointer-events:none!important;
+  width:auto!important;
+  height:auto!important;
+  transform:none!important;
+  opacity:.34!important;
+  background-size:auto!important;
+  -webkit-mask-image:linear-gradient(110deg,transparent 0%,rgba(0,0,0,.34) 12%,#000 36%,#000 60%,rgba(0,0,0,.48) 78%,transparent 96%)!important;
+  mask-image:linear-gradient(110deg,transparent 0%,rgba(0,0,0,.34) 12%,#000 36%,#000 60%,rgba(0,0,0,.48) 78%,transparent 96%)!important;
+}
+main > .section.dark[class*="tex-"]::before{
+  opacity:.29!important;
+}
+main > .section[class*="tex-"] > *{
+  position:relative;
+  z-index:2;
+}
+
+/* Individual textures, one per section */
+.tex-horizontal::before{
+  background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.09) 0 1px,transparent 1px clamp(48px,3vw,68px))!important;
+}
+.tex-vertical::before{
+  background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.09) 0 1px,transparent 1px clamp(52px,3.2vw,72px))!important;
+}
+.tex-diagonal::before{
+  background-image:repeating-linear-gradient(30deg,rgba(255,255,255,.085) 0 1px,transparent 1px clamp(50px,3.1vw,70px))!important;
+}
+.tex-diagonal-reverse::before{
+  background-image:repeating-linear-gradient(150deg,rgba(255,255,255,.085) 0 1px,transparent 1px clamp(50px,3.1vw,70px))!important;
+}
+.tex-grid-soft::before{
+  background-image:
+    linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px)!important;
+  background-size:clamp(62px,4vw,88px) clamp(62px,4vw,88px)!important;
+}
+.tex-dots::before{
+  background-image:radial-gradient(circle,rgba(255,255,255,.18) 1.2px,transparent 1.55px)!important;
+  background-size:clamp(24px,1.6vw,34px) clamp(24px,1.6vw,34px)!important;
+}
+/* This matches the previously liked homepage contact texture: sparse 150° lines. */
+.tex-contact::before{
+  opacity:.32!important;
+  background-image:repeating-linear-gradient(150deg,rgba(255,255,255,.08) 0 1px,transparent 1px clamp(56px,3.7vw,82px))!important;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.65) 18%,#000 42%,#000 72%,transparent 100%)!important;
+  mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.65) 18%,#000 42%,#000 72%,transparent 100%)!important;
+}
+
+/* Explicitly restore dark hero fades on all three project pages. */
+.lost-hero::after,
+.dungeon-hero::after,
+body.case-study .games-hero::after{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:1!important;
+  pointer-events:none!important;
+  background:
+    linear-gradient(90deg,rgba(5,5,5,.94) 0%,rgba(5,5,5,.68) 42%,rgba(5,5,5,.16) 78%),
+    linear-gradient(0deg,rgba(5,5,5,.92) 0%,rgba(5,5,5,.08) 62%)!important;
+}
+body.case-study .games-hero-copy{
+  position:relative;
+  z-index:2!important;
+}
+
+/* Games landing page uses homepage hero treatment, not project fade. */
+.games-hero-home::after{
+  content:none!important;
+}
+.games-hero-home>img{
+  filter:saturate(.92) contrast(1.05)!important;
+  object-position:center center!important;
+}
+.games-home-shade{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background:
+    linear-gradient(90deg,rgba(5,5,5,.96) 0%,rgba(5,5,5,.80) 35%,rgba(5,5,5,.20) 75%),
+    linear-gradient(0deg,rgba(8,8,8,.88) 0%,rgba(8,8,8,.10) 58%);
+}
+.games-hero-home .games-hero-copy{z-index:2!important}
+
+/* Split Games subsections have independent full-width boundaries. */
+.more-games-head{
+  margin-top:0!important;
+  padding-top:0!important;
+  border-top:0!important;
+}
+
+@media(max-width:760px){
+  main > .section[class*="tex-"]::before{opacity:.21!important}
+  main > .section.dark[class*="tex-"]::before{opacity:.19!important}
+  .tex-dots::before{opacity:.25!important}
+  .tex-contact::before{opacity:.22!important}
+}
