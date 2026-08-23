@@ -1480,1750 +1480,592 @@ section[id]{scroll-margin-top:86px}
 .art-lightbox{position:fixed;z-index:9999;inset:0;background:rgba(0,0,0,.94);display:none;place-items:center;padding:60px 30px}.art-lightbox.open{display:grid}.art-lightbox img{max-width:min(90vw,1500px);max-height:78vh;object-fit:contain}.art-lightbox-close{position:absolute;right:24px;top:20px;width:44px;height:44px;border:1px solid #555;background:#111;color:#fff;font-size:28px;cursor:pointer}.art-lightbox-meta{position:absolute;left:30px;bottom:22px}.art-lightbox-meta small{display:block;color:#8d8d87;font:700 8px monospace;letter-spacing:.1em}.art-lightbox-meta b{display:block;font-size:16px;margin-top:4px}
 @media(max-width:700px){.art-grid{columns:1}.two-d-hero{padding-top:120px!important}}
 
-/* V6.3 subtle surface texture + polish */
-body{position:relative}
-body:before{
-  content:"";position:fixed;z-index:-1;inset:0;pointer-events:none;
-  background:
-    radial-gradient(ellipse at 12% 12%,rgba(255,255,255,.025),transparent 36%),
-    radial-gradient(ellipse at 82% 38%,rgba(255,255,255,.018),transparent 32%),
-    radial-gradient(ellipse at 40% 88%,rgba(255,255,255,.014),transparent 35%);
-}
-.section:not(.dark){background-image:
-  linear-gradient(115deg,rgba(255,255,255,.012),transparent 32%),
-  radial-gradient(circle at 88% 18%,rgba(255,255,255,.018),transparent 24%);
-}
-.section.dark{background-image:
-  radial-gradient(ellipse at 15% 55%,rgba(255,255,255,.018),transparent 30%),
-  linear-gradient(160deg,transparent 40%,rgba(255,255,255,.01) 72%,transparent);
-}
-.hub-map{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important;margin-top:26px!important}
-.hub-map>div{min-width:0!important;min-height:94px!important;padding:16px 17px!important;border:1px solid var(--line)!important;display:grid!important;grid-template-columns:auto 1fr!important;grid-template-rows:auto auto!important;column-gap:12px!important;align-content:center!important;background:rgba(255,255,255,.018)!important}
-.hub-map small{grid-row:1/3;align-self:center;font:700 8px monospace;color:#66665f}
-.hub-map b{display:block!important;font-size:14px!important;line-height:1.15!important;margin:0!important;white-space:normal!important}
-.hub-map span{display:block!important;font:700 9px monospace!important;color:#8f8f88!important;margin-top:5px!important}
-.dungeon-hero>img{object-position:center 52%!important}
-@media(max-width:560px){.hub-map{grid-template-columns:1fr!important}}
-
-/* V6.4 visible but restrained portfolio surface treatment */
-body{
-  background:
-    radial-gradient(ellipse at 14% 8%,rgba(255,255,255,.045),transparent 31%),
-    radial-gradient(ellipse at 86% 32%,rgba(255,255,255,.028),transparent 28%),
-    #090908!important;
-}
-main{position:relative;isolation:isolate}
-main:before{
-  content:"";position:absolute;z-index:-1;inset:0;pointer-events:none;opacity:.32;
-  background-image:
-    repeating-linear-gradient(112deg,rgba(255,255,255,.018) 0,rgba(255,255,255,.018) 1px,transparent 1px,transparent 42px),
-    repeating-linear-gradient(22deg,rgba(255,255,255,.008) 0,rgba(255,255,255,.008) 1px,transparent 1px,transparent 70px);
-  mask-image:linear-gradient(to bottom,transparent 0,#000 8%,#000 92%,transparent 100%);
-}
-.section:not(.dark){
-  background-color:rgba(12,12,11,.82)!important;
-  background-image:
-    radial-gradient(ellipse at 8% 40%,rgba(255,255,255,.035),transparent 30%),
-    linear-gradient(125deg,rgba(255,255,255,.018),transparent 35%,rgba(255,255,255,.009) 72%,transparent)!important;
-}
-.section.dark{
-  background-color:rgba(8,8,8,.88)!important;
-  background-image:
-    radial-gradient(ellipse at 88% 18%,rgba(255,255,255,.03),transparent 27%),
-    radial-gradient(ellipse at 15% 82%,rgba(255,255,255,.018),transparent 31%)!important;
-}
-.dungeon-hero{overflow:hidden}
-.dungeon-hero>img{
-  width:100%!important;height:100%!important;object-fit:cover!important;
-  object-position:center 68%!important;
-  transform:scale(1.10);
-  transform-origin:center 68%;
-}
-.lost-hero>img{image-rendering:pixelated;object-fit:cover!important;object-position:center center!important}
-.pixel-strip .pixel-wide{min-width:170px}
-.pixel-strip .pixel-wide img{image-rendering:pixelated;object-fit:contain!important}
-
-/* V6.5 geometric background refinement */
-body{
-  background:#090908!important;
-}
-body:before{
-  content:"";
-  position:fixed;
-  inset:0;
-  z-index:-2;
-  pointer-events:none;
-  background:none!important;
-}
-
-/* Remove V6.4 gradient washes */
-main:before{
-  opacity:.24!important;
-  background:
-    linear-gradient(30deg,transparent 0 47%,rgba(255,255,255,.022) 47.5% 48.2%,transparent 48.8% 100%),
-    linear-gradient(150deg,transparent 0 52%,rgba(255,255,255,.015) 52.4% 53.1%,transparent 53.6% 100%)!important;
-  background-size:320px 320px,420px 420px!important;
-  mask-image:linear-gradient(to bottom,transparent 0,#000 8%,#000 92%,transparent 100%)!important;
-}
-
-/* Soft geometric shapes that fade instead of full-section gradients */
-.section{
-  position:relative;
-  overflow:hidden;
-}
-.section:before,
-.section:after{
-  content:"";
-  position:absolute;
-  pointer-events:none;
-  z-index:0;
-  opacity:.16;
-}
-.section:before{
-  width:260px;
-  height:260px;
-  right:-110px;
-  top:8%;
-  border:1px solid rgba(255,255,255,.10);
-  transform:rotate(28deg);
-  mask-image:linear-gradient(135deg,#000 0%,rgba(0,0,0,.85) 45%,transparent 82%);
-}
-.section:after{
-  width:180px;
-  height:180px;
-  left:-80px;
-  bottom:8%;
-  border-radius:50%;
-  border:1px solid rgba(255,255,255,.07);
-  mask-image:radial-gradient(circle,#000 0 45%,transparent 78%);
-}
-.section>*{
-  position:relative;
-  z-index:1;
-}
-.section:not(.dark),
-.section.dark{
-  background-color:transparent!important;
-  background-image:none!important;
-}
-
-/* Hero crop assets are already prepared, keep CSS simple */
-.dungeon-hero>img{
-  transform:none!important;
-  object-position:center center!important;
-}
-.lost-hero>img{
-  object-position:center center!important;
-}
-
-/* V6.6 restore section separation + stronger geometric texture */
-
-/* Restore distinct flat black / charcoal section blocks */
-.section{
-  background-color:#10100f!important;
-  background-image:none!important;
-}
-.section.dark{
-  background-color:#080808!important;
-  background-image:none!important;
-}
-
-/* Keep the global page base neutral */
-body{
-  background:#090908!important;
-}
-
-/* Section texture framework */
-.section{
-  position:relative;
-  overflow:hidden;
-  isolation:isolate;
-}
-.section>*{
-  position:relative;
-  z-index:2;
-}
-
-/* Remove previous generic shape treatment */
-.section:before,
-.section:after{
-  content:"";
-  position:absolute;
-  pointer-events:none;
-  z-index:1;
-}
-
-/* Primary texture: faded angled geometry */
-.section:before{
-  width:440px;
-  height:440px;
-  right:-130px;
-  top:-90px;
-  opacity:.34;
-  background:
-    linear-gradient(45deg,
-      transparent 0 28%,
-      rgba(255,255,255,.10) 28.4% 28.9%,
-      transparent 29.3% 42%,
-      rgba(255,255,255,.055) 42.4% 43%,
-      transparent 43.4% 100%);
-  transform:rotate(9deg);
-  -webkit-mask-image:radial-gradient(circle at 42% 42%,#000 0 34%,rgba(0,0,0,.75) 53%,transparent 78%);
-  mask-image:radial-gradient(circle at 42% 42%,#000 0 34%,rgba(0,0,0,.75) 53%,transparent 78%);
-}
-
-/* Secondary texture: soft rings / arcs */
-.section:after{
-  width:360px;
-  height:360px;
-  left:-145px;
-  bottom:-120px;
-  opacity:.28;
-  border-radius:50%;
-  background:
-    radial-gradient(circle,
-      transparent 0 27%,
-      rgba(255,255,255,.09) 27.5% 28%,
-      transparent 28.5% 41%,
-      rgba(255,255,255,.05) 41.5% 42%,
-      transparent 42.5% 58%,
-      rgba(255,255,255,.035) 58.5% 59%,
-      transparent 59.5%);
-  -webkit-mask-image:linear-gradient(35deg,#000 0 40%,rgba(0,0,0,.7) 58%,transparent 82%);
-  mask-image:linear-gradient(35deg,#000 0 40%,rgba(0,0,0,.7) 58%,transparent 82%);
-}
-
-/* Dark sections get a different geometric language so each area feels distinct */
-.section.dark:before{
-  width:520px;
-  height:300px;
-  right:-150px;
-  top:14%;
-  opacity:.30;
-  background:
-    repeating-linear-gradient(
-      135deg,
-      transparent 0 38px,
-      rgba(255,255,255,.075) 39px 40px,
-      transparent 41px 78px
-    );
-  transform:rotate(-5deg);
-  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 28%,#000 63%,transparent 100%);
-  mask-image:linear-gradient(90deg,transparent 0,#000 28%,#000 63%,transparent 100%);
-}
-
-.section.dark:after{
-  width:300px;
-  height:300px;
-  left:5%;
-  bottom:-150px;
-  opacity:.24;
-  border-radius:0;
-  background:
-    linear-gradient(30deg,
-      transparent 0 25%,
-      rgba(255,255,255,.08) 25.4% 26%,
-      transparent 26.5% 48%,
-      rgba(255,255,255,.045) 48.4% 49%,
-      transparent 49.5%);
-  transform:rotate(18deg);
-  -webkit-mask-image:radial-gradient(circle at center,#000 0 40%,transparent 76%);
-  mask-image:radial-gradient(circle at center,#000 0 40%,transparent 76%);
-}
-
-/* Special project sections get small variations without changing flat colors */
-.games-hero + .section:before,
-.two-d-hero:before{
-  opacity:.38;
-  transform:rotate(14deg) scale(1.08);
-}
-.two-d-gallery:after{
-  opacity:.34;
-}
-
-/* Keep heroes themselves clean */
-.games-hero,
-.hero,
-.v3-hero{
-  isolation:isolate;
-}
-.games-hero:before,
-.games-hero:after,
-.hero:before,
-.hero:after,
-.v3-hero:before,
-.v3-hero:after{
-  pointer-events:none;
-}
-
-@media(max-width:760px){
-  .section:before{opacity:.22;right:-220px}
-  .section:after{opacity:.18;left:-200px}
-  .section.dark:before{opacity:.20}
-  .section.dark:after{opacity:.16}
-}
-
-/* V6.7 restore original section system + professional micro textures */
-
-/* Exact section separation from the earlier clean versions */
-body{
-  background:var(--bg)!important;
-}
-.section{
-  background:transparent!important;
-  background-image:none!important;
-}
-.dark,
-.section.dark{
-  background:var(--panel)!important;
-  background-image:none!important;
-  width:100%;
-  max-width:none;
-  padding-left:max(28px,8vw);
-  padding-right:max(28px,8vw);
-}
-
-/* Remove all previous large geometric decoration */
-.section:before,
-.section:after,
-.section.dark:before,
-.section.dark:after{
-  content:none!important;
-}
-main:before{
-  content:none!important;
-}
-
-/*
-  Texture language:
-  - micro grid
-  - dot field
-  - fine technical hatch
-  - subtle noise
-  No color wash and no gradient applied to the flat section color.
-  Masks only fade the texture itself.
-*/
-.section{
-  position:relative;
-  isolation:isolate;
-  overflow:hidden;
-}
-.section>*{
-  position:relative;
-  z-index:2;
-}
-
-/* Texture layer */
-.section::before{
-  content:""!important;
-  position:absolute;
-  pointer-events:none;
-  z-index:1;
-  width:min(720px,65vw);
-  height:460px;
-  right:-90px;
-  top:28px;
-  opacity:.52;
-  background-image:
-    linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px);
-  background-size:32px 32px;
-  -webkit-mask-image:radial-gradient(ellipse at 60% 35%,#000 0 22%,rgba(0,0,0,.82) 42%,rgba(0,0,0,.35) 62%,transparent 79%);
-  mask-image:radial-gradient(ellipse at 60% 35%,#000 0 22%,rgba(0,0,0,.82) 42%,rgba(0,0,0,.35) 62%,transparent 79%);
-}
-
-/* Secondary local detail, not a full-section overlay */
-.section::after{
-  content:""!important;
-  position:absolute;
-  pointer-events:none;
-  z-index:1;
-  width:360px;
-  height:260px;
-  left:2.5%;
-  bottom:18px;
-  opacity:.46;
-  background-image:radial-gradient(circle,rgba(255,255,255,.12) 1px,transparent 1.35px);
-  background-size:15px 15px;
-  -webkit-mask-image:linear-gradient(115deg,transparent 0,rgba(0,0,0,.55) 20%,#000 44%,rgba(0,0,0,.55) 67%,transparent 88%);
-  mask-image:linear-gradient(115deg,transparent 0,rgba(0,0,0,.55) 20%,#000 44%,rgba(0,0,0,.55) 67%,transparent 88%);
-}
-
-/* Dark panels use a different, quieter technical texture */
-.section.dark::before{
-  width:min(760px,70vw);
-  height:400px;
-  top:auto;
-  bottom:2%;
-  right:-80px;
-  opacity:.46;
-  background-image:
-    repeating-linear-gradient(135deg,
-      rgba(255,255,255,.052) 0,
-      rgba(255,255,255,.052) 1px,
-      transparent 1px,
-      transparent 13px);
-  background-size:auto;
-  -webkit-mask-image:radial-gradient(ellipse at 58% 60%,#000 0 20%,rgba(0,0,0,.75) 44%,rgba(0,0,0,.28) 64%,transparent 80%);
-  mask-image:radial-gradient(ellipse at 58% 60%,#000 0 20%,rgba(0,0,0,.75) 44%,rgba(0,0,0,.28) 64%,transparent 80%);
-}
-
-.section.dark::after{
-  width:420px;
-  height:300px;
-  left:-40px;
-  top:35px;
-  bottom:auto;
-  opacity:.40;
-  background-image:
-    radial-gradient(circle,rgba(255,255,255,.10) 1px,transparent 1.2px);
-  background-size:18px 18px;
-  -webkit-mask-image:radial-gradient(ellipse at 38% 38%,#000 0 25%,rgba(0,0,0,.7) 46%,transparent 75%);
-  mask-image:radial-gradient(ellipse at 38% 38%,#000 0 25%,rgba(0,0,0,.7) 46%,transparent 75%);
-}
-
-/* A tiny grain layer gives the flat surfaces material without changing their color */
-body::after{
-  content:"";
-  position:fixed;
-  inset:0;
-  z-index:9998;
-  pointer-events:none;
-  opacity:.055;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.75'/%3E%3C/svg%3E");
-  mix-blend-mode:soft-light;
-}
-
-/* Keep major media heroes clean */
-.games-hero::before,
-.games-hero::after,
-.v3-hero::before,
-.v3-hero::after{
-  content:none!important;
-}
-
-@media(max-width:760px){
-  .dark,
-  .section.dark{
-    padding-left:18px;
-    padding-right:18px;
-  }
-  .section::before{opacity:.32;right:-280px}
-  .section::after{opacity:.28;left:-180px}
-  .section.dark::before{opacity:.30}
-  .section.dark::after{opacity:.25;left:-180px}
-  body::after{opacity:.04}
-}
-
-/* V6.8 section separators: restore the crisp earlier portfolio rhythm */
-
-/* Every content section gets a restrained white divider at its top edge. */
-main > .section{
-  border-top:1px solid rgba(255,255,255,.13)!important;
-}
-
-/* Avoid an unnecessary divider where a page starts directly with a section. */
-main > .section:first-child{
-  border-top-color:transparent!important;
-}
-
-/* Project heroes transition cleanly into the first content block. */
-.games-hero + .section,
-.v3-hero + .section,
-.hero + .section{
-  border-top:1px solid rgba(255,255,255,.16)!important;
-}
-
-/* Slightly clearer boundary when two differently colored sections meet. */
-main > .section.dark{
-  border-top-color:rgba(255,255,255,.17)!important;
-}
-
-/* Preserve the old flat-color hierarchy. Textures remain overlays only. */
-.section{
-  box-shadow:none!important;
-}
-.section.dark{
-  box-shadow:none!important;
-}
-
-@media(max-width:760px){
-  main > .section,
-  main > .section.dark,
-  .games-hero + .section,
-  .v3-hero + .section,
-  .hero + .section{
-    border-top-color:rgba(255,255,255,.12)!important;
-  }
-}
-
-/* V6.9 responsive texture system */
-
-/*
-  Full-section texture layers replace the old fixed-size decorations.
-  The patterns tile indefinitely and use responsive background sizing,
-  so they remain coherent at mobile, Full HD, 2K and ultrawide widths.
-*/
-.section{
-  position:relative;
-  isolation:isolate;
-  overflow:hidden;
-}
-.section > *{
-  position:relative;
-  z-index:2;
-}
-
-.section::before,
-.section::after{
-  content:""!important;
-  position:absolute!important;
-  inset:0!important;
-  width:auto!important;
-  height:auto!important;
-  left:0!important;
-  right:0!important;
-  top:0!important;
-  bottom:0!important;
-  transform:none!important;
-  pointer-events:none!important;
-  z-index:1!important;
-  border:0!important;
-  border-radius:0!important;
-}
-
-/* ---------- CHARCOAL / REGULAR SECTIONS ---------- */
-
-/* Variant A: subtle blueprint grid */
-.section:not(.dark)::before{
-  opacity:.34!important;
-  background-image:
-    linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px)!important;
-  background-size:
-    clamp(28px,2.2vw,44px) clamp(28px,2.2vw,44px)!important;
-  -webkit-mask-image:
-    linear-gradient(90deg,transparent 0%,#000 14%,#000 86%,transparent 100%)!important;
-  mask-image:
-    linear-gradient(90deg,transparent 0%,#000 14%,#000 86%,transparent 100%)!important;
-}
-
-/* Secondary faint offset dots */
-.section:not(.dark)::after{
-  opacity:.22!important;
-  background-image:
-    radial-gradient(circle,rgba(255,255,255,.12) 1px,transparent 1.25px)!important;
-  background-size:
-    clamp(18px,1.45vw,28px) clamp(18px,1.45vw,28px)!important;
-  background-position:
-    clamp(7px,1vw,18px) clamp(10px,1.2vw,22px)!important;
-  -webkit-mask-image:
-    linear-gradient(135deg,transparent 0%,rgba(0,0,0,.65) 22%,#000 48%,rgba(0,0,0,.55) 74%,transparent 100%)!important;
-  mask-image:
-    linear-gradient(135deg,transparent 0%,rgba(0,0,0,.65) 22%,#000 48%,rgba(0,0,0,.55) 74%,transparent 100%)!important;
-}
-
-/* Variant B: vertical technical ticks */
-main > .section:not(.dark):nth-of-type(4n+2)::before{
-  opacity:.30!important;
-  background-image:
-    repeating-linear-gradient(
-      90deg,
-      rgba(255,255,255,.05) 0 1px,
-      transparent 1px clamp(44px,3vw,68px)
-    )!important;
-  background-size:auto!important;
-  -webkit-mask-image:
-    linear-gradient(180deg,transparent 0%,#000 18%,#000 82%,transparent 100%)!important;
-  mask-image:
-    linear-gradient(180deg,transparent 0%,#000 18%,#000 82%,transparent 100%)!important;
-}
-main > .section:not(.dark):nth-of-type(4n+2)::after{
-  opacity:.18!important;
-  background-image:
-    repeating-linear-gradient(
-      0deg,
-      transparent 0 clamp(74px,5vw,110px),
-      rgba(255,255,255,.055) clamp(74px,5vw,110px) calc(clamp(74px,5vw,110px) + 1px)
-    )!important;
-  background-size:auto!important;
-}
-
-/* Variant C: fine diagonal weave */
-main > .section:not(.dark):nth-of-type(4n+3)::before{
-  opacity:.28!important;
-  background-image:
-    repeating-linear-gradient(
-      135deg,
-      rgba(255,255,255,.045) 0 1px,
-      transparent 1px clamp(20px,1.6vw,30px)
-    )!important;
-  background-size:auto!important;
-  -webkit-mask-image:
-    radial-gradient(ellipse at 68% 40%,#000 0%,rgba(0,0,0,.8) 42%,transparent 78%)!important;
-  mask-image:
-    radial-gradient(ellipse at 68% 40%,#000 0%,rgba(0,0,0,.8) 42%,transparent 78%)!important;
-}
-main > .section:not(.dark):nth-of-type(4n+3)::after{
-  opacity:.16!important;
-  background-image:
-    linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px)!important;
-  background-size:clamp(90px,7vw,150px) 100%!important;
-}
-
-/* Variant D: sparse micro dots */
-main > .section:not(.dark):nth-of-type(4n)::before{
-  opacity:.27!important;
-  background-image:
-    radial-gradient(circle,rgba(255,255,255,.14) 1px,transparent 1.2px)!important;
-  background-size:
-    clamp(22px,1.8vw,34px) clamp(22px,1.8vw,34px)!important;
-  -webkit-mask-image:
-    linear-gradient(90deg,transparent 0%,#000 24%,#000 76%,transparent 100%)!important;
-  mask-image:
-    linear-gradient(90deg,transparent 0%,#000 24%,#000 76%,transparent 100%)!important;
-}
-main > .section:not(.dark):nth-of-type(4n)::after{
-  opacity:.12!important;
-  background-image:
-    repeating-linear-gradient(
-      45deg,
-      transparent 0 clamp(58px,4vw,90px),
-      rgba(255,255,255,.055) clamp(58px,4vw,90px) calc(clamp(58px,4vw,90px) + 1px)
-    )!important;
-  background-size:auto!important;
-}
-
-/* ---------- BLACK / DARK SECTIONS ---------- */
-
-/* Variant A: fine diagonal hatch */
-.section.dark::before{
-  opacity:.30!important;
-  background-image:
-    repeating-linear-gradient(
-      135deg,
-      rgba(255,255,255,.055) 0 1px,
-      transparent 1px clamp(16px,1.3vw,24px)
-    )!important;
-  background-size:auto!important;
-  -webkit-mask-image:
-    linear-gradient(90deg,transparent 0%,#000 18%,#000 82%,transparent 100%)!important;
-  mask-image:
-    linear-gradient(90deg,transparent 0%,#000 18%,#000 82%,transparent 100%)!important;
-}
-.section.dark::after{
-  opacity:.22!important;
-  background-image:
-    radial-gradient(circle,rgba(255,255,255,.11) 1px,transparent 1.2px)!important;
-  background-size:
-    clamp(20px,1.65vw,30px) clamp(20px,1.65vw,30px)!important;
-  -webkit-mask-image:
-    radial-gradient(ellipse at 30% 50%,#000 0%,rgba(0,0,0,.65) 44%,transparent 74%)!important;
-  mask-image:
-    radial-gradient(ellipse at 30% 50%,#000 0%,rgba(0,0,0,.65) 44%,transparent 74%)!important;
-}
-
-/* Variant B: technical crosshair grid */
-main > .section.dark:nth-of-type(4n+2)::before{
-  opacity:.27!important;
-  background-image:
-    linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px)!important;
-  background-size:
-    clamp(46px,3.6vw,72px) clamp(46px,3.6vw,72px)!important;
-  -webkit-mask-image:
-    radial-gradient(ellipse at 72% 52%,#000 0%,rgba(0,0,0,.72) 45%,transparent 78%)!important;
-  mask-image:
-    radial-gradient(ellipse at 72% 52%,#000 0%,rgba(0,0,0,.72) 45%,transparent 78%)!important;
-}
-main > .section.dark:nth-of-type(4n+2)::after{
-  opacity:.15!important;
-  background-image:
-    radial-gradient(circle,rgba(255,255,255,.12) 1px,transparent 1.3px)!important;
-  background-size:
-    clamp(13px,1vw,18px) clamp(13px,1vw,18px)!important;
-}
-
-/* Variant C: horizontal scan lines */
-main > .section.dark:nth-of-type(4n+3)::before{
-  opacity:.25!important;
-  background-image:
-    repeating-linear-gradient(
-      0deg,
-      rgba(255,255,255,.045) 0 1px,
-      transparent 1px clamp(28px,2vw,40px)
-    )!important;
-  background-size:auto!important;
-  -webkit-mask-image:
-    linear-gradient(135deg,transparent 0%,rgba(0,0,0,.72) 24%,#000 48%,rgba(0,0,0,.55) 72%,transparent 100%)!important;
-  mask-image:
-    linear-gradient(135deg,transparent 0%,rgba(0,0,0,.72) 24%,#000 48%,rgba(0,0,0,.55) 72%,transparent 100%)!important;
-}
-main > .section.dark:nth-of-type(4n+3)::after{
-  opacity:.12!important;
-  background-image:
-    linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px)!important;
-  background-size:clamp(120px,8vw,180px) 100%!important;
-}
-
-/* Variant D: sparse technical dots with wide cadence */
-main > .section.dark:nth-of-type(4n)::before{
-  opacity:.24!important;
-  background-image:
-    radial-gradient(circle,rgba(255,255,255,.13) 1px,transparent 1.25px)!important;
-  background-size:
-    clamp(28px,2.2vw,42px) clamp(28px,2.2vw,42px)!important;
-  -webkit-mask-image:
-    radial-gradient(ellipse at 50% 55%,#000 0%,rgba(0,0,0,.7) 46%,transparent 78%)!important;
-  mask-image:
-    radial-gradient(ellipse at 50% 55%,#000 0%,rgba(0,0,0,.7) 46%,transparent 78%)!important;
-}
-main > .section.dark:nth-of-type(4n)::after{
-  opacity:.10!important;
-  background-image:
-    repeating-linear-gradient(
-      90deg,
-      transparent 0 clamp(86px,6vw,130px),
-      rgba(255,255,255,.07) clamp(86px,6vw,130px) calc(clamp(86px,6vw,130px) + 1px)
-    )!important;
-  background-size:auto!important;
-}
-
-/* Keep the separator line from V6.8. */
-main > .section{
-  border-top:1px solid rgba(255,255,255,.13)!important;
-}
-main > .section.dark{
-  border-top-color:rgba(255,255,255,.17)!important;
-}
-
-/* Texture scale tuning by viewport */
-@media(max-width:760px){
-  .section::before,
-  .section::after{
-    opacity:.18!important;
-  }
-  .section.dark::before,
-  .section.dark::after{
-    opacity:.16!important;
-  }
-}
-@media(min-width:1800px){
-  .section::before,
-  .section::after{
-    opacity:.34;
-  }
-}
-
-
-/* V6.9.1 ONLY CHANGE: viewport-wide section separators */
-main > .section{
-  position:relative;
-}
-
-.v691-separator{
-  position:absolute!important;
-  top:0!important;
-  left:50%!important;
-  width:100vw!important;
-  height:1px!important;
-  transform:translateX(-50%)!important;
-  background:rgba(255,255,255,.15)!important;
-  pointer-events:none!important;
-  z-index:50!important;
-  display:block!important;
-}
-
-main > .section.dark > .v691-separator{
-  background:rgba(255,255,255,.18)!important;
-}
-
-/* V6.9.2 professional single-texture section system */
-
-/* Keep original V6.9 flat colors and the 100vw separator system from V6.9.1. */
-main > .section{
-  position:relative;
-  isolation:isolate;
-  overflow:hidden;
-}
-
-/* Exactly ONE texture layer per section. */
-main > .section::after{
-  content:none!important;
-}
-
-main > .section::before{
-  content:""!important;
-  position:absolute!important;
-  inset:0!important;
-  z-index:1!important;
-  pointer-events:none!important;
-  width:auto!important;
-  height:auto!important;
-  left:0!important;
-  right:0!important;
-  top:0!important;
-  bottom:0!important;
-  transform:none!important;
-  border:0!important;
-  border-radius:0!important;
-
-  /* Default line texture */
-  opacity:.34!important;
-  background-image:
-    repeating-linear-gradient(
-      0deg,
-      rgba(255,255,255,.075) 0 1px,
-      transparent 1px clamp(44px,3vw,64px)
-    )!important;
-  background-size:auto!important;
-  background-position:center!important;
-
-  /* Fade only the texture, never the flat section color */
-  -webkit-mask-image:
-    linear-gradient(
-      110deg,
-      transparent 0%,
-      rgba(0,0,0,.36) 12%,
-      rgba(0,0,0,.78) 28%,
-      #000 48%,
-      rgba(0,0,0,.78) 68%,
-      rgba(0,0,0,.30) 84%,
-      transparent 100%
-    )!important;
-  mask-image:
-    linear-gradient(
-      110deg,
-      transparent 0%,
-      rgba(0,0,0,.36) 12%,
-      rgba(0,0,0,.78) 28%,
-      #000 48%,
-      rgba(0,0,0,.78) 68%,
-      rgba(0,0,0,.30) 84%,
-      transparent 100%
-    )!important;
-}
-
-/* Keep content safely above texture */
-main > .section > *{
-  position:relative;
-  z-index:2;
-}
-
-/* Dark sections: slightly lower contrast to preserve readability */
-main > .section.dark::before{
-  opacity:.28!important;
-}
-
-/* Each section receives its own single-direction texture.
-   No stacked grid + dots, no second pseudo layer. */
-main > .section:nth-of-type(6n+1)::before{
-  background-image:
-    repeating-linear-gradient(
-      0deg,
-      rgba(255,255,255,.078) 0 1px,
-      transparent 1px clamp(46px,3vw,66px)
-    )!important;
-}
-
-main > .section:nth-of-type(6n+2)::before{
-  background-image:
-    repeating-linear-gradient(
-      30deg,
-      rgba(255,255,255,.072) 0 1px,
-      transparent 1px clamp(48px,3.2vw,70px)
-    )!important;
-}
-
-main > .section:nth-of-type(6n+3)::before{
-  background-image:
-    repeating-linear-gradient(
-      60deg,
-      rgba(255,255,255,.070) 0 1px,
-      transparent 1px clamp(50px,3.4vw,74px)
-    )!important;
-}
-
-main > .section:nth-of-type(6n+4)::before{
-  background-image:
-    repeating-linear-gradient(
-      90deg,
-      rgba(255,255,255,.074) 0 1px,
-      transparent 1px clamp(44px,2.9vw,64px)
-    )!important;
-}
-
-main > .section:nth-of-type(6n+5)::before{
-  background-image:
-    repeating-linear-gradient(
-      120deg,
-      rgba(255,255,255,.068) 0 1px,
-      transparent 1px clamp(52px,3.5vw,76px)
-    )!important;
-}
-
-main > .section:nth-of-type(6n)::before{
-  background-image:
-    repeating-linear-gradient(
-      150deg,
-      rgba(255,255,255,.070) 0 1px,
-      transparent 1px clamp(48px,3.1vw,70px)
-    )!important;
-}
-
-/* Charcoal sections get slightly stronger texture so the pattern is actually visible. */
-main > .section:not(.dark)::before{
-  opacity:.36!important;
-}
-
-/* White separators stay perfectly full viewport width. */
-.v691-separator{
-  position:absolute!important;
-  top:0!important;
-  left:50%!important;
-  width:100vw!important;
-  min-width:100vw!important;
-  max-width:none!important;
-  height:1px!important;
-  transform:translateX(-50%)!important;
-  background:rgba(255,255,255,.16)!important;
-  pointer-events:none!important;
-  z-index:50!important;
-  display:block!important;
-}
-
-main > .section.dark > .v691-separator{
-  background:rgba(255,255,255,.18)!important;
-}
-
-/* Games page: exact homepage Bedtime hero treatment */
-.games-hero-home>img{
-  filter:saturate(.92) contrast(1.05)!important;
-  object-position:center center!important;
-}
-.games-home-shade{
-  position:absolute;
-  inset:0;
-  z-index:1;
-  background:
-    linear-gradient(90deg,rgba(5,5,5,.96) 0%,rgba(5,5,5,.80) 35%,rgba(5,5,5,.20) 75%),
-    linear-gradient(0deg,rgba(8,8,8,.88) 0%,rgba(8,8,8,.10) 58%);
-}
-.games-hero-home:after{
-  content:none!important;
-}
-.games-hero-home .games-hero-copy{
-  position:relative;
-  z-index:2;
-}
-
-/* Responsive tuning */
-@media(max-width:760px){
-  main > .section::before{
-    opacity:.22!important;
-  }
-  main > .section:not(.dark)::before{
-    opacity:.25!important;
-  }
-}
-
-@media(min-width:1600px){
-  main > .section::before{
-    opacity:.32!important;
-  }
-  main > .section:not(.dark)::before{
-    opacity:.35!important;
-  }
-}
-
-/* V6.9.3 section-specific texture pass */
-
-/* Disable the generic V6.9.2 section texture rules completely.
-   Texture is now opt-in through exactly one explicit class per section. */
-main > .section::before,
-main > .section::after{
-  content:none!important;
-}
-
-/* Full-width divider from V6.9.1 remains independent of texture. */
-.v691-separator{
-  position:absolute!important;
-  top:0!important;
-  left:50%!important;
-  width:100vw!important;
-  min-width:100vw!important;
-  max-width:none!important;
-  height:1px!important;
-  transform:translateX(-50%)!important;
-  background:rgba(255,255,255,.16)!important;
-  pointer-events:none!important;
-  z-index:50!important;
-  display:block!important;
-}
-main > .section.dark > .v691-separator{
-  background:rgba(255,255,255,.18)!important;
-}
-
-/* Shared texture layer: one pseudo-element only */
-main > .section[class*="tex-"]::before{
-  content:""!important;
-  position:absolute!important;
-  inset:0!important;
-  z-index:1!important;
-  pointer-events:none!important;
-  width:auto!important;
-  height:auto!important;
-  transform:none!important;
-  opacity:.34!important;
-  background-size:auto!important;
-  -webkit-mask-image:linear-gradient(110deg,transparent 0%,rgba(0,0,0,.34) 12%,#000 36%,#000 60%,rgba(0,0,0,.48) 78%,transparent 96%)!important;
-  mask-image:linear-gradient(110deg,transparent 0%,rgba(0,0,0,.34) 12%,#000 36%,#000 60%,rgba(0,0,0,.48) 78%,transparent 96%)!important;
-}
-main > .section.dark[class*="tex-"]::before{
-  opacity:.29!important;
-}
-main > .section[class*="tex-"] > *{
-  position:relative;
-  z-index:2;
-}
 
-/* Individual textures, one per section */
-.tex-horizontal::before{
-  background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.09) 0 1px,transparent 1px clamp(48px,3vw,68px))!important;
-}
-.tex-vertical::before{
-  background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.09) 0 1px,transparent 1px clamp(52px,3.2vw,72px))!important;
-}
-.tex-diagonal::before{
-  background-image:repeating-linear-gradient(30deg,rgba(255,255,255,.085) 0 1px,transparent 1px clamp(50px,3.1vw,70px))!important;
-}
-.tex-diagonal-reverse::before{
-  background-image:repeating-linear-gradient(150deg,rgba(255,255,255,.085) 0 1px,transparent 1px clamp(50px,3.1vw,70px))!important;
-}
-.tex-grid-soft::before{
-  background-image:
-    linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px)!important;
-  background-size:clamp(62px,4vw,88px) clamp(62px,4vw,88px)!important;
-}
-.tex-dots::before{
-  background-image:radial-gradient(circle,rgba(255,255,255,.18) 1.2px,transparent 1.55px)!important;
-  background-size:clamp(24px,1.6vw,34px) clamp(24px,1.6vw,34px)!important;
-}
-/* This matches the previously liked homepage contact texture: sparse 150° lines. */
-.tex-contact::before{
-  opacity:.32!important;
-  background-image:repeating-linear-gradient(150deg,rgba(255,255,255,.08) 0 1px,transparent 1px clamp(56px,3.7vw,82px))!important;
-  -webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.65) 18%,#000 42%,#000 72%,transparent 100%)!important;
-  mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.65) 18%,#000 42%,#000 72%,transparent 100%)!important;
-}
-
-/* Explicitly restore dark hero fades on all three project pages. */
-.lost-hero::after,
-.dungeon-hero::after,
-body.case-study .games-hero::after{
-  content:""!important;
-  position:absolute!important;
-  inset:0!important;
-  z-index:1!important;
-  pointer-events:none!important;
-  background:
-    linear-gradient(90deg,rgba(5,5,5,.94) 0%,rgba(5,5,5,.68) 42%,rgba(5,5,5,.16) 78%),
-    linear-gradient(0deg,rgba(5,5,5,.92) 0%,rgba(5,5,5,.08) 62%)!important;
-}
-body.case-study .games-hero-copy{
-  position:relative;
-  z-index:2!important;
-}
-
-/* Games landing page uses homepage hero treatment, not project fade. */
-.games-hero-home::after{
-  content:none!important;
-}
-.games-hero-home>img{
-  filter:saturate(.92) contrast(1.05)!important;
-  object-position:center center!important;
-}
-.games-home-shade{
-  position:absolute;
-  inset:0;
-  z-index:1;
-  background:
-    linear-gradient(90deg,rgba(5,5,5,.96) 0%,rgba(5,5,5,.80) 35%,rgba(5,5,5,.20) 75%),
-    linear-gradient(0deg,rgba(8,8,8,.88) 0%,rgba(8,8,8,.10) 58%);
-}
-.games-hero-home .games-hero-copy{z-index:2!important}
-
-/* Split Games subsections have independent full-width boundaries. */
-.more-games-head{
-  margin-top:0!important;
-  padding-top:0!important;
-  border-top:0!important;
-}
-
-@media(max-width:760px){
-  main > .section[class*="tex-"]::before{opacity:.21!important}
-  main > .section.dark[class*="tex-"]::before{opacity:.19!important}
-  .tex-dots::before{opacity:.25!important}
-  .tex-contact::before{opacity:.22!important}
-}
-
-/* V6.9.4 targeted structural polish */
-
-/* Old internal CTA border caused short / partial separator lines.
-   Full-width section separators are now the only category divider. */
-.section .game-cta{
-  border-top:0!important;
-}
-.play-section .game-cta{
-  padding-top:0!important;
-  margin-top:0!important;
-}
-
-/*
-  CHARCOAL / GRAY sections only:
-  use darker linework for better material contrast.
-  Dark/black sections and contact sections remain exactly as before.
-*/
-main > .section:not(.dark):not(.tex-contact)[class*="tex-"]::before{
-  opacity:.58!important;
-}
-
-/* dark horizontal lines on charcoal */
-main > .section:not(.dark):not(.tex-contact).tex-horizontal::before{
-  background-image:
-    repeating-linear-gradient(
-      0deg,
-      rgba(0,0,0,.62) 0 1px,
-      transparent 1px clamp(48px,3vw,68px)
-    )!important;
-}
-
-/* dark vertical lines on charcoal */
-main > .section:not(.dark):not(.tex-contact).tex-vertical::before{
-  background-image:
-    repeating-linear-gradient(
-      90deg,
-      rgba(0,0,0,.62) 0 1px,
-      transparent 1px clamp(52px,3.2vw,72px)
-    )!important;
-}
-
-/* dark forward diagonal lines on charcoal */
-main > .section:not(.dark):not(.tex-contact).tex-diagonal::before{
-  background-image:
-    repeating-linear-gradient(
-      30deg,
-      rgba(0,0,0,.60) 0 1px,
-      transparent 1px clamp(50px,3.1vw,70px)
-    )!important;
-}
-
-/* dark reverse diagonal lines on charcoal */
-main > .section:not(.dark):not(.tex-contact).tex-diagonal-reverse::before{
-  background-image:
-    repeating-linear-gradient(
-      150deg,
-      rgba(0,0,0,.60) 0 1px,
-      transparent 1px clamp(50px,3.1vw,70px)
-    )!important;
-}
-
-/* dark grid on charcoal */
-main > .section:not(.dark):not(.tex-contact).tex-grid-soft::before{
-  background-image:
-    linear-gradient(rgba(0,0,0,.54) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(0,0,0,.54) 1px,transparent 1px)!important;
-  background-size:
-    clamp(62px,4vw,88px) clamp(62px,4vw,88px)!important;
-}
-
-/* dark dots on charcoal */
-main > .section:not(.dark):not(.tex-contact).tex-dots::before{
-  opacity:.50!important;
-  background-image:
-    radial-gradient(circle,rgba(0,0,0,.72) 1.2px,transparent 1.55px)!important;
-  background-size:
-    clamp(24px,1.6vw,34px) clamp(24px,1.6vw,34px)!important;
-}
-
-/* Keep section border rhythm clean and singular */
-.play-section{
-  min-height:0;
-}
-.play-section .game-cta h3{
-  max-width:760px;
-}
-
-@media(max-width:760px){
-  main > .section:not(.dark):not(.tex-contact)[class*="tex-"]::before{
-    opacity:.42!important;
-  }
-}
-
-/* V6.9.5 texture color correction + final UI polish */
-
-/*
-  Correct texture contrast:
-  - charcoal / gray sections: DARK texture lines
-  - black / .dark sections: LIGHT texture lines
-*/
-
-/* GRAY / CHARCOAL SECTIONS */
-main > .section:not(.dark):not(.tex-contact).tex-horizontal::before{
-  opacity:.52!important;
-  background-image:repeating-linear-gradient(
-    0deg,
-    rgba(0,0,0,.58) 0 1px,
-    transparent 1px clamp(48px,3vw,68px)
-  )!important;
-}
-main > .section:not(.dark):not(.tex-contact).tex-vertical::before{
-  opacity:.52!important;
-  background-image:repeating-linear-gradient(
-    90deg,
-    rgba(0,0,0,.58) 0 1px,
-    transparent 1px clamp(52px,3.2vw,72px)
-  )!important;
-}
-main > .section:not(.dark):not(.tex-contact).tex-diagonal::before{
-  opacity:.52!important;
-  background-image:repeating-linear-gradient(
-    30deg,
-    rgba(0,0,0,.56) 0 1px,
-    transparent 1px clamp(50px,3.1vw,70px)
-  )!important;
-}
-main > .section:not(.dark):not(.tex-contact).tex-diagonal-reverse::before{
-  opacity:.52!important;
-  background-image:repeating-linear-gradient(
-    150deg,
-    rgba(0,0,0,.56) 0 1px,
-    transparent 1px clamp(50px,3.1vw,70px)
-  )!important;
-}
-main > .section:not(.dark):not(.tex-contact).tex-grid-soft::before{
-  opacity:.48!important;
-  background-image:
-    linear-gradient(rgba(0,0,0,.50) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(0,0,0,.50) 1px,transparent 1px)!important;
-  background-size:clamp(62px,4vw,88px) clamp(62px,4vw,88px)!important;
-}
-main > .section:not(.dark):not(.tex-contact).tex-dots::before{
-  opacity:.48!important;
-  background-image:radial-gradient(circle,rgba(0,0,0,.68) 1.2px,transparent 1.55px)!important;
-  background-size:clamp(24px,1.6vw,34px) clamp(24px,1.6vw,34px)!important;
-}
-
-/* BLACK / DARK SECTIONS: restore light texture lines */
-main > .section.dark.tex-horizontal::before{
-  opacity:.30!important;
-  background-image:repeating-linear-gradient(
-    0deg,
-    rgba(255,255,255,.09) 0 1px,
-    transparent 1px clamp(48px,3vw,68px)
-  )!important;
-}
-main > .section.dark.tex-vertical::before{
-  opacity:.30!important;
-  background-image:repeating-linear-gradient(
-    90deg,
-    rgba(255,255,255,.09) 0 1px,
-    transparent 1px clamp(52px,3.2vw,72px)
-  )!important;
-}
-main > .section.dark.tex-diagonal::before{
-  opacity:.30!important;
-  background-image:repeating-linear-gradient(
-    30deg,
-    rgba(255,255,255,.085) 0 1px,
-    transparent 1px clamp(50px,3.1vw,70px)
-  )!important;
-}
-main > .section.dark.tex-diagonal-reverse::before{
-  opacity:.30!important;
-  background-image:repeating-linear-gradient(
-    150deg,
-    rgba(255,255,255,.085) 0 1px,
-    transparent 1px clamp(50px,3.1vw,70px)
-  )!important;
-}
-main > .section.dark.tex-grid-soft::before{
-  opacity:.27!important;
-  background-image:
-    linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px)!important;
-  background-size:clamp(62px,4vw,88px) clamp(62px,4vw,88px)!important;
-}
-main > .section.dark.tex-dots::before{
-  opacity:.28!important;
-  background-image:radial-gradient(circle,rgba(255,255,255,.18) 1.2px,transparent 1.55px)!important;
-  background-size:clamp(24px,1.6vw,34px) clamp(24px,1.6vw,34px)!important;
-}
-
-/* Contact texture remains approved and untouched */
-
-/* Header contact: subtle rounded corners, still crisp */
-.header-contact{
-  border-radius:7px!important;
-}
+/* ========================================================================
+   V8.0 CONSOLIDATED PORTFOLIO SYSTEM
+   One stable layer replaces V6.3–V7.1 experimental override stacks.
+   ======================================================================== */
 
-/* Lost Little Boy combined world gallery */
-.lost-worlds-gallery{
-  grid-template-columns:repeat(2,minmax(0,1fr))!important;
-}
-.lost-worlds-gallery .wide{
-  grid-column:1 / -1!important;
+/* ---------- Global stability ---------- */
+html, body {
+  overflow-x: clip;
 }
-.lost-worlds-gallery img{
-  min-height:260px;
-  object-fit:cover;
+img, video {
+  max-width: 100%;
 }
-@media(max-width:700px){
-  .lost-worlds-gallery{
-    grid-template-columns:1fr!important;
-  }
-  .lost-worlds-gallery .wide{
-    grid-column:auto!important;
-  }
+a, button {
+  -webkit-tap-highlight-color: rgba(255,255,255,.08);
 }
-
-/* V7.0 professional review polish */
-
-/* Clear keyboard focus for recruiters navigating quickly */
 a:focus-visible,
 button:focus-visible,
-input:focus-visible{
-  outline:2px solid rgba(255,255,255,.82);
-  outline-offset:3px;
+input:focus-visible {
+  outline: 2px solid rgba(255,255,255,.9);
+  outline-offset: 3px;
+}
+.skip-link {
+  position: fixed;
+  z-index: 12000;
+  left: 16px;
+  top: 12px;
+  transform: translateY(-160%);
+  background: #f2f2ee;
+  color: #0b0b0a;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font: 700 11px monospace;
+  text-decoration: none;
+  transition: transform .18s ease;
+}
+.skip-link:focus {
+  transform: none;
 }
 
-/* Current page indicator remains understated */
-header nav a[aria-current="page"]{
-  color:#f2f2ed;
+/* ---------- Responsive sizing without the V7.1 shrink-on-2K issue ---------- */
+.section {
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+  width: min(100%, var(--max));
+  margin: 0 auto;
+  padding-top: clamp(88px, 7vw, 128px);
+  padding-bottom: clamp(88px, 7vw, 128px);
+  padding-left: clamp(28px, 5vw, 96px);
+  padding-right: clamp(28px, 5vw, 96px);
 }
-header nav a[aria-current="page"]::after{
-  transform:scaleX(1);
+.dark {
+  background: var(--panel);
+  width: 100%;
+  max-width: none;
+  padding-left: clamp(28px, 5vw, 96px);
+  padding-right: clamp(28px, 5vw, 96px);
 }
-
-/* Fast production-summary scan on Games page */
-.games-scanbar{
-  width:100%;
-  display:grid;
-  grid-template-columns:repeat(4,minmax(0,1fr));
-  border-top:1px solid rgba(255,255,255,.16);
-  border-bottom:1px solid rgba(255,255,255,.16);
-  background:#0d0d0c;
-}
-.games-scanbar span{
-  min-width:0;
-  padding:16px clamp(18px,3vw,34px);
-  border-right:1px solid rgba(255,255,255,.12);
-  display:flex;
-  align-items:baseline;
-  gap:9px;
-}
-.games-scanbar span:last-child{border-right:0}
-.games-scanbar b{
-  font-size:15px;
-  letter-spacing:-.025em;
-}
-.games-scanbar small{
-  color:#85857f;
-  font:700 8px monospace;
-  letter-spacing:.08em;
-  line-height:1.3;
+.dark > * {
+  max-width: 1408px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* Make project metadata easier to scan without increasing visual weight */
-.case-meta-unified small{
-  letter-spacing:.10em!important;
+/* ---------- True full-viewport category separators ---------- */
+main > .section::after {
+  content: "";
+  position: absolute;
+  z-index: 20;
+  top: 0;
+  left: 50%;
+  width: 100vw;
+  height: 1px;
+  transform: translateX(-50%);
+  background: rgba(255,255,255,.15);
+  pointer-events: none;
 }
-.case-meta-unified b{
-  font-weight:650;
-}
-
-/* Keep long descriptive copy readable */
-.prose,
-.lead,
-.head>p,
-.game-copy>p,
-.game-feature p{
-  max-width:68ch;
-}
-
-/* Header CTA stays slightly rounded from V6.9.5 */
-.header-contact{
-  border-radius:7px!important;
+main > .section.dark::after {
+  background: rgba(255,255,255,.18);
 }
 
-/* Compact mobile scanbar */
-@media(max-width:760px){
-  .games-scanbar{
-    grid-template-columns:repeat(2,minmax(0,1fr));
-  }
-  .games-scanbar span:nth-child(2){
-    border-right:0;
-  }
-  .games-scanbar span:nth-child(-n+2){
-    border-bottom:1px solid rgba(255,255,255,.12);
-  }
+/* ---------- Exactly one texture per section, all white ---------- */
+main > .section[class*="tex-"]::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  pointer-events: none;
+  opacity: .28;
+  background-position: center center;
+  -webkit-mask-image:
+    linear-gradient(110deg,
+      transparent 0%,
+      rgba(0,0,0,.32) 12%,
+      rgba(0,0,0,.82) 31%,
+      #000 48%,
+      rgba(0,0,0,.78) 68%,
+      rgba(0,0,0,.28) 86%,
+      transparent 100%);
+  mask-image:
+    linear-gradient(110deg,
+      transparent 0%,
+      rgba(0,0,0,.32) 12%,
+      rgba(0,0,0,.82) 31%,
+      #000 48%,
+      rgba(0,0,0,.78) 68%,
+      rgba(0,0,0,.28) 86%,
+      transparent 100%);
+}
+main > .section.dark[class*="tex-"]::before {
+  opacity: .25;
+}
+main > .section[class*="tex-"] > * {
+  position: relative;
+  z-index: 2;
 }
 
-/* V7.1 professional web + portfolio design system */
-
-/* 1) TYPOGRAPHY SCALE
-   Responsive, restrained, and readable across phone -> ultrawide. */
-:root{
-  --content-max:1200px;
-  --text-max:68ch;
-  --section-y:clamp(72px,7vw,112px);
-  --section-x:clamp(20px,4vw,48px);
-  --display-1:clamp(3.4rem,7vw,7rem);
-  --display-2:clamp(2.5rem,5vw,4.8rem);
-  --display-3:clamp(1.7rem,2.8vw,2.8rem);
-  --body-size:clamp(.98rem,.25vw + .91rem,1.08rem);
-  --small-size:clamp(.72rem,.15vw + .68rem,.80rem);
-}
-
-html{
-  scroll-behavior:smooth;
-  text-size-adjust:100%;
-}
-body{
-  font-size:var(--body-size);
-  line-height:1.6;
-}
-p{
-  line-height:1.68;
-}
-.lead{
-  font-size:clamp(1rem,.35vw + .93rem,1.16rem)!important;
-  line-height:1.65!important;
-  max-width:62ch!important;
-}
-.prose,
-.head>p,
-.game-copy>p,
-.game-feature p{
-  max-width:64ch!important;
-  line-height:1.68!important;
-}
-
-h1,h2,h3{
-  text-wrap:balance;
-}
-.hero h1,
-.project-title h1,
-.games-hero h1{
-  text-wrap:balance;
-}
-.section h2,
-.game-copy h2,
-.head h2{
-  font-size:var(--display-2)!important;
-  line-height:.96!important;
-  letter-spacing:-.052em!important;
-}
-.section h3,
-.game-feature h3,
-.game-cta h3{
-  font-size:var(--display-3)!important;
-  line-height:1.02!important;
-  letter-spacing:-.04em!important;
-}
-.kicker{
-  font-size:var(--small-size)!important;
-  line-height:1.35!important;
-  letter-spacing:.14em!important;
-  margin-bottom:clamp(12px,1.3vw,18px)!important;
-}
-
-/* 2) SECTION RHYTHM
-   Consistent vertical rhythm creates a calmer, more premium layout. */
-main > .section{
-  padding-top:var(--section-y)!important;
-  padding-bottom:var(--section-y)!important;
-}
-main > .section > *{
-  width:min(var(--content-max),calc(100vw - (var(--section-x) * 2)));
-  margin-left:auto;
-  margin-right:auto;
-}
-
-/* Sections whose direct children already control full width should remain fluid. */
-main > .section > .section-separator,
-main > .section > .v691-separator{
-  width:100vw!important;
-  max-width:none!important;
-}
-
-/* Avoid accidental doubled vertical spacing from local inline margins. */
-.head{
-  margin-bottom:clamp(30px,4vw,54px)!important;
-  align-items:end;
-}
-.game-copy{
-  gap:clamp(34px,6vw,88px)!important;
-}
-.game-feature{
-  gap:clamp(30px,5vw,72px)!important;
-}
-.game-gallery,
-.process-pair{
-  gap:clamp(10px,1.1vw,16px)!important;
-}
-
-/* 3) CARD / GRID CONSISTENCY */
-.grid,
-.games-index,
-.more-games-grid,
-.jam-grid{
-  gap:clamp(10px,1.2vw,16px)!important;
-}
-.card,
-.games-index a,
-.more-game-card,
-.jam-card,
-.contact-item{
-  border-color:rgba(255,255,255,.14)!important;
-}
-.card:hover,
-.games-index a:hover,
-.more-game-card:hover,
-.jam-card:hover,
-.contact-item:hover{
-  border-color:rgba(255,255,255,.34)!important;
-}
-
-/* 4) NAVIGATION
-   Keep desktop compact; increase tap size without making the header bulky. */
-header{
-  min-height:64px;
-}
-header nav{
-  gap:2px;
-}
-header nav a,
-.header-contact{
-  min-height:44px;
-  display:inline-flex;
-  align-items:center;
-}
-header nav a{
-  padding-left:12px!important;
-  padding-right:12px!important;
-}
-.header-contact{
-  padding-left:16px!important;
-  padding-right:16px!important;
-  border-radius:7px!important;
-}
-
-/* 5) META / FACTS
-   Recruiter-facing data should scan consistently. */
-.case-meta-unified{
-  margin-top:clamp(22px,3vw,34px)!important;
-}
-.case-meta-unified div{
-  padding:clamp(13px,1.5vw,18px)!important;
-}
-.case-meta-unified small,
-.game-facts i{
-  font-size:clamp(.66rem,.10vw + .63rem,.73rem)!important;
-}
-.case-meta-unified b{
-  font-size:clamp(.78rem,.18vw + .74rem,.88rem)!important;
-}
-
-/* 6) IMAGE RHYTHM */
-.game-gallery img,
-.process-pair img{
-  display:block;
-}
-.game-gallery{
-  margin-top:clamp(34px,4vw,52px)!important;
-}
-.ui-state-row,
-.pixel-strip{
-  gap:clamp(10px,1.2vw,16px)!important;
-}
-
-/* 7) PORTFOLIO TEXTURE RULE
-   ALL texture linework is white again.
-   Exactly one texture pseudo-layer remains per explicit tex section. */
-main > .section:not(.dark):not(.tex-contact).tex-horizontal::before,
-main > .section.dark.tex-horizontal::before{
-  opacity:.30!important;
-  background-image:repeating-linear-gradient(
-    0deg,
-    rgba(255,255,255,.09) 0 1px,
-    transparent 1px clamp(48px,3vw,68px)
-  )!important;
-}
-main > .section:not(.dark):not(.tex-contact).tex-vertical::before,
-main > .section.dark.tex-vertical::before{
-  opacity:.30!important;
-  background-image:repeating-linear-gradient(
-    90deg,
-    rgba(255,255,255,.09) 0 1px,
-    transparent 1px clamp(52px,3.2vw,72px)
-  )!important;
-}
-main > .section:not(.dark):not(.tex-contact).tex-diagonal::before,
-main > .section.dark.tex-diagonal::before{
-  opacity:.29!important;
-  background-image:repeating-linear-gradient(
-    30deg,
-    rgba(255,255,255,.085) 0 1px,
-    transparent 1px clamp(50px,3.1vw,70px)
-  )!important;
-}
-main > .section:not(.dark):not(.tex-contact).tex-diagonal-reverse::before,
-main > .section.dark.tex-diagonal-reverse::before{
-  opacity:.29!important;
-  background-image:repeating-linear-gradient(
-    150deg,
-    rgba(255,255,255,.085) 0 1px,
-    transparent 1px clamp(50px,3.1vw,70px)
-  )!important;
-}
-main > .section:not(.dark):not(.tex-contact).tex-grid-soft::before,
-main > .section.dark.tex-grid-soft::before{
-  opacity:.27!important;
+.tex-horizontal::before {
   background-image:
-    linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px)!important;
-  background-size:clamp(62px,4vw,88px) clamp(62px,4vw,88px)!important;
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,.105) 0 1px,
+      transparent 1px clamp(48px,3vw,68px)
+    );
 }
-main > .section:not(.dark):not(.tex-contact).tex-dots::before,
-main > .section.dark.tex-dots::before{
-  opacity:.28!important;
-  background-image:radial-gradient(circle,rgba(255,255,255,.18) 1.2px,transparent 1.55px)!important;
-  background-size:clamp(24px,1.6vw,34px) clamp(24px,1.6vw,34px)!important;
+.tex-vertical::before {
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,.105) 0 1px,
+      transparent 1px clamp(52px,3.2vw,72px)
+    );
+}
+.tex-diagonal::before {
+  background-image:
+    repeating-linear-gradient(
+      30deg,
+      rgba(255,255,255,.10) 0 1px,
+      transparent 1px clamp(50px,3.1vw,70px)
+    );
+}
+.tex-diagonal-reverse::before {
+  background-image:
+    repeating-linear-gradient(
+      150deg,
+      rgba(255,255,255,.10) 0 1px,
+      transparent 1px clamp(50px,3.1vw,70px)
+    );
+}
+.tex-grid-soft::before {
+  background-image:
+    linear-gradient(rgba(255,255,255,.075) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.075) 1px, transparent 1px);
+  background-size:
+    clamp(66px,4.2vw,92px) clamp(66px,4.2vw,92px);
+}
+.tex-dots::before {
+  opacity: .30 !important;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,.20) 1.15px, transparent 1.55px);
+  background-size:
+    clamp(24px,1.6vw,34px) clamp(24px,1.6vw,34px);
+}
+.tex-contact::before {
+  opacity: .30 !important;
+  background-image:
+    repeating-linear-gradient(
+      150deg,
+      rgba(255,255,255,.095) 0 1px,
+      transparent 1px clamp(56px,3.7vw,82px)
+    );
+  -webkit-mask-image:
+    linear-gradient(90deg,
+      transparent 0%,
+      rgba(0,0,0,.58) 17%,
+      #000 42%,
+      #000 72%,
+      transparent 100%);
+  mask-image:
+    linear-gradient(90deg,
+      transparent 0%,
+      rgba(0,0,0,.58) 17%,
+      #000 42%,
+      #000 72%,
+      transparent 100%);
 }
 
-/* Keep contact texture exactly in the approved white-line family. */
-.tex-contact::before{
-  opacity:.32!important;
+/* ---------- Header / primary navigation ---------- */
+header {
+  height: 72px;
+}
+.header-contact {
+  border-radius: 7px !important;
+}
+header nav a[aria-current="page"] {
+  color: #f2f2ed;
+}
+header nav a[aria-current="page"]::after {
+  transform: scaleX(1);
 }
 
-/* 8) RESPONSIVE DESIGN
-   Breakpoints are content-driven: prevent squeezed columns before they look broken. */
-@media(max-width:1100px){
-  .game-copy,
-  .game-feature,
-  .comfort-v54,
-  .jam-intro,
-  .more-games-head{
-    gap:clamp(28px,4vw,48px)!important;
+/* Mobile nav button is intentionally quiet: portfolio art remains the focus. */
+.mobile-menu-toggle {
+  display: none;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid #3d3d39;
+  border-radius: 7px;
+  background: #0f0f0e;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.mobile-menu-toggle span {
+  position: absolute;
+  width: 17px;
+  height: 1px;
+  background: #e9e9e4;
+  transition: transform .2s ease, top .2s ease;
+}
+.mobile-menu-toggle span:first-child { top: 17px; }
+.mobile-menu-toggle span:last-child { top: 25px; }
+header.nav-open .mobile-menu-toggle span:first-child {
+  top: 21px;
+  transform: rotate(45deg);
+}
+header.nav-open .mobile-menu-toggle span:last-child {
+  top: 21px;
+  transform: rotate(-45deg);
+}
+
+/* ---------- Typography / readable measure ---------- */
+p {
+  text-wrap: pretty;
+}
+.lead,
+.prose,
+.head > p,
+.game-feature p,
+.game-copy > p {
+  max-width: 68ch;
+}
+.head {
+  gap: clamp(38px, 5vw, 70px);
+  margin-bottom: clamp(48px, 4vw, 64px);
+}
+.head > p {
+  line-height: 1.72;
+}
+.game-copy {
+  gap: clamp(40px, 6vw, 90px);
+}
+.game-feature {
+  gap: clamp(36px, 5vw, 72px);
+}
+.card > div,
+.more-game-card > div,
+.jam-card > div {
+  align-content: center;
+}
+
+/* ---------- Recruiter scanability ---------- */
+.case-meta-unified {
+  margin-top: clamp(24px, 2.5vw, 32px);
+}
+.case-meta-unified small {
+  letter-spacing: .09em;
+}
+.case-meta-unified b,
+.contact-copy b {
+  overflow-wrap: anywhere;
+}
+.game-facts {
+  row-gap: 8px;
+}
+.games-scanbar {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  border-top: 1px solid rgba(255,255,255,.15);
+  border-bottom: 1px solid rgba(255,255,255,.15);
+  background: #0d0d0c;
+}
+.games-scanbar span {
+  min-width: 0;
+  padding: 16px clamp(18px,3vw,34px);
+  border-right: 1px solid rgba(255,255,255,.11);
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+}
+.games-scanbar span:last-child { border-right: 0; }
+.games-scanbar b {
+  font-size: 15px;
+  letter-spacing: -.025em;
+}
+.games-scanbar small {
+  color: #85857f;
+  font: 700 8px monospace;
+  letter-spacing: .08em;
+  line-height: 1.3;
+}
+
+/* ---------- Project-specific structural fixes retained from the polished build ---------- */
+.hub-map {
+  display: grid !important;
+  grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+  gap: 9px !important;
+  margin-top: 26px !important;
+}
+.hub-map > div {
+  min-width: 0 !important;
+  min-height: 94px !important;
+  padding: 16px 17px !important;
+  border: 1px solid var(--line) !important;
+  display: grid !important;
+  grid-template-columns: auto 1fr !important;
+  grid-template-rows: auto auto !important;
+  column-gap: 12px !important;
+  align-content: center !important;
+  background: rgba(255,255,255,.018) !important;
+}
+.hub-map small {
+  grid-row: 1/3;
+  align-self: center;
+  font: 700 8px monospace;
+  color: #66665f;
+}
+.hub-map b {
+  font-size: 14px !important;
+  line-height: 1.15 !important;
+  margin: 0 !important;
+  white-space: normal !important;
+}
+.hub-map span {
+  font: 700 9px monospace !important;
+  color: #8f8f88 !important;
+  margin-top: 5px !important;
+}
+
+.section .game-cta {
+  border-top: 0 !important;
+}
+.play-section .game-cta {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+.dungeon-hero > img {
+  transform: none !important;
+  object-position: center center !important;
+}
+.lost-hero > img {
+  image-rendering: pixelated;
+  object-position: center center !important;
+}
+.pixel-strip .pixel-wide img {
+  image-rendering: pixelated;
+  object-fit: contain !important;
+}
+
+/* Hero readability restored consistently across case studies. */
+body.case-study .games-hero::after,
+.lost-hero::after,
+.dungeon-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg,
+      rgba(5,5,5,.94) 0%,
+      rgba(5,5,5,.68) 42%,
+      rgba(5,5,5,.16) 78%),
+    linear-gradient(0deg,
+      rgba(5,5,5,.92) 0%,
+      rgba(5,5,5,.08) 62%);
+}
+body.case-study .games-hero-copy {
+  position: relative;
+  z-index: 2;
+}
+
+/* Games landing uses the same visual treatment as the homepage hero. */
+.games-hero-home::after { content: none !important; }
+.games-hero-home > img {
+  filter: saturate(.92) contrast(1.05);
+  object-position: center center;
+}
+.games-home-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(90deg,
+      rgba(5,5,5,.96) 0%,
+      rgba(5,5,5,.80) 35%,
+      rgba(5,5,5,.20) 75%),
+    linear-gradient(0deg,
+      rgba(8,8,8,.88) 0%,
+      rgba(8,8,8,.10) 58%);
+}
+.games-hero-home .games-hero-copy { z-index: 2; }
+
+/* Lost Little Boy combined world gallery */
+.lost-worlds-gallery {
+  grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+}
+.lost-worlds-gallery .wide {
+  grid-column: 1 / -1 !important;
+}
+.lost-worlds-gallery img {
+  min-height: 260px;
+  object-fit: cover;
+}
+
+/* 2D page: preserve visual hierarchy while keeping the gallery art-first. */
+.two-d-gallery {
+  padding-top: clamp(32px, 4vw, 54px) !important;
+}
+
+/* ---------- Responsive behavior ---------- */
+@media (max-width: 1180px) {
+  .brand-status { display: none; }
+}
+
+/* The original desktop nav disappears around tablet width; replace it with a real drawer. */
+@media (max-width: 1000px) {
+  .mobile-menu-toggle {
+    display: inline-flex;
+  }
+  header {
+    gap: 12px;
+  }
+  header nav {
+    display: flex !important;
+    position: fixed;
+    z-index: 49;
+    top: 68px;
+    left: 0;
+    right: 0;
+    margin: 0 !important;
+    padding: 12px 18px 20px;
+    flex-direction: column;
+    gap: 2px !important;
+    background: rgba(9,9,9,.98);
+    border-bottom: 1px solid rgba(255,255,255,.14);
+    backdrop-filter: blur(18px);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity .18s ease, transform .18s ease, visibility .18s ease;
+  }
+  header.nav-open nav {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+  header nav a {
+    width: 100%;
+    min-height: 48px;
+    padding: 0 8px !important;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,.07);
+  }
+  header nav a:last-child {
+    border-bottom: 0;
+  }
+  .section {
+    padding: 90px 26px;
+  }
+  .dark {
+    padding-left: 26px;
+    padding-right: 26px;
+  }
+  .dark > * {
+    max-width: none;
   }
 }
 
-@media(max-width:900px){
-  :root{
-    --section-y:clamp(62px,9vw,86px);
-    --section-x:clamp(18px,4vw,30px);
+@media (max-width: 760px) {
+  .section {
+    padding: 76px 18px;
   }
-  .game-copy,
-  .game-feature,
-  .game-feature.reverse,
-  .comfort-v54,
-  .jam-intro,
-  .more-games-head,
-  .bedtime-project-head{
-    grid-template-columns:1fr!important;
+  .dark {
+    padding-left: 18px;
+    padding-right: 18px;
   }
-  .case-meta-unified{
-    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  main > .section[class*="tex-"]::before {
+    opacity: .21;
+  }
+  main > .section.dark[class*="tex-"]::before {
+    opacity: .19;
+  }
+  .tex-dots::before {
+    opacity: .24 !important;
+  }
+  .tex-contact::before {
+    opacity: .22 !important;
+  }
+  .games-scanbar {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+  }
+  .games-scanbar span:nth-child(2) {
+    border-right: 0;
+  }
+  .games-scanbar span:nth-child(-n+2) {
+    border-bottom: 1px solid rgba(255,255,255,.11);
+  }
+  .quick-contact {
+    display: none;
+  }
+  .lost-worlds-gallery {
+    grid-template-columns: 1fr !important;
+  }
+  .lost-worlds-gallery .wide {
+    grid-column: auto !important;
   }
 }
 
-@media(max-width:760px){
-  :root{
-    --section-y:clamp(52px,12vw,72px);
-    --section-x:18px;
+@media (max-width: 560px) {
+  .tbb-wordmark {
+    display: none !important;
   }
-
-  body{
-    font-size:1rem;
+  .header-contact {
+    min-height: 44px;
+    padding: 0 12px !important;
   }
+  .mobile-menu-toggle {
+    flex-basis: 44px;
+  }
+  .hub-map {
+    grid-template-columns: 1fr !important;
+  }
+}
 
-  /* 48px touch targets on coarse pointers/mobile */
-  header nav a,
+@media (min-width: 1800px) {
+  /* Cap padding instead of letting 8vw consume the usable 2K/ultrawide canvas. */
+  .section {
+    padding-left: 96px;
+    padding-right: 96px;
+  }
+  .dark {
+    padding-left: 96px;
+    padding-right: 96px;
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+  .ticker-track {
+    animation: none !important;
+  }
+}
+
+
+/* Touch-specific ergonomics without inflating desktop controls. */
+@media (pointer: coarse) {
+  .mobile-menu-toggle {
+    width: 48px;
+    height: 48px;
+    flex-basis: 48px;
+  }
   .header-contact,
   .btn,
   .project-action,
+  .filters button,
+  .switch button,
   .two-d-filters button,
-  .filters button{
-    min-height:48px!important;
-  }
-
-  .head{
-    grid-template-columns:1fr!important;
-    gap:18px!important;
-    align-items:start!important;
-  }
-
-  .head>p{
-    justify-self:start!important;
-  }
-
-  .case-meta-unified{
-    grid-template-columns:1fr!important;
-  }
-
-  .contact-links.v54,
-  .games-scanbar{
-    grid-template-columns:1fr!important;
-  }
-
-  .games-scanbar span{
-    border-right:0!important;
-    border-bottom:1px solid rgba(255,255,255,.12);
-  }
-  .games-scanbar span:last-child{
-    border-bottom:0;
-  }
-
-  /* Avoid giant display text overwhelming narrow screens */
-  .hero h1,
-  .project-title h1,
-  .games-hero h1{
-    font-size:clamp(3rem,14vw,4.8rem)!important;
-  }
-  .section h2,
-  .game-copy h2,
-  .head h2{
-    font-size:clamp(2.25rem,10vw,3.25rem)!important;
-  }
-}
-
-/* More reliable accessibility/responsiveness for actual touch devices */
-@media(pointer:coarse){
-  a,
-  button{
-    -webkit-tap-highlight-color:rgba(255,255,255,.08);
-  }
-  header nav a,
-  .header-contact,
-  .btn,
-  .project-action,
-  .two-d-filters button,
-  .filters button{
-    min-height:48px;
-  }
-}
-
-/* 9) LARGE DISPLAYS
-   Grow whitespace slightly, not text indefinitely. */
-@media(min-width:1600px){
-  :root{
-    --content-max:1320px;
-    --section-y:124px;
-  }
-  .lead,
-  .prose{
-    max-width:66ch!important;
+  .art-lightbox-close {
+    min-height: 48px;
   }
 }
