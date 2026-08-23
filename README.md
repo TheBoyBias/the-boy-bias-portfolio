@@ -1,28 +1,23 @@
-# The Boy Bias Portfolio V7.0
+# The Boy Bias Portfolio V7.1
 
-Three-perspective professional review pass.
+Professional web-design and portfolio-design pass.
 
-ARTIST / DESIGN
-- Preserved the established V6.9.5 visual language and texture system
-- Improved typography/readability constraints for longer copy
-- Kept section rhythm and existing hero treatments intact
+Research principles applied:
+- Responsive layouts should adapt to content rather than fixed device classes
+- Reading columns are constrained to comfortable line lengths
+- Mobile interaction targets are enlarged for touch use
+- Visual hierarchy favors artwork first, concise project context second
+- Portfolio navigation remains low-friction and role/contribution information stays easy to scan
+- Quality and clarity are prioritized over adding more visual effects
 
-RECRUITER / UX
-- Rewrote homepage copy to communicate skills and relevance faster
-- Removed portfolio-architecture language that did not help hiring decisions
-- Corrected Games page from four to six solo games
-- Strengthened team-work language around Game Jams
-- Added a compact Games production-summary scan bar
-- Added accessible keyboard focus states and current-page navigation state
-- Preserved deep-link navigation and validated all internal links/anchors
-
-GAME STUDIO LEAD
-- About text now emphasizes six solo games, five game jams and ownership from concept to playable build
-- Skills copy emphasizes art focus plus technical/engine collaboration rather than programming as a target role
-- Tightened project introductions around design intent, ownership and production value
-- Preserved role/contribution/engine/duration metadata across case studies
-
-Technical validation:
-- All internal HTML links and section anchors checked
-- All referenced local media assets checked
-- Duplicate IDs checked
+Changes:
+- Refined responsive typography scale across phone, desktop, 2K and ultrawide layouts
+- Standardized section vertical spacing and horizontal content width
+- Reduced inconsistent margins and gaps across galleries, grids and project layouts
+- Improved body copy line length and line height
+- Improved mobile stacking before columns become cramped
+- Increased touch targets on mobile/coarse-pointer devices
+- Improved card border contrast consistency and keyboard focus visibility
+- Refined project metadata scanability
+- Returned ALL section textures to white/light linework
+- Kept the existing section structure, white separators, hero crops and approved texture directions
