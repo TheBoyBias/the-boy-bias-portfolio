@@ -1914,3 +1914,45 @@ body::after{
   .section.dark::after{opacity:.25;left:-180px}
   body::after{opacity:.04}
 }
+
+/* V6.8 section separators: restore the crisp earlier portfolio rhythm */
+
+/* Every content section gets a restrained white divider at its top edge. */
+main > .section{
+  border-top:1px solid rgba(255,255,255,.13)!important;
+}
+
+/* Avoid an unnecessary divider where a page starts directly with a section. */
+main > .section:first-child{
+  border-top-color:transparent!important;
+}
+
+/* Project heroes transition cleanly into the first content block. */
+.games-hero + .section,
+.v3-hero + .section,
+.hero + .section{
+  border-top:1px solid rgba(255,255,255,.16)!important;
+}
+
+/* Slightly clearer boundary when two differently colored sections meet. */
+main > .section.dark{
+  border-top-color:rgba(255,255,255,.17)!important;
+}
+
+/* Preserve the old flat-color hierarchy. Textures remain overlays only. */
+.section{
+  box-shadow:none!important;
+}
+.section.dark{
+  box-shadow:none!important;
+}
+
+@media(max-width:760px){
+  main > .section,
+  main > .section.dark,
+  .games-hero + .section,
+  .v3-hero + .section,
+  .hero + .section{
+    border-top-color:rgba(255,255,255,.12)!important;
+  }
+}
