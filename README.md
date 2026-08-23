@@ -1,9 +1,12 @@
-# The Boy Bias Portfolio V6.6
+# The Boy Bias Portfolio V6.7
 
-Background refinement:
-- Restored the alternating flat black and charcoal section colors
-- Removed the flat-color loss introduced in V6.5
-- Added stronger but still restrained geometric textures per section
-- Textures fade independently through masks rather than using color gradients
-- Light and dark sections now use different geometric motifs for clearer section identity
-- Existing hero crops and all V6.5 functionality remain unchanged
+Background design correction.
+
+- Restored the exact flat-color separation principle from the earlier clean portfolio versions
+- Base sections use the original #090909 background
+- Dark panels use the original #111111 full-width background
+- Removed the large circles, diagonal shapes and previous geometric decorations
+- Added localized professional micro-textures instead: fine grid, dot matrix, technical hatch and subtle grain
+- Textures fade independently while the underlying section color remains completely flat
+- Hero media remains clean and texture-free
+- Existing V6.6 content and hero crops remain unchanged

@@ -1762,3 +1762,155 @@ body{
   .section.dark:before{opacity:.20}
   .section.dark:after{opacity:.16}
 }
+
+/* V6.7 restore original section system + professional micro textures */
+
+/* Exact section separation from the earlier clean versions */
+body{
+  background:var(--bg)!important;
+}
+.section{
+  background:transparent!important;
+  background-image:none!important;
+}
+.dark,
+.section.dark{
+  background:var(--panel)!important;
+  background-image:none!important;
+  width:100%;
+  max-width:none;
+  padding-left:max(28px,8vw);
+  padding-right:max(28px,8vw);
+}
+
+/* Remove all previous large geometric decoration */
+.section:before,
+.section:after,
+.section.dark:before,
+.section.dark:after{
+  content:none!important;
+}
+main:before{
+  content:none!important;
+}
+
+/*
+  Texture language:
+  - micro grid
+  - dot field
+  - fine technical hatch
+  - subtle noise
+  No color wash and no gradient applied to the flat section color.
+  Masks only fade the texture itself.
+*/
+.section{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+}
+.section>*{
+  position:relative;
+  z-index:2;
+}
+
+/* Texture layer */
+.section::before{
+  content:""!important;
+  position:absolute;
+  pointer-events:none;
+  z-index:1;
+  width:min(720px,65vw);
+  height:460px;
+  right:-90px;
+  top:28px;
+  opacity:.52;
+  background-image:
+    linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px);
+  background-size:32px 32px;
+  -webkit-mask-image:radial-gradient(ellipse at 60% 35%,#000 0 22%,rgba(0,0,0,.82) 42%,rgba(0,0,0,.35) 62%,transparent 79%);
+  mask-image:radial-gradient(ellipse at 60% 35%,#000 0 22%,rgba(0,0,0,.82) 42%,rgba(0,0,0,.35) 62%,transparent 79%);
+}
+
+/* Secondary local detail, not a full-section overlay */
+.section::after{
+  content:""!important;
+  position:absolute;
+  pointer-events:none;
+  z-index:1;
+  width:360px;
+  height:260px;
+  left:2.5%;
+  bottom:18px;
+  opacity:.46;
+  background-image:radial-gradient(circle,rgba(255,255,255,.12) 1px,transparent 1.35px);
+  background-size:15px 15px;
+  -webkit-mask-image:linear-gradient(115deg,transparent 0,rgba(0,0,0,.55) 20%,#000 44%,rgba(0,0,0,.55) 67%,transparent 88%);
+  mask-image:linear-gradient(115deg,transparent 0,rgba(0,0,0,.55) 20%,#000 44%,rgba(0,0,0,.55) 67%,transparent 88%);
+}
+
+/* Dark panels use a different, quieter technical texture */
+.section.dark::before{
+  width:min(760px,70vw);
+  height:400px;
+  top:auto;
+  bottom:2%;
+  right:-80px;
+  opacity:.46;
+  background-image:
+    repeating-linear-gradient(135deg,
+      rgba(255,255,255,.052) 0,
+      rgba(255,255,255,.052) 1px,
+      transparent 1px,
+      transparent 13px);
+  background-size:auto;
+  -webkit-mask-image:radial-gradient(ellipse at 58% 60%,#000 0 20%,rgba(0,0,0,.75) 44%,rgba(0,0,0,.28) 64%,transparent 80%);
+  mask-image:radial-gradient(ellipse at 58% 60%,#000 0 20%,rgba(0,0,0,.75) 44%,rgba(0,0,0,.28) 64%,transparent 80%);
+}
+
+.section.dark::after{
+  width:420px;
+  height:300px;
+  left:-40px;
+  top:35px;
+  bottom:auto;
+  opacity:.40;
+  background-image:
+    radial-gradient(circle,rgba(255,255,255,.10) 1px,transparent 1.2px);
+  background-size:18px 18px;
+  -webkit-mask-image:radial-gradient(ellipse at 38% 38%,#000 0 25%,rgba(0,0,0,.7) 46%,transparent 75%);
+  mask-image:radial-gradient(ellipse at 38% 38%,#000 0 25%,rgba(0,0,0,.7) 46%,transparent 75%);
+}
+
+/* A tiny grain layer gives the flat surfaces material without changing their color */
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:9998;
+  pointer-events:none;
+  opacity:.055;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.75'/%3E%3C/svg%3E");
+  mix-blend-mode:soft-light;
+}
+
+/* Keep major media heroes clean */
+.games-hero::before,
+.games-hero::after,
+.v3-hero::before,
+.v3-hero::after{
+  content:none!important;
+}
+
+@media(max-width:760px){
+  .dark,
+  .section.dark{
+    padding-left:18px;
+    padding-right:18px;
+  }
+  .section::before{opacity:.32;right:-280px}
+  .section::after{opacity:.28;left:-180px}
+  .section.dark::before{opacity:.30}
+  .section.dark::after{opacity:.25;left:-180px}
+  body::after{opacity:.04}
+}
