@@ -2660,3 +2660,130 @@ main > .section:not(.dark):not(.tex-contact).tex-dots::before{
     opacity:.42!important;
   }
 }
+
+/* V6.9.5 texture color correction + final UI polish */
+
+/*
+  Correct texture contrast:
+  - charcoal / gray sections: DARK texture lines
+  - black / .dark sections: LIGHT texture lines
+*/
+
+/* GRAY / CHARCOAL SECTIONS */
+main > .section:not(.dark):not(.tex-contact).tex-horizontal::before{
+  opacity:.52!important;
+  background-image:repeating-linear-gradient(
+    0deg,
+    rgba(0,0,0,.58) 0 1px,
+    transparent 1px clamp(48px,3vw,68px)
+  )!important;
+}
+main > .section:not(.dark):not(.tex-contact).tex-vertical::before{
+  opacity:.52!important;
+  background-image:repeating-linear-gradient(
+    90deg,
+    rgba(0,0,0,.58) 0 1px,
+    transparent 1px clamp(52px,3.2vw,72px)
+  )!important;
+}
+main > .section:not(.dark):not(.tex-contact).tex-diagonal::before{
+  opacity:.52!important;
+  background-image:repeating-linear-gradient(
+    30deg,
+    rgba(0,0,0,.56) 0 1px,
+    transparent 1px clamp(50px,3.1vw,70px)
+  )!important;
+}
+main > .section:not(.dark):not(.tex-contact).tex-diagonal-reverse::before{
+  opacity:.52!important;
+  background-image:repeating-linear-gradient(
+    150deg,
+    rgba(0,0,0,.56) 0 1px,
+    transparent 1px clamp(50px,3.1vw,70px)
+  )!important;
+}
+main > .section:not(.dark):not(.tex-contact).tex-grid-soft::before{
+  opacity:.48!important;
+  background-image:
+    linear-gradient(rgba(0,0,0,.50) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,0,0,.50) 1px,transparent 1px)!important;
+  background-size:clamp(62px,4vw,88px) clamp(62px,4vw,88px)!important;
+}
+main > .section:not(.dark):not(.tex-contact).tex-dots::before{
+  opacity:.48!important;
+  background-image:radial-gradient(circle,rgba(0,0,0,.68) 1.2px,transparent 1.55px)!important;
+  background-size:clamp(24px,1.6vw,34px) clamp(24px,1.6vw,34px)!important;
+}
+
+/* BLACK / DARK SECTIONS: restore light texture lines */
+main > .section.dark.tex-horizontal::before{
+  opacity:.30!important;
+  background-image:repeating-linear-gradient(
+    0deg,
+    rgba(255,255,255,.09) 0 1px,
+    transparent 1px clamp(48px,3vw,68px)
+  )!important;
+}
+main > .section.dark.tex-vertical::before{
+  opacity:.30!important;
+  background-image:repeating-linear-gradient(
+    90deg,
+    rgba(255,255,255,.09) 0 1px,
+    transparent 1px clamp(52px,3.2vw,72px)
+  )!important;
+}
+main > .section.dark.tex-diagonal::before{
+  opacity:.30!important;
+  background-image:repeating-linear-gradient(
+    30deg,
+    rgba(255,255,255,.085) 0 1px,
+    transparent 1px clamp(50px,3.1vw,70px)
+  )!important;
+}
+main > .section.dark.tex-diagonal-reverse::before{
+  opacity:.30!important;
+  background-image:repeating-linear-gradient(
+    150deg,
+    rgba(255,255,255,.085) 0 1px,
+    transparent 1px clamp(50px,3.1vw,70px)
+  )!important;
+}
+main > .section.dark.tex-grid-soft::before{
+  opacity:.27!important;
+  background-image:
+    linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px)!important;
+  background-size:clamp(62px,4vw,88px) clamp(62px,4vw,88px)!important;
+}
+main > .section.dark.tex-dots::before{
+  opacity:.28!important;
+  background-image:radial-gradient(circle,rgba(255,255,255,.18) 1.2px,transparent 1.55px)!important;
+  background-size:clamp(24px,1.6vw,34px) clamp(24px,1.6vw,34px)!important;
+}
+
+/* Contact texture remains approved and untouched */
+
+/* Header contact: subtle rounded corners, still crisp */
+.header-contact{
+  border-radius:7px!important;
+}
+
+/* Lost Little Boy combined world gallery */
+.lost-worlds-gallery{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+}
+.lost-worlds-gallery .wide{
+  grid-column:1 / -1!important;
+}
+.lost-worlds-gallery img{
+  min-height:260px;
+  object-fit:cover;
+}
+@media(max-width:700px){
+  .lost-worlds-gallery{
+    grid-template-columns:1fr!important;
+  }
+  .lost-worlds-gallery .wide{
+    grid-column:auto!important;
+  }
+}
