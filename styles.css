@@ -1429,3 +1429,46 @@ html{scroll-behavior:smooth}.case-progress{position:fixed;top:0;left:0;height:2p
 @media(max-width:1050px){.jam-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:800px){.more-games-head,.jam-intro{grid-template-columns:1fr}.more-games-head>p:last-child{justify-self:start}.more-games-grid{grid-template-columns:1fr}.jam-summary{border-left:0;border-top:1px solid var(--line);padding:20px 0 0}.jam-feature>a{min-height:440px}}
 @media(max-width:560px){.jam-grid{grid-template-columns:1fr}.jam-card figure{height:220px}.jam-feature>a{min-height:400px}.jam-copy{left:20px;right:20px;bottom:20px}}
+
+/* V6.1 navigation and header usability */
+.tbb-wordmark{display:block!important}
+.tbb-wordmark strong{
+  font-size:12px!important;
+  letter-spacing:.055em!important;
+  white-space:nowrap;
+}
+.brand-status{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-left:4px;
+  white-space:nowrap;
+  color:#a5a59f;
+  font:700 9px monospace;
+  letter-spacing:.075em;
+}
+.brand-status i{
+  width:7px;height:7px;border-radius:50%;
+  background:#82d977;
+  box-shadow:0 0 0 4px rgba(130,217,119,.08),0 0 10px rgba(130,217,119,.28);
+}
+header nav{margin-left:auto!important}
+header nav a{position:relative}
+header nav a:after{
+  content:"";
+  position:absolute;
+  left:10px;right:10px;bottom:5px;
+  height:1px;background:#7b7b74;
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .2s ease;
+}
+header nav a:hover:after{transform:scaleX(1)}
+section[id]{scroll-margin-top:86px}
+
+@media(max-width:1180px){
+  .brand-status{font-size:8px}
+}
+@media(max-width:980px){
+  .brand-status{display:none}
+}
