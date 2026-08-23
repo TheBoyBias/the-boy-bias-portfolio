@@ -1479,3 +1479,28 @@ section[id]{scroll-margin-top:86px}
 .two-d-gallery{padding-top:20px!important}.art-grid{columns:3 300px;column-gap:12px}.art-card{display:inline-block;width:100%;margin:0 0 12px;border:1px solid var(--line);padding:0;background:#0b0b0a;color:inherit;text-align:left;cursor:pointer;break-inside:avoid;overflow:hidden;transition:transform .22s,border-color .22s}.art-card:hover{transform:translateY(-3px);border-color:#676760}.art-card[hidden]{display:none}.art-card figure{margin:0;background:#080808;overflow:hidden}.art-card img{width:100%;height:auto;display:block;transition:transform .4s}.art-card:hover img{transform:scale(1.015)}.art-card>div{padding:14px}.art-card small{font:700 8px monospace;color:#7f7f79;letter-spacing:.1em}.art-card b{display:block;font-size:17px;margin:5px 0 10px}.art-card span{font:700 8px monospace;color:#aaa}
 .art-lightbox{position:fixed;z-index:9999;inset:0;background:rgba(0,0,0,.94);display:none;place-items:center;padding:60px 30px}.art-lightbox.open{display:grid}.art-lightbox img{max-width:min(90vw,1500px);max-height:78vh;object-fit:contain}.art-lightbox-close{position:absolute;right:24px;top:20px;width:44px;height:44px;border:1px solid #555;background:#111;color:#fff;font-size:28px;cursor:pointer}.art-lightbox-meta{position:absolute;left:30px;bottom:22px}.art-lightbox-meta small{display:block;color:#8d8d87;font:700 8px monospace;letter-spacing:.1em}.art-lightbox-meta b{display:block;font-size:16px;margin-top:4px}
 @media(max-width:700px){.art-grid{columns:1}.two-d-hero{padding-top:120px!important}}
+
+/* V6.3 subtle surface texture + polish */
+body{position:relative}
+body:before{
+  content:"";position:fixed;z-index:-1;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse at 12% 12%,rgba(255,255,255,.025),transparent 36%),
+    radial-gradient(ellipse at 82% 38%,rgba(255,255,255,.018),transparent 32%),
+    radial-gradient(ellipse at 40% 88%,rgba(255,255,255,.014),transparent 35%);
+}
+.section:not(.dark){background-image:
+  linear-gradient(115deg,rgba(255,255,255,.012),transparent 32%),
+  radial-gradient(circle at 88% 18%,rgba(255,255,255,.018),transparent 24%);
+}
+.section.dark{background-image:
+  radial-gradient(ellipse at 15% 55%,rgba(255,255,255,.018),transparent 30%),
+  linear-gradient(160deg,transparent 40%,rgba(255,255,255,.01) 72%,transparent);
+}
+.hub-map{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important;margin-top:26px!important}
+.hub-map>div{min-width:0!important;min-height:94px!important;padding:16px 17px!important;border:1px solid var(--line)!important;display:grid!important;grid-template-columns:auto 1fr!important;grid-template-rows:auto auto!important;column-gap:12px!important;align-content:center!important;background:rgba(255,255,255,.018)!important}
+.hub-map small{grid-row:1/3;align-self:center;font:700 8px monospace;color:#66665f}
+.hub-map b{display:block!important;font-size:14px!important;line-height:1.15!important;margin:0!important;white-space:normal!important}
+.hub-map span{display:block!important;font:700 9px monospace!important;color:#8f8f88!important;margin-top:5px!important}
+.dungeon-hero>img{object-position:center 52%!important}
+@media(max-width:560px){.hub-map{grid-template-columns:1fr!important}}
