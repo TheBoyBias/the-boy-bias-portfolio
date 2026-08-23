@@ -1542,3 +1542,76 @@ main:before{
 .lost-hero>img{image-rendering:pixelated;object-fit:cover!important;object-position:center center!important}
 .pixel-strip .pixel-wide{min-width:170px}
 .pixel-strip .pixel-wide img{image-rendering:pixelated;object-fit:contain!important}
+
+/* V6.5 geometric background refinement */
+body{
+  background:#090908!important;
+}
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  pointer-events:none;
+  background:none!important;
+}
+
+/* Remove V6.4 gradient washes */
+main:before{
+  opacity:.24!important;
+  background:
+    linear-gradient(30deg,transparent 0 47%,rgba(255,255,255,.022) 47.5% 48.2%,transparent 48.8% 100%),
+    linear-gradient(150deg,transparent 0 52%,rgba(255,255,255,.015) 52.4% 53.1%,transparent 53.6% 100%)!important;
+  background-size:320px 320px,420px 420px!important;
+  mask-image:linear-gradient(to bottom,transparent 0,#000 8%,#000 92%,transparent 100%)!important;
+}
+
+/* Soft geometric shapes that fade instead of full-section gradients */
+.section{
+  position:relative;
+  overflow:hidden;
+}
+.section:before,
+.section:after{
+  content:"";
+  position:absolute;
+  pointer-events:none;
+  z-index:0;
+  opacity:.16;
+}
+.section:before{
+  width:260px;
+  height:260px;
+  right:-110px;
+  top:8%;
+  border:1px solid rgba(255,255,255,.10);
+  transform:rotate(28deg);
+  mask-image:linear-gradient(135deg,#000 0%,rgba(0,0,0,.85) 45%,transparent 82%);
+}
+.section:after{
+  width:180px;
+  height:180px;
+  left:-80px;
+  bottom:8%;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.07);
+  mask-image:radial-gradient(circle,#000 0 45%,transparent 78%);
+}
+.section>*{
+  position:relative;
+  z-index:1;
+}
+.section:not(.dark),
+.section.dark{
+  background-color:transparent!important;
+  background-image:none!important;
+}
+
+/* Hero crop assets are already prepared, keep CSS simple */
+.dungeon-hero>img{
+  transform:none!important;
+  object-position:center center!important;
+}
+.lost-hero>img{
+  object-position:center center!important;
+}
