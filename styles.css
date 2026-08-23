@@ -1956,3 +1956,261 @@ main > .section.dark{
     border-top-color:rgba(255,255,255,.12)!important;
   }
 }
+
+/* V6.9 responsive texture system */
+
+/*
+  Full-section texture layers replace the old fixed-size decorations.
+  The patterns tile indefinitely and use responsive background sizing,
+  so they remain coherent at mobile, Full HD, 2K and ultrawide widths.
+*/
+.section{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+}
+.section > *{
+  position:relative;
+  z-index:2;
+}
+
+.section::before,
+.section::after{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  width:auto!important;
+  height:auto!important;
+  left:0!important;
+  right:0!important;
+  top:0!important;
+  bottom:0!important;
+  transform:none!important;
+  pointer-events:none!important;
+  z-index:1!important;
+  border:0!important;
+  border-radius:0!important;
+}
+
+/* ---------- CHARCOAL / REGULAR SECTIONS ---------- */
+
+/* Variant A: subtle blueprint grid */
+.section:not(.dark)::before{
+  opacity:.34!important;
+  background-image:
+    linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px)!important;
+  background-size:
+    clamp(28px,2.2vw,44px) clamp(28px,2.2vw,44px)!important;
+  -webkit-mask-image:
+    linear-gradient(90deg,transparent 0%,#000 14%,#000 86%,transparent 100%)!important;
+  mask-image:
+    linear-gradient(90deg,transparent 0%,#000 14%,#000 86%,transparent 100%)!important;
+}
+
+/* Secondary faint offset dots */
+.section:not(.dark)::after{
+  opacity:.22!important;
+  background-image:
+    radial-gradient(circle,rgba(255,255,255,.12) 1px,transparent 1.25px)!important;
+  background-size:
+    clamp(18px,1.45vw,28px) clamp(18px,1.45vw,28px)!important;
+  background-position:
+    clamp(7px,1vw,18px) clamp(10px,1.2vw,22px)!important;
+  -webkit-mask-image:
+    linear-gradient(135deg,transparent 0%,rgba(0,0,0,.65) 22%,#000 48%,rgba(0,0,0,.55) 74%,transparent 100%)!important;
+  mask-image:
+    linear-gradient(135deg,transparent 0%,rgba(0,0,0,.65) 22%,#000 48%,rgba(0,0,0,.55) 74%,transparent 100%)!important;
+}
+
+/* Variant B: vertical technical ticks */
+main > .section:not(.dark):nth-of-type(4n+2)::before{
+  opacity:.30!important;
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,.05) 0 1px,
+      transparent 1px clamp(44px,3vw,68px)
+    )!important;
+  background-size:auto!important;
+  -webkit-mask-image:
+    linear-gradient(180deg,transparent 0%,#000 18%,#000 82%,transparent 100%)!important;
+  mask-image:
+    linear-gradient(180deg,transparent 0%,#000 18%,#000 82%,transparent 100%)!important;
+}
+main > .section:not(.dark):nth-of-type(4n+2)::after{
+  opacity:.18!important;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 clamp(74px,5vw,110px),
+      rgba(255,255,255,.055) clamp(74px,5vw,110px) calc(clamp(74px,5vw,110px) + 1px)
+    )!important;
+  background-size:auto!important;
+}
+
+/* Variant C: fine diagonal weave */
+main > .section:not(.dark):nth-of-type(4n+3)::before{
+  opacity:.28!important;
+  background-image:
+    repeating-linear-gradient(
+      135deg,
+      rgba(255,255,255,.045) 0 1px,
+      transparent 1px clamp(20px,1.6vw,30px)
+    )!important;
+  background-size:auto!important;
+  -webkit-mask-image:
+    radial-gradient(ellipse at 68% 40%,#000 0%,rgba(0,0,0,.8) 42%,transparent 78%)!important;
+  mask-image:
+    radial-gradient(ellipse at 68% 40%,#000 0%,rgba(0,0,0,.8) 42%,transparent 78%)!important;
+}
+main > .section:not(.dark):nth-of-type(4n+3)::after{
+  opacity:.16!important;
+  background-image:
+    linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px)!important;
+  background-size:clamp(90px,7vw,150px) 100%!important;
+}
+
+/* Variant D: sparse micro dots */
+main > .section:not(.dark):nth-of-type(4n)::before{
+  opacity:.27!important;
+  background-image:
+    radial-gradient(circle,rgba(255,255,255,.14) 1px,transparent 1.2px)!important;
+  background-size:
+    clamp(22px,1.8vw,34px) clamp(22px,1.8vw,34px)!important;
+  -webkit-mask-image:
+    linear-gradient(90deg,transparent 0%,#000 24%,#000 76%,transparent 100%)!important;
+  mask-image:
+    linear-gradient(90deg,transparent 0%,#000 24%,#000 76%,transparent 100%)!important;
+}
+main > .section:not(.dark):nth-of-type(4n)::after{
+  opacity:.12!important;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent 0 clamp(58px,4vw,90px),
+      rgba(255,255,255,.055) clamp(58px,4vw,90px) calc(clamp(58px,4vw,90px) + 1px)
+    )!important;
+  background-size:auto!important;
+}
+
+/* ---------- BLACK / DARK SECTIONS ---------- */
+
+/* Variant A: fine diagonal hatch */
+.section.dark::before{
+  opacity:.30!important;
+  background-image:
+    repeating-linear-gradient(
+      135deg,
+      rgba(255,255,255,.055) 0 1px,
+      transparent 1px clamp(16px,1.3vw,24px)
+    )!important;
+  background-size:auto!important;
+  -webkit-mask-image:
+    linear-gradient(90deg,transparent 0%,#000 18%,#000 82%,transparent 100%)!important;
+  mask-image:
+    linear-gradient(90deg,transparent 0%,#000 18%,#000 82%,transparent 100%)!important;
+}
+.section.dark::after{
+  opacity:.22!important;
+  background-image:
+    radial-gradient(circle,rgba(255,255,255,.11) 1px,transparent 1.2px)!important;
+  background-size:
+    clamp(20px,1.65vw,30px) clamp(20px,1.65vw,30px)!important;
+  -webkit-mask-image:
+    radial-gradient(ellipse at 30% 50%,#000 0%,rgba(0,0,0,.65) 44%,transparent 74%)!important;
+  mask-image:
+    radial-gradient(ellipse at 30% 50%,#000 0%,rgba(0,0,0,.65) 44%,transparent 74%)!important;
+}
+
+/* Variant B: technical crosshair grid */
+main > .section.dark:nth-of-type(4n+2)::before{
+  opacity:.27!important;
+  background-image:
+    linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px)!important;
+  background-size:
+    clamp(46px,3.6vw,72px) clamp(46px,3.6vw,72px)!important;
+  -webkit-mask-image:
+    radial-gradient(ellipse at 72% 52%,#000 0%,rgba(0,0,0,.72) 45%,transparent 78%)!important;
+  mask-image:
+    radial-gradient(ellipse at 72% 52%,#000 0%,rgba(0,0,0,.72) 45%,transparent 78%)!important;
+}
+main > .section.dark:nth-of-type(4n+2)::after{
+  opacity:.15!important;
+  background-image:
+    radial-gradient(circle,rgba(255,255,255,.12) 1px,transparent 1.3px)!important;
+  background-size:
+    clamp(13px,1vw,18px) clamp(13px,1vw,18px)!important;
+}
+
+/* Variant C: horizontal scan lines */
+main > .section.dark:nth-of-type(4n+3)::before{
+  opacity:.25!important;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,.045) 0 1px,
+      transparent 1px clamp(28px,2vw,40px)
+    )!important;
+  background-size:auto!important;
+  -webkit-mask-image:
+    linear-gradient(135deg,transparent 0%,rgba(0,0,0,.72) 24%,#000 48%,rgba(0,0,0,.55) 72%,transparent 100%)!important;
+  mask-image:
+    linear-gradient(135deg,transparent 0%,rgba(0,0,0,.72) 24%,#000 48%,rgba(0,0,0,.55) 72%,transparent 100%)!important;
+}
+main > .section.dark:nth-of-type(4n+3)::after{
+  opacity:.12!important;
+  background-image:
+    linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px)!important;
+  background-size:clamp(120px,8vw,180px) 100%!important;
+}
+
+/* Variant D: sparse technical dots with wide cadence */
+main > .section.dark:nth-of-type(4n)::before{
+  opacity:.24!important;
+  background-image:
+    radial-gradient(circle,rgba(255,255,255,.13) 1px,transparent 1.25px)!important;
+  background-size:
+    clamp(28px,2.2vw,42px) clamp(28px,2.2vw,42px)!important;
+  -webkit-mask-image:
+    radial-gradient(ellipse at 50% 55%,#000 0%,rgba(0,0,0,.7) 46%,transparent 78%)!important;
+  mask-image:
+    radial-gradient(ellipse at 50% 55%,#000 0%,rgba(0,0,0,.7) 46%,transparent 78%)!important;
+}
+main > .section.dark:nth-of-type(4n)::after{
+  opacity:.10!important;
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 clamp(86px,6vw,130px),
+      rgba(255,255,255,.07) clamp(86px,6vw,130px) calc(clamp(86px,6vw,130px) + 1px)
+    )!important;
+  background-size:auto!important;
+}
+
+/* Keep the separator line from V6.8. */
+main > .section{
+  border-top:1px solid rgba(255,255,255,.13)!important;
+}
+main > .section.dark{
+  border-top-color:rgba(255,255,255,.17)!important;
+}
+
+/* Texture scale tuning by viewport */
+@media(max-width:760px){
+  .section::before,
+  .section::after{
+    opacity:.18!important;
+  }
+  .section.dark::before,
+  .section.dark::after{
+    opacity:.16!important;
+  }
+}
+@media(min-width:1800px){
+  .section::before,
+  .section::after{
+    opacity:.34;
+  }
+}
