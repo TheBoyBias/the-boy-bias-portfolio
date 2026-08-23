@@ -2787,3 +2787,85 @@ main > .section.dark.tex-dots::before{
     grid-column:auto!important;
   }
 }
+
+/* V7.0 professional review polish */
+
+/* Clear keyboard focus for recruiters navigating quickly */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible{
+  outline:2px solid rgba(255,255,255,.82);
+  outline-offset:3px;
+}
+
+/* Current page indicator remains understated */
+header nav a[aria-current="page"]{
+  color:#f2f2ed;
+}
+header nav a[aria-current="page"]::after{
+  transform:scaleX(1);
+}
+
+/* Fast production-summary scan on Games page */
+.games-scanbar{
+  width:100%;
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  border-top:1px solid rgba(255,255,255,.16);
+  border-bottom:1px solid rgba(255,255,255,.16);
+  background:#0d0d0c;
+}
+.games-scanbar span{
+  min-width:0;
+  padding:16px clamp(18px,3vw,34px);
+  border-right:1px solid rgba(255,255,255,.12);
+  display:flex;
+  align-items:baseline;
+  gap:9px;
+}
+.games-scanbar span:last-child{border-right:0}
+.games-scanbar b{
+  font-size:15px;
+  letter-spacing:-.025em;
+}
+.games-scanbar small{
+  color:#85857f;
+  font:700 8px monospace;
+  letter-spacing:.08em;
+  line-height:1.3;
+}
+
+/* Make project metadata easier to scan without increasing visual weight */
+.case-meta-unified small{
+  letter-spacing:.10em!important;
+}
+.case-meta-unified b{
+  font-weight:650;
+}
+
+/* Keep long descriptive copy readable */
+.prose,
+.lead,
+.head>p,
+.game-copy>p,
+.game-feature p{
+  max-width:68ch;
+}
+
+/* Header CTA stays slightly rounded from V6.9.5 */
+.header-contact{
+  border-radius:7px!important;
+}
+
+/* Compact mobile scanbar */
+@media(max-width:760px){
+  .games-scanbar{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  .games-scanbar span:nth-child(2){
+    border-right:0;
+  }
+  .games-scanbar span:nth-child(-n+2){
+    border-bottom:1px solid rgba(255,255,255,.12);
+  }
+}
