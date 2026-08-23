@@ -214,14 +214,16 @@
   updateWorkLinks("all");
 })();
 </script>
+
 <script>
 (function(){
   document.querySelectorAll("main > .section").forEach(function(section){
-    if(section.querySelector(":scope > .section-separator")) return;
+    if(section.querySelector(":scope > .v691-separator")) return;
     var line=document.createElement("span");
-    line.className="section-separator";
+    line.className="v691-separator";
     line.setAttribute("aria-hidden","true");
     section.prepend(line);
   });
 })();
-</script></body></html>
+</script>
+</body></html>

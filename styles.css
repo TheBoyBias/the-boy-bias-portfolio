@@ -2215,15 +2215,14 @@ main > .section.dark{
   }
 }
 
-/* V6.12: V6.9 restored, with only targeted gray texture + true viewport separators */
 
-/* Full viewport separator without changing section width or padding */
+/* V6.9.1 ONLY CHANGE: viewport-wide section separators */
 main > .section{
   position:relative;
 }
-.section-separator{
+
+.v691-separator{
   position:absolute!important;
-  z-index:20!important;
   top:0!important;
   left:50%!important;
   width:100vw!important;
@@ -2231,94 +2230,10 @@ main > .section{
   transform:translateX(-50%)!important;
   background:rgba(255,255,255,.15)!important;
   pointer-events:none!important;
+  z-index:50!important;
+  display:block!important;
 }
-main > .section.dark > .section-separator{
+
+main > .section.dark > .v691-separator{
   background:rgba(255,255,255,.18)!important;
-}
-
-/*
-  IMPORTANT:
-  All V6.9 black/dark textures stay untouched.
-  Only non-dark charcoal sections are normalized to one single texture layer.
-*/
-main > .section:not(.dark)::after,
-main > .section:not(.dark):nth-of-type(4n+2)::after,
-main > .section:not(.dark):nth-of-type(4n+3)::after,
-main > .section:not(.dark):nth-of-type(4n)::after{
-  content:none!important;
-}
-
-/* Override every V6.9 non-dark variation with the same single, visible micro-tech pattern */
-main > .section:not(.dark)::before,
-main > .section:not(.dark):nth-of-type(4n+2)::before,
-main > .section:not(.dark):nth-of-type(4n+3)::before,
-main > .section:not(.dark):nth-of-type(4n)::before{
-  content:""!important;
-  position:absolute!important;
-  inset:0!important;
-  width:auto!important;
-  height:auto!important;
-  left:0!important;
-  right:0!important;
-  top:0!important;
-  bottom:0!important;
-  transform:none!important;
-  z-index:1!important;
-  pointer-events:none!important;
-  opacity:.56!important;
-
-  /* Single repeating micro-cross pattern, no stacked pseudo textures */
-  background-image:url("data:image/svg+xml,%3Csvg width='72' height='72' viewBox='0 0 72 72' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='.16' stroke-width='1'%3E%3Cpath d='M36 29v14M29 36h14'/%3E%3Cpath d='M0 0h10M0 0v10' stroke-opacity='.07'/%3E%3C/g%3E%3Ccircle cx='36' cy='36' r='1.25' fill='%23ffffff' fill-opacity='.20'/%3E%3C/svg%3E")!important;
-  background-size:clamp(54px,4vw,82px) clamp(54px,4vw,82px)!important;
-  background-position:center top!important;
-
-  /* Only the texture fades. The charcoal background stays flat. */
-  -webkit-mask-image:
-    linear-gradient(110deg,
-      transparent 0%,
-      rgba(0,0,0,.38) 12%,
-      rgba(0,0,0,.88) 31%,
-      #000 49%,
-      rgba(0,0,0,.78) 68%,
-      rgba(0,0,0,.25) 86%,
-      transparent 100%)!important;
-  mask-image:
-    linear-gradient(110deg,
-      transparent 0%,
-      rgba(0,0,0,.38) 12%,
-      rgba(0,0,0,.88) 31%,
-      #000 49%,
-      rgba(0,0,0,.78) 68%,
-      rgba(0,0,0,.25) 86%,
-      transparent 100%)!important;
-}
-
-/* Exact homepage image treatment for the Games landing hero */
-.games-hero-home>img{
-  filter:saturate(.92) contrast(1.05)!important;
-  object-position:center center!important;
-}
-.games-home-shade{
-  position:absolute;
-  inset:0;
-  z-index:1;
-  background:
-    linear-gradient(90deg,rgba(5,5,5,.96) 0%,rgba(5,5,5,.80) 35%,rgba(5,5,5,.20) 75%),
-    linear-gradient(0deg,rgba(8,8,8,.88) 0%,rgba(8,8,8,.10) 58%);
-}
-.games-hero-home:after{
-  content:none!important;
-}
-.games-hero-home .games-hero-copy{
-  z-index:2;
-}
-
-@media(max-width:760px){
-  main > .section:not(.dark)::before,
-  main > .section:not(.dark):nth-of-type(4n+2)::before,
-  main > .section:not(.dark):nth-of-type(4n+3)::before,
-  main > .section:not(.dark):nth-of-type(4n)::before{
-    opacity:.38!important;
-    background-size:58px 58px!important;
-  }
 }
