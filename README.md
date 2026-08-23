@@ -1,9 +1,7 @@
-# The Boy Bias Portfolio V5.6
+# The Boy Bias Portfolio V5.7
 
-Focused branding and discipline polish.
+Focused media replacement pass.
 
-- Replaced the ambiguous logo with a clearly readable TBB monogram
-- Fixed the duplicated The Boy Bias / Boy Bias header text
-- Kept a single THE BOY BIAS wordmark beside the TBB mark
-- Redesigned the four Discipline cards with category micro-labels, graphic line/circle motifs, stronger hover feedback and circular action arrows
-- Bedtime Is A Lie content and layout from V5.5 remain unchanged
+- Replaced the Bedtime Is A Lie room turnaround loop with the improved RoomTurnaround video.
+- Replaced the Strange Day villa turnaround loop with the improved TurnaroundVilla video.
+- No layout, copy, branding, navigation, or interaction changes from V5.6.
