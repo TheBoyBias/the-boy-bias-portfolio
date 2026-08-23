@@ -1,0 +1,19 @@
+# Cloudflare Workers static asset exclusions
+# Keep repository/build metadata out of the public asset upload.
+
+.git/
+.git/**
+.github/
+node_modules/
+
+# Repository-only files
+*.zip
+README.md
+.assetsignore
+
+# Build/config files are needed by the build, but should not be public assets.
+wrangler.json
+wrangler.jsonc
+wrangler.toml
+package.json
+package-lock.json
