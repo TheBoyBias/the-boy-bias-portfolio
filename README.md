@@ -1,7 +1,13 @@
-# The Boy Bias Portfolio V6.9.1
+# The Boy Bias Portfolio V6.9.2
 
-This version is visually based exactly on V6.9.
+Professional texture system pass based on V6.9.1.
 
-Only change:
-- Added a thin white section divider that spans 100vw from the left edge of the viewport to the right edge.
-- No textures, colors, spacing, hero treatment, backgrounds, or other visual systems were changed.
+- Keeps the original V6.9 visual language and flat-color section separation
+- Keeps the full-width white separator lines
+- Gives every section exactly one texture layer
+- No stacked dot/grid/line textures
+- Uses six different line directions for visual variety
+- Each texture fades independently without changing the flat background color
+- Responsive line spacing uses clamp() for mobile, Full HD, 2K and ultrawide screens
+- Charcoal sections receive slightly stronger texture contrast so patterns remain visible
+- Games landing hero now uses the exact same Bedtime image treatment as the homepage hero
