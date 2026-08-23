@@ -1,15 +1,11 @@
-# The Boy Bias Portfolio V6.1
+# The Boy Bias Portfolio V6.2
 
-Navigation and usability update.
+2D portfolio expansion.
 
-- Moved AVAILABLE FOR OPPORTUNITIES with green status light directly beside the The Boy Bias brand
-- Changed the header wordmark to THE BOY BIAS at one consistent size
-- Fixed the Bedtime Concept navigation anchor
-- Added a direct UI anchor to Bedtime
-- Renamed Bedtime Assets navigation to 3D for clearer recruiter navigation
-- Added deep section anchors to Strange Day, Dungeon Diver and Lost Little Boy
-- Work cards now change their destination based on the active filter
-- Example: filtering UI/UX and opening Bedtime leads directly to the UI section
-- Example: filtering 3D and opening Bedtime leads directly to the 3D asset section
-- Fixed previously broken 2D and UI supporting-card links
-- Added scroll margin so anchored sections do not hide underneath the fixed header
+- Added a dedicated 2D Work page
+- Curated independent work into Environments, Characters, Portraits and Illustration
+- Added filter navigation
+- Added large artwork lightbox viewing
+- Added the three newly supplied character artworks
+- Changed the homepage 2D discipline entry to open the dedicated 2D portfolio
+- Existing game-specific 2D work remains in its respective case studies
