@@ -1,7 +1,9 @@
-# The Boy Bias Portfolio V5.7
+# The Boy Bias Portfolio V6
 
-Focused media replacement pass.
-
-- Replaced the Bedtime Is A Lie room turnaround loop with the improved RoomTurnaround video.
-- Replaced the Strange Day villa turnaround loop with the improved TurnaroundVilla video.
-- No layout, copy, branding, navigation, or interaction changes from V5.6.
+Games expansion:
+- Added Guardian of the Garden and Spirit Bound as additional solo projects on the Games page
+- Added a dedicated compact Game Jams category
+- Hooked!! is presented as the featured jam
+- Added Snackscape!, Feed Me or Die, Cutdown and Deco Depths as compact team project cards
+- Added a small About credential row for 6 solo games and 5 game jams
+- Existing V5.8 design, case studies, video updates and interaction system retained

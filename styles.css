@@ -1396,3 +1396,36 @@ html{scroll-behavior:smooth}.case-progress{position:fixed;top:0;left:0;height:2p
 .discipline em{right:20px!important;bottom:18px!important;width:34px;height:34px;display:grid;place-items:center;border:1px solid #41413c;border-radius:50%;font-size:15px!important}
 .discipline a:hover em{background:#efefea;color:#090909;border-color:#efefea;transform:translate(2px,-2px)}
 @media(max-width:760px){.tbb-wordmark small{display:none}.discipline a{min-height:210px!important}.discipline b{margin-top:32px!important}}
+
+/* V6 expanded games and game jam section */
+.more-games-head{margin-top:80px;padding-top:45px;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:end}
+.more-games-head h3{font-size:clamp(30px,3vw,46px);letter-spacing:-.045em;margin:6px 0 0}
+.more-games-head>p:last-child{color:var(--muted);max-width:520px;justify-self:end}
+.more-games-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:28px}
+.more-game-card{border:1px solid var(--line);background:#101010;color:inherit;text-decoration:none;overflow:hidden;transition:.25s}
+.more-game-card:hover{border-color:#60605a;transform:translateY(-3px)}
+.more-game-card figure{margin:0;height:290px;background:#080808;overflow:hidden}
+.more-game-card img{width:100%;height:100%;object-fit:cover;transition:transform .45s}
+.more-game-card:first-child img{object-fit:contain;padding:28px;background:radial-gradient(circle at 50% 45%,#2b2016,#080808 72%)}
+.more-game-card:hover img{transform:scale(1.02)}
+.more-game-card>div{padding:18px}.more-game-card small{font:700 9px monospace;color:#8e8e88;letter-spacing:.07em}
+.more-game-card b{display:block;font-size:22px;margin:7px 0 4px}.more-game-card span{font-size:11px;color:#aaa}
+
+.jam-section{overflow:hidden}.jam-intro{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:end;margin-bottom:50px}
+.jam-intro h2{font-size:clamp(48px,6vw,86px);line-height:.9;letter-spacing:-.06em;margin:0}.jam-intro h2 span{color:#9d9d96}
+.jam-summary{border-left:1px solid var(--line);padding-left:28px}.jam-summary b{font:700 10px monospace;letter-spacing:.09em}.jam-summary p{color:var(--muted);font-size:14px;line-height:1.75;max-width:460px}
+.jam-feature>a{position:relative;display:block;min-height:520px;border:1px solid var(--line);overflow:hidden;color:#fff;text-decoration:none;background:#080808}
+.jam-feature img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .55s}.jam-feature a:hover img{transform:scale(1.025)}
+.jam-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,5,5,.85),rgba(5,5,5,.18) 65%),linear-gradient(0deg,rgba(5,5,5,.82),transparent 60%)}
+.jam-copy{position:absolute;z-index:2;left:30px;bottom:28px;max-width:600px}.jam-copy small{font:700 9px monospace;color:#c1c1ba;letter-spacing:.09em}
+.jam-copy h3{font-size:clamp(42px,5vw,70px);line-height:.9;letter-spacing:-.06em;margin:10px 0}.jam-copy p{color:#d1d1cb;margin:0 0 18px}.jam-copy span{font:700 10px monospace}
+.jam-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:12px}
+.jam-card{border:1px solid var(--line);background:#0d0d0c;color:inherit;text-decoration:none;overflow:hidden;transition:.22s}
+.jam-card:hover{transform:translateY(-3px);border-color:#64645f}.jam-card figure{margin:0;height:185px;background:#080808;overflow:hidden}
+.jam-card img{width:100%;height:100%;object-fit:cover}.jam-card:nth-child(2) img{object-fit:contain;padding:28px;background:#17141f}
+.jam-card>div{padding:15px}.jam-card small{font:700 8px monospace;color:#81817b;letter-spacing:.08em}.jam-card b{display:block;font-size:17px;margin:7px 0 5px}
+.jam-card p{color:#9a9a94;font-size:11px;line-height:1.5;min-height:34px}.jam-card span{font:700 8px monospace;color:#c1c1ba}
+.portfolio-facts{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:34px}.portfolio-facts span{border:1px solid var(--line);padding:9px 12px;font:700 9px monospace;color:#9e9e97}.portfolio-facts b{color:#efefea;font-size:13px;margin-right:5px}
+@media(max-width:1050px){.jam-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:800px){.more-games-head,.jam-intro{grid-template-columns:1fr}.more-games-head>p:last-child{justify-self:start}.more-games-grid{grid-template-columns:1fr}.jam-summary{border-left:0;border-top:1px solid var(--line);padding:20px 0 0}.jam-feature>a{min-height:440px}}
+@media(max-width:560px){.jam-grid{grid-template-columns:1fr}.jam-card figure{height:220px}.jam-feature>a{min-height:400px}.jam-copy{left:20px;right:20px;bottom:20px}}
