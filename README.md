@@ -1,16 +1,12 @@
-# The Boy Bias Portfolio V6.9.3
+# The Boy Bias Portfolio V6.9.4
 
-Targeted section-by-section polish based on V6.9.2.
+Focused professional polish on top of V6.9.3.
 
-- Every content category now receives exactly one explicit texture class
-- No section uses multiple texture layers
-- Bedtime "One room. Every discipline." now uses dots instead of a grid
-- Added visible textures to Disciplines, About, Tools & Expertise and all previously missing Bedtime sections
-- Preserved the homepage "Have a world to build?" texture and reused it for all contact sections
-- Split Games "Selected Games" and "Earlier worlds worth exploring" into separate sections with their own texture and full-width divider
-- Changed the Selected Games texture to a cleaner vertical line treatment
-- Restored dark hero fades for Lost Little Boy, Strange Day and Dungeon Diver
-- Games landing hero uses the same Bedtime image and contrast treatment as the homepage
-- 2D Work now has dedicated section textures and the same contact layout as the rest of the portfolio
-- Fixed 2D taxonomy: Temple Commission is Environment; Field Study and Coastal Study are Studies
-- Full-width white separators remain independent of all texture layers
+- Removed old internal game-CTA borders that caused short / broken separator lines
+- Dungeon Diver Play the Game now relies only on the full-width section separator
+- Rebuilt Lost Little Boy's loose two-image area as a real Selected Moments section
+- Moved Lost Little Boy Play the Game into its own section with a full-width divider
+- Changed textures in charcoal / gray sections from white linework to dark linework for clearer, subtler contrast
+- Black sections remain visually unchanged
+- Contact sections keep the previously approved texture unchanged
+- Existing 100vw white separators remain the sole category dividers
