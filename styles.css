@@ -2069,3 +2069,366 @@ body.case-study .games-hero-copy {
     min-height: 48px;
   }
 }
+
+
+/* ========================================================================
+   V8.1 AESTHETIC + LARGE-SCREEN POLISH
+   Based on rendered FHD / 2K / mobile review.
+   ======================================================================== */
+
+:root{
+  /* Same visual density at FHD, but deliberately expands on 2K. */
+  --portfolio-content:clamp(1400px,74vw,1880px);
+  --portfolio-gutter:clamp(24px,4vw,96px);
+}
+
+/* ---------- Large-screen scaling ----------
+   Sections now span the viewport while the content frame can grow from
+   ~1400px at FHD to ~1880px at 2K. This keeps 2K from looking miniature. */
+.section,
+.dark{
+  width:100%!important;
+  max-width:none!important;
+  padding-left:var(--portfolio-gutter)!important;
+  padding-right:var(--portfolio-gutter)!important;
+}
+.section > *,
+.dark > *{
+  width:min(100%,var(--portfolio-content));
+  max-width:var(--portfolio-content)!important;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+/* Full-width separators and textures must never inherit the content frame. */
+main > .section::after,
+main > .section[class*="tex-"]::before{
+  width:100vw!important;
+  max-width:none!important;
+  margin:0!important;
+}
+
+/* Games hero aligns to the same content frame instead of a fixed 1200px box. */
+.games-hero-copy{
+  width:min(var(--portfolio-content),calc(100% - (var(--portfolio-gutter) * 2)))!important;
+  max-width:none!important;
+}
+
+/* ---------- Coherent drafting texture family ----------
+   Every section still uses exactly one white texture layer. Patterns are
+   deliberately sparse and use alternating primary / secondary hairlines. */
+main > .section[class*="tex-"]::before{
+  opacity:.31!important;
+  background-position:center center!important;
+  -webkit-mask-image:linear-gradient(90deg,
+    transparent 0%,
+    rgba(0,0,0,.28) 10%,
+    rgba(0,0,0,.82) 28%,
+    #000 48%,
+    rgba(0,0,0,.86) 78%,
+    rgba(0,0,0,.28) 93%,
+    transparent 100%)!important;
+  mask-image:linear-gradient(90deg,
+    transparent 0%,
+    rgba(0,0,0,.28) 10%,
+    rgba(0,0,0,.82) 28%,
+    #000 48%,
+    rgba(0,0,0,.86) 78%,
+    rgba(0,0,0,.28) 93%,
+    transparent 100%)!important;
+}
+main > .section.dark[class*="tex-"]::before{opacity:.27!important}
+
+.tex-horizontal::before{
+  background-image:repeating-linear-gradient(
+    0deg,
+    rgba(255,255,255,.10) 0 1px,
+    transparent 1px clamp(54px,2.7vw,72px),
+    rgba(255,255,255,.035) clamp(54px,2.7vw,72px) calc(clamp(54px,2.7vw,72px) + 1px),
+    transparent calc(clamp(54px,2.7vw,72px) + 1px) clamp(108px,5.4vw,144px)
+  )!important;
+}
+.tex-vertical::before{
+  background-image:repeating-linear-gradient(
+    90deg,
+    rgba(255,255,255,.10) 0 1px,
+    transparent 1px clamp(58px,2.9vw,78px),
+    rgba(255,255,255,.035) clamp(58px,2.9vw,78px) calc(clamp(58px,2.9vw,78px) + 1px),
+    transparent calc(clamp(58px,2.9vw,78px) + 1px) clamp(116px,5.8vw,156px)
+  )!important;
+}
+.tex-diagonal::before{
+  background-image:repeating-linear-gradient(
+    32deg,
+    rgba(255,255,255,.10) 0 1px,
+    transparent 1px clamp(72px,3.8vw,96px)
+  )!important;
+}
+.tex-diagonal-reverse::before{
+  background-image:repeating-linear-gradient(
+    148deg,
+    rgba(255,255,255,.10) 0 1px,
+    transparent 1px clamp(72px,3.8vw,96px)
+  )!important;
+}
+.tex-grid-soft::before{
+  opacity:.24!important;
+  background-image:
+    linear-gradient(rgba(255,255,255,.075) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.075) 1px,transparent 1px)!important;
+  background-size:clamp(82px,4.6vw,112px) clamp(82px,4.6vw,112px)!important;
+}
+.tex-dots::before{
+  opacity:.32!important;
+  background-image:radial-gradient(circle,rgba(255,255,255,.20) 1px,transparent 1.45px)!important;
+  background-size:clamp(28px,1.5vw,38px) clamp(28px,1.5vw,38px)!important;
+}
+.tex-contact::before{
+  opacity:.29!important;
+  background-image:repeating-linear-gradient(
+    148deg,
+    rgba(255,255,255,.095) 0 1px,
+    transparent 1px clamp(72px,3.8vw,96px)
+  )!important;
+}
+
+/* ---------- Typography / alignment ---------- */
+body{
+  font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif!important;
+}
+.kicker,
+nav a,
+.btn,
+.filters button,
+.switch button,
+.two-d-filters button,
+.game-facts i,
+.games-scanbar small,
+.games-scanbar b{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono",monospace!important;
+}
+.kicker{letter-spacing:.145em!important}
+
+/* A real two-column editorial header is more stable than space-between flex. */
+.head{
+  display:grid!important;
+  grid-template-columns:minmax(0,1.25fr) minmax(300px,.75fr)!important;
+  gap:clamp(42px,5vw,84px)!important;
+  align-items:end!important;
+}
+.head > p{
+  margin:0!important;
+  max-width:56ch!important;
+  justify-self:end;
+  font-size:clamp(15px,.28vw + 10px,17px)!important;
+  line-height:1.72!important;
+}
+
+.about{
+  grid-template-columns:minmax(0,1.08fr) minmax(320px,.92fr)!important;
+  gap:clamp(56px,8vw,130px)!important;
+}
+.about > div > p,
+.feature > div > p:not(.kicker),
+.game-feature p{
+  font-size:clamp(15px,.22vw + 11px,17px)!important;
+}
+
+/* ---------- Buttons / micro-interaction ---------- */
+.btn,
+.filters button,
+.switch button,
+.two-d-filters button,
+.header-contact{
+  border-radius:6px!important;
+}
+.btn:hover,
+.card:hover,
+.more-game-card:hover,
+.jam-card:hover,
+.art-card:hover{
+  transform:translateY(-2px)!important;
+}
+
+.card,
+.games-index a,
+.more-game-card,
+.jam-card,
+.art-card,
+.contact-item{
+  border-color:rgba(255,255,255,.14)!important;
+}
+.card:hover,
+.games-index a:hover,
+.more-game-card:hover,
+.jam-card:hover,
+.art-card:hover,
+.contact-item:hover{
+  border-color:rgba(255,255,255,.34)!important;
+}
+.card small{font-size:10.5px!important;line-height:1.4!important}
+
+/* ---------- Games production rail ----------
+   Four genuinely equal cells with the same internal vertical rhythm. */
+.games-scanbar{
+  width:100%!important;
+  border-top:1px solid rgba(255,255,255,.16)!important;
+  border-bottom:1px solid rgba(255,255,255,.16)!important;
+  background:#0c0c0b!important;
+}
+.games-scanbar-inner{
+  width:min(var(--portfolio-content),calc(100% - (var(--portfolio-gutter) * 2)));
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  border-left:1px solid rgba(255,255,255,.10);
+  border-right:1px solid rgba(255,255,255,.10);
+}
+.games-scanbar span{
+  min-width:0;
+  min-height:82px;
+  padding:15px clamp(18px,2vw,30px)!important;
+  display:flex!important;
+  flex-direction:column;
+  align-items:flex-start!important;
+  justify-content:center;
+  gap:6px!important;
+  border-right:1px solid rgba(255,255,255,.10)!important;
+}
+.games-scanbar span:last-child{border-right:0!important}
+.games-scanbar b{
+  font-size:clamp(16px,1vw,20px)!important;
+  line-height:1!important;
+  letter-spacing:-.025em!important;
+  white-space:nowrap;
+}
+.games-scanbar small{
+  font-size:9px!important;
+  line-height:1.25!important;
+  letter-spacing:.09em!important;
+  color:#8f8f88!important;
+}
+
+/* ---------- Games overview hierarchy ----------
+   Best project first, then the remaining three at equal weight. */
+@media(min-width:1181px){
+  .games-index{
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:16px!important;
+  }
+  .games-index a:first-child{
+    grid-column:1 / -1;
+    min-height:520px!important;
+  }
+  .games-index a:not(:first-child){min-height:360px!important}
+  .games-index a:first-child b{font-size:34px!important}
+  .games-index a:first-child small{font-size:12px!important}
+}
+.games-index small{
+  font-size:11px!important;
+  line-height:1.45!important;
+}
+
+/* The section itself already supplies the full-width separator.
+   This old inner border was the short / broken-looking white line. */
+.more-games-head{
+  margin-top:0!important;
+  padding-top:0!important;
+  border-top:0!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr)!important;
+  grid-template-areas:
+    "kicker copy"
+    "title copy"!important;
+  column-gap:clamp(50px,7vw,110px)!important;
+  row-gap:8px!important;
+  align-items:end!important;
+}
+.more-games-head .kicker{grid-area:kicker;margin:0!important}
+.more-games-head h3{
+  grid-area:title;
+  margin:0!important;
+  font-size:clamp(38px,3.5vw,58px)!important;
+  line-height:1!important;
+}
+.more-games-head > p:last-child{
+  grid-area:copy;
+  justify-self:end!important;
+  align-self:end;
+  margin:0!important;
+  max-width:54ch!important;
+  font-size:15px!important;
+  line-height:1.75!important;
+}
+.more-games-grid{margin-top:42px!important;gap:16px!important}
+
+/* Game Jam hierarchy: keep it strong, but align intro to the shared grid. */
+.jam-intro{
+  grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr)!important;
+  gap:clamp(50px,7vw,110px)!important;
+}
+.jam-summary{padding-left:clamp(24px,2vw,34px)!important}
+
+/* ---------- Large-display type scaling ---------- */
+@media(min-width:2000px){
+  .hero h1,.project-title h1{font-size:clamp(92px,5vw,128px)!important}
+  .games-hero h1{font-size:clamp(104px,5.2vw,142px)!important}
+  .head h2,.feature h2,.contact h2,.next h2{font-size:clamp(66px,3.8vw,96px)!important}
+  .game-copy h2{font-size:clamp(62px,3.5vw,90px)!important}
+  .game-feature h3{font-size:clamp(46px,2.7vw,66px)!important}
+  nav a{font-size:12px!important}
+}
+
+/* ---------- Tablet / mobile ---------- */
+@media(max-width:1180px){
+  .games-index{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .games-index a{min-height:390px!important}
+}
+@media(max-width:900px){
+  .head,
+  .more-games-head,
+  .jam-intro{
+    grid-template-columns:1fr!important;
+    grid-template-areas:none!important;
+    gap:20px!important;
+  }
+  .head > p,
+  .more-games-head > p:last-child{
+    justify-self:start!important;
+  }
+  .more-games-head .kicker,
+  .more-games-head h3,
+  .more-games-head > p:last-child{grid-area:auto!important}
+  .jam-summary{
+    border-left:0!important;
+    border-top:1px solid rgba(255,255,255,.12)!important;
+    padding:22px 0 0!important;
+  }
+  .about{grid-template-columns:1fr!important;gap:32px!important}
+}
+@media(max-width:760px){
+  :root{--portfolio-gutter:18px}
+  main > .section[class*="tex-"]::before{
+    opacity:.22!important;
+    -webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 18%,#000 82%,transparent 100%)!important;
+    mask-image:linear-gradient(180deg,transparent 0%,#000 18%,#000 82%,transparent 100%)!important;
+  }
+  .games-scanbar-inner{
+    width:100%;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    border-left:0;
+    border-right:0;
+  }
+  .games-scanbar span{min-height:72px!important}
+  .games-scanbar span:nth-child(2){border-right:0!important}
+  .games-scanbar span:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.10)!important}
+  .games-index{grid-template-columns:1fr!important}
+  .games-index a{min-height:320px!important}
+  .more-games-grid{margin-top:30px!important}
+}
+
+
+/* V8.1 final stat-rail correction: outer rail is not a grid item itself. */
+.games-scanbar{
+  display:block!important;
+}
