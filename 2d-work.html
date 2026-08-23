@@ -12,4 +12,14 @@ const lb=document.querySelector('#art-lightbox'), lbi=lb.querySelector('img');
 cards.forEach(c=>c.addEventListener('click',()=>{lbi.src=c.querySelector('img').src;lb.querySelector('small').textContent=c.querySelector('small').textContent;lb.querySelector('b').textContent=c.querySelector('b').textContent;lb.classList.add('open');lb.setAttribute('aria-hidden','false');}));
 function closeLB(){lb.classList.remove('open');lb.setAttribute('aria-hidden','true');lbi.src='';}
 lb.querySelector('button').onclick=closeLB;lb.addEventListener('click',e=>{if(e.target===lb)closeLB();});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLB();});
+</script><script>
+(function(){
+  document.querySelectorAll("main > .section").forEach(function(section){
+    if(section.querySelector(":scope > .section-separator")) return;
+    var line=document.createElement("span");
+    line.className="section-separator";
+    line.setAttribute("aria-hidden","true");
+    section.prepend(line);
+  });
+})();
 </script></body></html>

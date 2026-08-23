@@ -1,11 +1,10 @@
-# The Boy Bias Portfolio V6.11
+# The Boy Bias Portfolio V6.12
 
-Targeted correction based on V6.9.
+Clean correction based directly on V6.9.
 
-- Restored V6.9 as the visual base
-- Preserved the successful black-section textures from V6.9 unchanged
-- Preserved the current full-width white section separators
-- Added one dedicated visible texture layer only to gray/charcoal sections
-- Disabled the second gray texture layer to prevent overlapping patterns
-- Gray texture uses a dot-grid plus coarse technical grid with a soft fade
-- Flat background colors remain unchanged
+- V6.9 is the real base again
+- Black/dark section textures are untouched
+- Removed all overlapping texture layers from gray/charcoal sections
+- Gray sections now use exactly one visible faded micro-tech texture
+- White section separators are independent elements spanning 100vw, so they scale indefinitely without changing content layout
+- Games landing hero now uses the exact same Bedtime image treatment and contrast overlay as the homepage hero

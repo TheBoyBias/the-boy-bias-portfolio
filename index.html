@@ -214,4 +214,14 @@
   updateWorkLinks("all");
 })();
 </script>
-</body></html>
+<script>
+(function(){
+  document.querySelectorAll("main > .section").forEach(function(section){
+    if(section.querySelector(":scope > .section-separator")) return;
+    var line=document.createElement("span");
+    line.className="section-separator";
+    line.setAttribute("aria-hidden","true");
+    section.prepend(line);
+  });
+})();
+</script></body></html>
