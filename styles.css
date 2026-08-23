@@ -2214,3 +2214,166 @@ main > .section.dark{
     opacity:.34;
   }
 }
+
+/* V6.10 full-width separators + visible charcoal textures */
+
+/* 
+   Make content sections truly full-width so separators can never stop at
+   the old content max-width. Content alignment is preserved with responsive
+   viewport padding.
+*/
+main > .section{
+  width:100%!important;
+  max-width:none!important;
+  box-sizing:border-box!important;
+  padding-left:max(28px,calc((100vw - 1200px) / 2))!important;
+  padding-right:max(28px,calc((100vw - 1200px) / 2))!important;
+  border-top:1px solid rgba(255,255,255,.15)!important;
+}
+main > .section.dark{
+  border-top-color:rgba(255,255,255,.18)!important;
+}
+
+/* The first content section may still follow a hero, but the line remains full-width. */
+main > .section:first-child{
+  border-top-color:rgba(255,255,255,.10)!important;
+}
+
+/*
+  CHARCOAL sections:
+  make the texture visibly present, but fade only the texture itself.
+  This is intentionally stronger than V6.9.
+*/
+.section:not(.dark)::before{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:1!important;
+  pointer-events:none!important;
+  opacity:.52!important;
+  background-image:
+    linear-gradient(rgba(255,255,255,.085) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.085) 1px,transparent 1px)!important;
+  background-size:
+    clamp(30px,2.1vw,46px) clamp(30px,2.1vw,46px)!important;
+  background-position:center top!important;
+  -webkit-mask-image:
+    radial-gradient(ellipse at 72% 34%,#000 0 18%,rgba(0,0,0,.92) 34%,rgba(0,0,0,.52) 56%,transparent 82%)!important;
+  mask-image:
+    radial-gradient(ellipse at 72% 34%,#000 0 18%,rgba(0,0,0,.92) 34%,rgba(0,0,0,.52) 56%,transparent 82%)!important;
+}
+
+.section:not(.dark)::after{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:1!important;
+  pointer-events:none!important;
+  opacity:.38!important;
+  background-image:
+    radial-gradient(circle,rgba(255,255,255,.18) 1.15px,transparent 1.5px)!important;
+  background-size:
+    clamp(18px,1.35vw,27px) clamp(18px,1.35vw,27px)!important;
+  background-position:clamp(6px,.8vw,14px) clamp(8px,1vw,18px)!important;
+  -webkit-mask-image:
+    linear-gradient(125deg,transparent 0%,rgba(0,0,0,.55) 18%,#000 40%,rgba(0,0,0,.82) 58%,rgba(0,0,0,.28) 76%,transparent 94%)!important;
+  mask-image:
+    linear-gradient(125deg,transparent 0%,rgba(0,0,0,.55) 18%,#000 40%,rgba(0,0,0,.82) 58%,rgba(0,0,0,.28) 76%,transparent 94%)!important;
+}
+
+/* Alternate charcoal texture B: thin vertical technical columns */
+main > .section:not(.dark):nth-of-type(4n+2)::before{
+  opacity:.48!important;
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,.08) 0 1px,
+      transparent 1px clamp(46px,3vw,70px)
+    )!important;
+  background-size:auto!important;
+  -webkit-mask-image:
+    linear-gradient(90deg,transparent 0%,rgba(0,0,0,.5) 14%,#000 34%,#000 72%,transparent 96%)!important;
+  mask-image:
+    linear-gradient(90deg,transparent 0%,rgba(0,0,0,.5) 14%,#000 34%,#000 72%,transparent 96%)!important;
+}
+main > .section:not(.dark):nth-of-type(4n+2)::after{
+  opacity:.30!important;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 clamp(54px,3.8vw,84px),
+      rgba(255,255,255,.09) clamp(54px,3.8vw,84px) calc(clamp(54px,3.8vw,84px) + 1px)
+    )!important;
+  background-size:auto!important;
+  -webkit-mask-image:
+    radial-gradient(ellipse at 28% 50%,#000 0 24%,rgba(0,0,0,.72) 48%,transparent 78%)!important;
+  mask-image:
+    radial-gradient(ellipse at 28% 50%,#000 0 24%,rgba(0,0,0,.72) 48%,transparent 78%)!important;
+}
+
+/* Alternate charcoal texture C: diagonal micro-weave */
+main > .section:not(.dark):nth-of-type(4n+3)::before{
+  opacity:.44!important;
+  background-image:
+    repeating-linear-gradient(
+      135deg,
+      rgba(255,255,255,.075) 0 1px,
+      transparent 1px clamp(18px,1.4vw,28px)
+    )!important;
+  background-size:auto!important;
+  -webkit-mask-image:
+    radial-gradient(ellipse at 65% 46%,#000 0 24%,rgba(0,0,0,.78) 46%,transparent 80%)!important;
+  mask-image:
+    radial-gradient(ellipse at 65% 46%,#000 0 24%,rgba(0,0,0,.78) 46%,transparent 80%)!important;
+}
+main > .section:not(.dark):nth-of-type(4n+3)::after{
+  opacity:.24!important;
+  background-image:
+    radial-gradient(circle,rgba(255,255,255,.17) 1px,transparent 1.4px)!important;
+  background-size:
+    clamp(23px,1.7vw,34px) clamp(23px,1.7vw,34px)!important;
+  -webkit-mask-image:
+    linear-gradient(90deg,transparent 0%,#000 22%,rgba(0,0,0,.7) 58%,transparent 92%)!important;
+  mask-image:
+    linear-gradient(90deg,transparent 0%,#000 22%,rgba(0,0,0,.7) 58%,transparent 92%)!important;
+}
+
+/* Alternate charcoal texture D: sparse larger dot matrix */
+main > .section:not(.dark):nth-of-type(4n)::before{
+  opacity:.40!important;
+  background-image:
+    radial-gradient(circle,rgba(255,255,255,.19) 1.2px,transparent 1.55px)!important;
+  background-size:
+    clamp(27px,2vw,40px) clamp(27px,2vw,40px)!important;
+  -webkit-mask-image:
+    linear-gradient(135deg,transparent 0%,rgba(0,0,0,.62) 18%,#000 42%,rgba(0,0,0,.65) 68%,transparent 92%)!important;
+  mask-image:
+    linear-gradient(135deg,transparent 0%,rgba(0,0,0,.62) 18%,#000 42%,rgba(0,0,0,.65) 68%,transparent 92%)!important;
+}
+main > .section:not(.dark):nth-of-type(4n)::after{
+  opacity:.22!important;
+  background-image:
+    linear-gradient(90deg,rgba(255,255,255,.095) 1px,transparent 1px)!important;
+  background-size:clamp(92px,6.5vw,145px) 100%!important;
+  -webkit-mask-image:
+    radial-gradient(ellipse at 58% 50%,#000 0 28%,transparent 78%)!important;
+  mask-image:
+    radial-gradient(ellipse at 58% 50%,#000 0 28%,transparent 78%)!important;
+}
+
+/* Responsive full-width padding and texture contrast */
+@media(max-width:760px){
+  main > .section{
+    padding-left:18px!important;
+    padding-right:18px!important;
+  }
+  .section:not(.dark)::before{opacity:.34!important}
+  .section:not(.dark)::after{opacity:.25!important}
+}
+
+@media(min-width:1600px){
+  main > .section{
+    padding-left:max(40px,calc((100vw - 1320px) / 2))!important;
+    padding-right:max(40px,calc((100vw - 1320px) / 2))!important;
+  }
+}
