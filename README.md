@@ -1,8 +1,9 @@
-# The Boy Bias Portfolio V6.5
+# The Boy Bias Portfolio V6.6
 
-Focused hero and background update:
-- Lost Little Boy hero GIF was physically cropped and reframed so the title is removed
-- Dungeon Diver hero now uses a newly cropped image with the title area removed
-- Removed the previous background gradient washes
-- Replaced them with very subtle fading geometric line shapes and low-contrast pattern accents
-- Retained all previous navigation, category and layout fixes
+Background refinement:
+- Restored the alternating flat black and charcoal section colors
+- Removed the flat-color loss introduced in V6.5
+- Added stronger but still restrained geometric textures per section
+- Textures fade independently through masks rather than using color gradients
+- Light and dark sections now use different geometric motifs for clearer section identity
+- Existing hero crops and all V6.5 functionality remain unchanged
