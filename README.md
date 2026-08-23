@@ -1,10 +1,11 @@
-# The Boy Bias Portfolio V6.10
+# The Boy Bias Portfolio V6.11
 
-Responsive section polish:
-- Content sections are now truly full-width, so white separators scale across the entire viewport at every resolution
-- Internal content alignment is preserved through responsive viewport padding
-- Charcoal sections now have clearly visible texture treatment
-- Added stronger faded grid, dot, vertical technical line and diagonal micro-weave variants for charcoal sections
-- Texture masks fade only the texture, never the flat section color
-- Patterns tile indefinitely and continue to scale cleanly on mobile, Full HD, 2K and ultrawide displays
-- Existing dark-section texture variants remain intact
+Targeted correction based on V6.9.
+
+- Restored V6.9 as the visual base
+- Preserved the successful black-section textures from V6.9 unchanged
+- Preserved the current full-width white section separators
+- Added one dedicated visible texture layer only to gray/charcoal sections
+- Disabled the second gray texture layer to prevent overlapping patterns
+- Gray texture uses a dot-grid plus coarse technical grid with a soft fade
+- Flat background colors remain unchanged
