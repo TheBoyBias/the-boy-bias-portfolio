@@ -1,0 +1,5 @@
+Optional cleanup only:
+assets/images/pokemon1.webp
+assets/images/pergament.webp
+
+The website no longer references either file.
