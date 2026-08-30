@@ -1,0 +1,3505 @@
+
+:root{
+  --bg:#090909;
+  --panel:#111111;
+  --panel-2:#151515;
+  --text:#f4f4f1;
+  --muted:#b1b1aa;
+  --subtle:#85857f;
+  --line:#30302d;
+  --line-strong:#4b4b46;
+  --accent:#c8ff79;
+  --max:1600px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+a{color:inherit}
+img,video{display:block}
+header{
+  height:82px;
+  padding:0 max(28px,5vw);
+  position:fixed;
+  z-index:50;
+  top:0;left:0;right:0;
+  display:flex;
+  align-items:center;
+  border-bottom:1px solid rgba(255,255,255,.12);
+  background:rgba(9,9,9,.88);
+  backdrop-filter:blur(18px);
+}
+.brand{
+  display:flex;gap:12px;align-items:center;text-decoration:none;
+  font-size:12px;font-weight:800;letter-spacing:.14em;
+}
+.brand b{
+  border:1px solid #8d8d86;
+  padding:8px;
+  font:600 11px monospace;
+}
+nav{margin:auto;display:flex;gap:34px}
+nav a,.status{
+  font:600 11px monospace;
+  text-transform:uppercase;
+  letter-spacing:.11em;
+  text-decoration:none;
+  color:#c2c2bc;
+  transition:.2s ease;
+}
+nav a:hover,.status:hover{color:#fff}
+.status i{
+  display:inline-block;width:8px;height:8px;background:var(--accent);
+  border-radius:50%;margin-right:8px;box-shadow:0 0 14px rgba(200,255,121,.8)
+}
+.hero{
+  height:100vh;min-height:760px;position:relative;
+  display:flex;align-items:flex-end;
+  padding:0 max(28px,7vw) 9vh;
+  overflow:hidden;
+}
+.hero-media,.hero-shade{position:absolute;inset:0}
+.hero-media img{width:100%;height:100%;object-fit:cover;filter:saturate(.92) contrast(1.05)}
+.hero-shade{
+  background:
+    linear-gradient(90deg,rgba(5,5,5,.96) 0%,rgba(5,5,5,.80) 35%,rgba(5,5,5,.20) 75%),
+    linear-gradient(0deg,rgba(8,8,8,.88) 0%,rgba(8,8,8,.10) 58%);
+}
+.hero-copy{z-index:2;max-width:1100px}
+.kicker{
+  font:700 12px monospace;
+  letter-spacing:.18em;
+  color:#c1c1ba;
+  text-transform:uppercase;
+  margin-bottom:18px;
+}
+.hero h1,.project-title h1{
+  font-size:clamp(54px,7.2vw,112px);
+  line-height:.86;
+  letter-spacing:-.07em;
+  margin:18px 0 24px;
+  font-weight:800;
+}
+.hero h1 span,h2 span,.project-title h1 span{color:#a6a69f}
+.lead{
+  max-width:680px;
+  color:#d0d0ca;
+  font-size:17px;
+  line-height:1.75;
+}
+.actions{display:flex;gap:10px;margin-top:34px;flex-wrap:wrap}
+.btn{
+  display:inline-block;
+  border:1px solid var(--line-strong);
+  padding:15px 19px;
+  text-decoration:none;
+  text-transform:uppercase;
+  font:700 11px monospace;
+  letter-spacing:.11em;
+  transition:.2s ease;
+}
+.btn:hover{border-color:#777;transform:translateY(-2px)}
+.btn.light{background:#f2f2ee;color:#0c0c0c;border-color:#f2f2ee}
+.btn.light:hover{background:#fff;border-color:#fff}
+.hero-project{
+  z-index:3;position:absolute;right:max(28px,5vw);bottom:5vh;
+  width:min(360px,30vw);
+  border-top:1px solid rgba(255,255,255,.42);
+  padding-top:14px;text-decoration:none;display:grid;gap:6px
+}
+.hero-project small{font:700 10px monospace;color:#c3c3bd;letter-spacing:.07em}
+.hero-project strong{font-size:18px}
+.hero-project span{font:600 10px monospace;color:#b3b3ac}
+.ticker{overflow:hidden;border-block:1px solid var(--line);white-space:nowrap;background:#0d0d0d}
+.ticker div{
+  padding:17px 0;
+  font:700 11px monospace;
+  color:#9d9d96;
+  letter-spacing:.16em;
+  animation:move 25s linear infinite
+}
+@keyframes move{to{transform:translateX(-35%)}}
+
+.section{
+  width:min(100%,var(--max));
+  margin:0 auto;
+  padding:clamp(92px,9vw,150px) max(28px,8vw);
+}
+.dark{
+  background:var(--panel);
+  width:100%;
+  max-width:none;
+  padding-left:max(28px,8vw);
+  padding-right:max(28px,8vw);
+}
+.dark>*{max-width:calc(var(--max) - 16vw);margin-left:auto;margin-right:auto}
+
+.head{
+  display:flex;justify-content:space-between;gap:60px;align-items:end;
+  margin-bottom:64px
+}
+.head h2,.feature h2,.contact h2,.next h2{
+  font-size:clamp(48px,5.6vw,82px);
+  letter-spacing:-.065em;
+  line-height:.9;
+  margin:0;
+  font-weight:800;
+}
+.head>p{
+  max-width:470px;
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.8;
+}
+.filters{
+  display:flex;gap:8px;flex-wrap:wrap;
+  margin-bottom:28px
+}
+.filters button,.switch button{
+  border:1px solid #3d3d39;
+  background:#101010;
+  color:#b1b1aa;
+  padding:12px 15px;
+  font:700 11px monospace;
+  text-transform:uppercase;
+  letter-spacing:.07em;
+  cursor:pointer;
+  transition:.2s ease;
+}
+.filters button:hover,.switch button:hover{border-color:#777;color:#fff}
+.filters button.active,.switch button.active{
+  background:#f0f0ec;color:#111;border-color:#f0f0ec
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px
+}
+.card{
+  border:1px solid var(--line);
+  text-decoration:none;
+  background:var(--panel);
+  transition:.28s ease;
+  overflow:hidden
+}
+.card:hover{transform:translateY(-5px);border-color:#666}
+.card figure{
+  height:440px;margin:0;position:relative;
+  overflow:hidden;background:#181818
+}
+.card.wide{grid-column:span 2}
+.card.wide figure{height:620px}
+.card img,.card video{
+  width:100%;height:100%;object-fit:cover;
+  transition:.6s ease
+}
+.card:hover img{transform:scale(1.015)}
+.card label{
+  position:absolute;left:16px;top:16px;
+  background:rgba(5,5,5,.90);
+  padding:9px 11px;
+  font:700 10px monospace;
+  letter-spacing:.1em;
+  color:#e4e4df;
+  border:1px solid rgba(255,255,255,.08)
+}
+.card>div{display:flex;justify-content:space-between;align-items:center;padding:20px}
+.card b{display:block;font-size:21px;letter-spacing:-.02em}
+.card small{
+  display:block;color:#a0a099;
+  font:700 10px monospace;
+  text-transform:uppercase;
+  margin-top:7px
+}
+.card em{font-style:normal;color:#aaa;font-size:18px}
+
+.discipline{
+  display:grid;grid-template-columns:1fr 1fr;
+  border-left:1px solid var(--line);border-top:1px solid var(--line);
+  margin-top:58px
+}
+.discipline a{
+  min-height:330px;
+  border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  padding:28px;text-decoration:none;position:relative;
+  transition:.25s ease
+}
+.discipline a:hover{background:#171717}
+.discipline i{font:700 10px monospace;color:#979790}
+.discipline b{
+  display:block;
+  font-size:clamp(42px,4vw,62px);
+  line-height:1;
+  letter-spacing:-.055em;
+  margin-top:86px
+}
+.discipline p{
+  color:#aaa;
+  font-size:14px;
+  max-width:480px;
+  line-height:1.7
+}
+.discipline em{position:absolute;right:28px;bottom:28px;font-style:normal;color:#aaa;font-size:20px}
+
+.feature{
+  display:grid;grid-template-columns:.72fr 1.28fr;
+  gap:7vw;align-items:center
+}
+.feature>div>p:not(.kicker){
+  color:var(--muted);
+  line-height:1.8;
+  font-size:15px
+}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin:28px 0}
+.tags i{
+  font:700 10px monospace;
+  font-style:normal;
+  color:#b2b2ac;
+  border:1px solid #3a3a37;
+  padding:8px 10px
+}
+.feature-img{
+  aspect-ratio:16/10;
+  position:relative;
+  overflow:hidden;border:1px solid var(--line-strong)
+}
+.feature-img img{width:100%;height:100%;object-fit:cover}
+.feature-img span{
+  position:absolute;right:16px;bottom:16px;
+  background:rgba(5,5,5,.9);
+  padding:10px 12px;
+  font:700 10px monospace;
+  letter-spacing:.06em
+}
+.about{
+  display:grid;grid-template-columns:1fr 1fr;gap:10vw
+}
+.about .big,.project-meta .big{
+  font-size:clamp(28px,3vw,46px);
+  line-height:1.17;
+  letter-spacing:-.045em;
+  margin:0
+}
+.about>div>p{
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.85
+}
+.textlink{font:700 11px monospace;text-transform:uppercase;color:#e8e8e3}
+.contact{text-align:center}
+.contact .muted,.next>p{color:var(--muted);font-size:15px}
+.contact h2{margin:18px 0 28px}
+
+footer{
+  border-top:1px solid var(--line);
+  padding:22px max(28px,5vw);
+  display:flex;justify-content:space-between;
+  color:#8d8d86;font:700 10px monospace;
+  letter-spacing:.05em
+}
+
+/* Project page */
+.project-hero{height:94vh;min-height:720px;position:relative}
+.project-hero>img{width:100%;height:100%;object-fit:cover}
+.project-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(0deg,rgba(7,7,7,.94),rgba(7,7,7,.08) 68%)
+}
+.project-title{position:absolute;left:max(28px,7vw);bottom:7vh;max-width:1100px}
+.project-title p:last-child{color:#d2d2cc;font-size:16px}
+.project-meta{
+  display:grid;grid-template-columns:1.15fr .85fr;gap:10vw
+}
+.meta-list p{
+  display:grid;grid-template-columns:145px 1fr;
+  border-top:1px solid var(--line);
+  padding:16px 0;margin:0;
+  font-size:14px;color:#d4d4ce
+}
+.meta-list span{font:700 10px monospace;color:#979790;letter-spacing:.06em}
+.video-section video{
+  width:100%;max-height:82vh;background:#000;
+  border:1px solid var(--line)
+}
+.daynight{position:relative}
+.daynight img{
+  width:100%;display:block;
+  aspect-ratio:16/9;object-fit:cover;
+  border:1px solid var(--line);
+  transition:opacity .2s ease
+}
+.switch{
+  position:absolute;z-index:2;top:18px;left:18px;
+  background:rgba(5,5,5,.90);padding:6px
+}
+.turnaround{
+  display:grid;grid-template-columns:1.45fr .55fr;
+  gap:5vw;align-items:center;margin-top:90px
+}
+.turnaround video{
+  width:100%;background:#080808;border:1px solid var(--line)
+}
+.turnaround h3{
+  font-size:clamp(34px,3.6vw,54px);
+  line-height:1;
+  letter-spacing:-.05em;
+  margin:12px 0 20px
+}
+.turnaround p:last-child{color:var(--muted);font-size:14px}
+.asset-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:18px
+}
+.asset-grid article{
+  border:1px solid var(--line);
+  background:var(--panel);
+  transition:.25s ease
+}
+.asset-grid article:hover{border-color:#62625d;transform:translateY(-3px)}
+.asset-grid video{
+  width:100%;aspect-ratio:1/1;object-fit:cover;background:#050505
+}
+.asset-grid h3{
+  margin:16px 16px 4px;
+  font-size:22px;
+  letter-spacing:-.02em
+}
+.asset-grid p{
+  margin:0 16px 16px;
+  font:700 10px monospace;color:#9c9c95;text-transform:uppercase
+}
+.gallery{
+  display:grid;grid-template-columns:1fr 1fr;gap:14px
+}
+.gallery img{
+  width:100%;height:100%;min-height:360px;object-fit:cover;
+  border:1px solid var(--line)
+}
+.gallery img:first-child{grid-column:span 2}
+.next{text-align:center}
+.next p{
+  max-width:680px;margin:22px auto 36px;
+  line-height:1.85
+}
+
+@media(max-width:1000px){
+  nav,.status{display:none}
+  .hero{padding:0 26px 8vh}
+  .hero-project{display:none}
+  .section{padding:90px 26px}
+  .dark{padding-left:26px;padding-right:26px}
+  .dark>*{max-width:none}
+  .head,.feature,.about,.project-meta,.turnaround{display:block}
+  .head>p{margin-top:28px}
+  .grid,.discipline,.asset-grid,.gallery{grid-template-columns:1fr}
+  .card.wide,.gallery img:first-child{grid-column:span 1}
+  .card figure,.card.wide figure{height:390px}
+  .feature-img{display:block;margin-top:48px}
+  .about>div{margin-top:34px}
+  .project-title{left:26px;right:26px}
+  .turnaround>div{margin-top:30px}
+  .asset-grid article{margin-bottom:8px}
+}
+@media(max-width:620px){
+  header{height:72px;padding:0 18px}
+  .brand{font-size:11px}
+  .hero{min-height:690px;padding-left:18px;padding-right:18px}
+  .hero h1,.project-title h1{font-size:clamp(48px,15vw,72px)}
+  .lead{font-size:15px}
+  .section{padding:76px 18px}
+  .dark{padding-left:18px;padding-right:18px}
+  .head h2,.feature h2,.contact h2,.next h2{font-size:clamp(44px,13vw,64px)}
+  .card figure,.card.wide figure{height:320px}
+  .discipline a{min-height:285px;padding:22px}
+  .discipline b{margin-top:68px}
+  .project-title{left:18px;right:18px}
+  .project-hero{min-height:650px}
+  .meta-list p{grid-template-columns:110px 1fr}
+  footer{flex-direction:column;gap:8px;padding:20px 18px}
+}
+
+
+/* V2.3 header and contact refinement */
+header{
+  height:72px;
+  padding:0 max(24px,4vw);
+  gap:34px;
+}
+.brand{
+  flex:0 0 auto;
+  font-size:12px;
+}
+.brand b{
+  padding:7px;
+  font-size:10px;
+}
+nav{
+  margin-left:auto;
+  margin-right:0;
+  gap:10px;
+  align-items:center;
+}
+nav a{
+  font-size:13px;
+  letter-spacing:.06em;
+  padding:12px 13px;
+  border-radius:2px;
+}
+nav a:hover{
+  background:#161616;
+}
+.header-actions{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-left:8px;
+}
+.status{
+  font-size:11px;
+  padding:10px 0;
+  white-space:nowrap;
+}
+.header-contact{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:42px;
+  padding:0 16px;
+  border:1px solid #d9d9d4;
+  background:#ededE8;
+  color:#0d0d0d;
+  text-decoration:none;
+  text-transform:uppercase;
+  font:700 11px monospace;
+  letter-spacing:.08em;
+  transition:.2s ease;
+}
+.header-contact:hover{
+  background:#fff;
+  border-color:#fff;
+  transform:translateY(-1px);
+}
+.project-contact{
+  text-align:center;
+  border-top:1px solid var(--line);
+}
+.project-contact h2{
+  font-size:clamp(40px,4.8vw,72px);
+  line-height:.95;
+  letter-spacing:-.05em;
+  margin:14px 0 18px;
+}
+.project-contact>p:not(.kicker){
+  max-width:620px;
+  margin:0 auto;
+  color:var(--muted);
+  font-size:15px;
+}
+.project-contact .actions{
+  justify-content:center;
+}
+
+@media(max-width:1100px){
+  header{
+    height:68px;
+    gap:18px;
+  }
+  nav{
+    gap:2px;
+  }
+  nav a{
+    font-size:12px;
+    padding:10px 9px;
+  }
+  .status{
+    display:none;
+  }
+}
+@media(max-width:820px){
+  header{
+    justify-content:space-between;
+  }
+  nav{
+    display:none;
+  }
+  .header-actions{
+    margin-left:auto;
+  }
+  .header-contact{
+    min-height:40px;
+    padding:0 13px;
+    font-size:10px;
+  }
+}
+
+
+/* V3.1 case study layout polish */
+body{
+  overflow-x:hidden;
+}
+main, section, div, figure, article{
+  min-width:0;
+}
+img, video{
+  max-width:100%;
+}
+.v3-case .section{
+  overflow:hidden;
+}
+
+/* Homepage hero image composition */
+.hero-media img{
+  object-position:center center;
+}
+.hero-shade{
+  background:
+    linear-gradient(90deg,rgba(5,5,5,.93) 0%,rgba(5,5,5,.72) 36%,rgba(5,5,5,.16) 72%),
+    linear-gradient(0deg,rgba(7,7,7,.88) 0%,rgba(7,7,7,.06) 62%);
+}
+
+/* Project hero */
+.v3-hero{
+  height:min(900px,92vh);
+  min-height:680px;
+  overflow:hidden;
+}
+.v3-hero>img{
+  object-position:center center;
+  filter:saturate(.92) contrast(1.07);
+}
+.v3-hero .project-overlay{
+  background:
+    linear-gradient(90deg,rgba(4,4,4,.84) 0%,rgba(4,4,4,.47) 42%,rgba(4,4,4,.08) 74%),
+    linear-gradient(0deg,rgba(5,5,5,.96) 0%,rgba(5,5,5,.60) 35%,rgba(5,5,5,.06) 72%);
+}
+.v3-hero .project-title{
+  max-width:920px;
+}
+.v3-hero .project-title h1{
+  text-shadow:0 2px 18px rgba(0,0,0,.45);
+}
+.v3-hero .project-title>p:not(.kicker){
+  max-width:650px;
+  color:#ecece7;
+  font-size:17px;
+  line-height:1.65;
+}
+.hero-facts{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:24px;
+}
+.hero-facts span{
+  padding:8px 10px;
+  border:1px solid rgba(255,255,255,.32);
+  background:rgba(5,5,5,.42);
+  backdrop-filter:blur(8px);
+  font:700 10px monospace;
+  letter-spacing:.08em;
+}
+
+/* Intro and contribution */
+.case-intro{
+  display:grid;
+  grid-template-columns:minmax(0,1.2fr) minmax(340px,.8fr);
+  gap:clamp(48px,8vw,120px);
+  align-items:start;
+}
+.case-statement h2{
+  margin:0 0 28px;
+  font-size:clamp(46px,5.4vw,78px);
+  line-height:.94;
+  letter-spacing:-.06em;
+}
+.case-statement>p:last-child{
+  max-width:720px;
+  color:var(--muted);
+  font-size:16px;
+  line-height:1.85;
+}
+.contribution{
+  width:100%;
+}
+
+/* Day and night comparison */
+.split-showcase{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+  width:100%;
+}
+.split-showcase figure{
+  margin:0;
+  position:relative;
+  overflow:hidden;
+  border:1px solid var(--line);
+  background:#080808;
+}
+.split-showcase img{
+  width:100%;
+  height:auto;
+  aspect-ratio:16/10;
+  object-fit:cover;
+}
+.split-showcase figcaption{
+  position:absolute;
+  left:14px;
+  bottom:14px;
+  padding:8px 10px;
+  background:rgba(5,5,5,.84);
+  border:1px solid rgba(255,255,255,.12);
+  font:700 10px monospace;
+  letter-spacing:.09em;
+  color:#ededE8;
+}
+
+/* Environment overview */
+.environment-feature{
+  width:100%;
+  max-width:1400px;
+  margin:0 auto;
+  position:relative;
+  overflow:hidden;
+  border:1px solid var(--line);
+  background:#080808;
+}
+.environment-feature>img{
+  width:100%;
+  height:auto;
+  aspect-ratio:16/9;
+  object-fit:cover;
+}
+.environment-notes{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+}
+.environment-notes .note{
+  position:absolute;
+  padding:7px 9px;
+  background:rgba(7,7,7,.82);
+  border:1px solid rgba(255,255,255,.22);
+  color:#f1f1ec;
+  font:700 9px monospace;
+  letter-spacing:.07em;
+  white-space:nowrap;
+}
+.environment-notes .n1{left:17%;top:45%}
+.environment-notes .n2{left:56%;top:34%}
+.environment-notes .n3{right:7%;top:23%}
+.environment-notes .n4{left:37%;bottom:13%}
+
+/* Sketches */
+.sketch-grid{
+  display:grid;
+  grid-template-columns:1.35fr .825fr .825fr;
+  gap:14px;
+  width:100%;
+  align-items:stretch;
+}
+.sketch-grid figure{
+  margin:0;
+  min-width:0;
+  overflow:hidden;
+  border:1px solid var(--line);
+  background:#0b0b0b;
+}
+.sketch-grid img{
+  width:100%;
+  height:100%;
+  min-height:330px;
+  max-height:600px;
+  object-fit:contain;
+  padding:18px;
+}
+
+/* Paranormal comparison */
+.paranormal-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+  width:100%;
+}
+.paranormal-grid article{
+  overflow:hidden;
+  border:1px solid var(--line);
+  background:#0c0c0c;
+}
+.paranormal-grid video{
+  width:100%;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  background:#030303;
+}
+.paranormal-grid article>div{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  padding:15px 17px;
+}
+.paranormal-grid b{
+  font:700 11px monospace;
+  letter-spacing:.08em;
+}
+.paranormal-grid span{
+  color:var(--muted);
+  font-size:13px;
+}
+.horror-shot{
+  display:grid;
+  grid-template-columns:minmax(0,1.35fr) minmax(260px,.65fr);
+  align-items:center;
+  gap:clamp(32px,6vw,90px);
+  margin-top:clamp(60px,8vw,110px);
+}
+.horror-shot img{
+  width:100%;
+  height:auto;
+  max-height:700px;
+  object-fit:cover;
+  border:1px solid var(--line);
+}
+.horror-shot h3,
+.character-feature h3,
+.note-feature h3{
+  margin:12px 0 18px;
+  font-size:clamp(34px,3.5vw,55px);
+  line-height:1;
+  letter-spacing:-.05em;
+}
+
+/* Character and note feature */
+.character-feature,
+.note-feature{
+  display:grid;
+  grid-template-columns:minmax(280px,.72fr) minmax(0,1.28fr);
+  align-items:center;
+  gap:clamp(36px,7vw,110px);
+  margin-top:clamp(70px,9vw,130px);
+}
+.character-feature img{
+  width:100%;
+  max-height:680px;
+  object-fit:contain;
+  background:#0a0a0a;
+  border:1px solid var(--line);
+}
+.character-feature>div>p:last-child,
+.note-feature>div>p:last-child{
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.8;
+}
+.note-feature{
+  grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);
+}
+.note-feature img{
+  width:100%;
+  height:auto;
+  max-height:720px;
+  object-fit:contain;
+  border:1px solid var(--line);
+  background:#101010;
+}
+
+/* Final gallery */
+.v3-gallery{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+  width:100%;
+}
+.v3-gallery img{
+  width:100%;
+  height:420px;
+  object-fit:cover;
+  border:1px solid var(--line);
+}
+.v3-gallery .g-wide{
+  grid-column:1 / -1;
+  height:auto;
+  aspect-ratio:16/8;
+}
+
+/* Keep all full-width dark section content centered safely */
+.v3-case .dark>*{
+  width:100%;
+  box-sizing:border-box;
+}
+
+@media(max-width:1050px){
+  .case-intro{
+    grid-template-columns:1fr;
+  }
+  .sketch-grid{
+    grid-template-columns:1fr 1fr;
+  }
+  .sketch-grid figure:first-child{
+    grid-column:1 / -1;
+  }
+  .horror-shot,
+  .character-feature,
+  .note-feature{
+    grid-template-columns:1fr;
+  }
+  .character-feature img{
+    max-height:560px;
+  }
+  .note-feature img{
+    order:-1;
+  }
+}
+@media(max-width:760px){
+  .v3-hero{
+    min-height:620px;
+    height:82vh;
+  }
+  .v3-hero>img{
+    object-position:58% center;
+  }
+  .split-showcase,
+  .paranormal-grid,
+  .sketch-grid,
+  .v3-gallery{
+    grid-template-columns:1fr;
+  }
+  .sketch-grid figure:first-child,
+  .v3-gallery .g-wide{
+    grid-column:auto;
+  }
+  .split-showcase img{
+    aspect-ratio:16/11;
+  }
+  .environment-feature>img{
+    aspect-ratio:4/3;
+  }
+  .environment-notes .note{
+    font-size:8px;
+    padding:5px 6px;
+  }
+  .sketch-grid img{
+    min-height:240px;
+    max-height:480px;
+  }
+  .v3-gallery img,
+  .v3-gallery .g-wide{
+    height:auto;
+    aspect-ratio:4/3;
+  }
+}
+@media(max-width:520px){
+  .environment-notes{
+    display:none;
+  }
+  .v3-hero .project-title>p:not(.kicker){
+    font-size:15px;
+  }
+}
+
+
+/* V3.2 image interaction and hero composition */
+.zoomable{
+  cursor:zoom-in;
+}
+.lightbox{
+  position:fixed;
+  inset:0;
+  z-index:1000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:32px;
+  background:rgba(0,0,0,.94);
+  backdrop-filter:blur(10px);
+}
+.lightbox.open{
+  display:flex;
+}
+.lightbox img{
+  max-width:min(94vw,1800px);
+  max-height:90vh;
+  width:auto;
+  height:auto;
+  object-fit:contain;
+  box-shadow:0 20px 70px rgba(0,0,0,.55);
+}
+.lightbox-close{
+  position:absolute;
+  top:20px;
+  right:24px;
+  width:46px;
+  height:46px;
+  border:1px solid rgba(255,255,255,.28);
+  background:rgba(10,10,10,.75);
+  color:#fff;
+  font-size:28px;
+  line-height:1;
+  cursor:pointer;
+}
+
+/* Homepage hero: preserve full composition and extend the left fade further right */
+.hero-media img{
+  object-position:center 52%;
+}
+.hero-shade{
+  background:
+    linear-gradient(90deg,
+      rgba(5,5,5,.98) 0%,
+      rgba(5,5,5,.93) 22%,
+      rgba(5,5,5,.80) 40%,
+      rgba(5,5,5,.58) 56%,
+      rgba(5,5,5,.22) 72%,
+      rgba(5,5,5,.05) 100%),
+    linear-gradient(0deg,rgba(7,7,7,.88) 0%,rgba(7,7,7,.05) 66%);
+}
+
+/* Bedtime hero: show less ceiling and more of the room */
+.v3-hero>img{
+  object-position:center 68%;
+}
+.v3-hero .project-overlay{
+  background:
+    linear-gradient(90deg,rgba(4,4,4,.90) 0%,rgba(4,4,4,.60) 38%,rgba(4,4,4,.14) 73%),
+    linear-gradient(0deg,rgba(5,5,5,.96) 0%,rgba(5,5,5,.62) 33%,rgba(5,5,5,.08) 68%);
+}
+
+/* Sketches reduced to two clean panels */
+.two-sketches{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+}
+.two-sketches figure:first-child{
+  grid-column:auto;
+}
+.two-sketches img{
+  min-height:390px;
+  max-height:620px;
+}
+
+/* UI note gets more visual priority */
+.note-feature{
+  grid-template-columns:minmax(0,1.45fr) minmax(280px,.55fr);
+}
+.ui-note-image{
+  max-height:none !important;
+  width:100%;
+  object-fit:contain;
+}
+
+@media(max-width:1050px){
+  .note-feature{
+    grid-template-columns:1fr;
+  }
+  .two-sketches{
+    grid-template-columns:1fr;
+  }
+}
+@media(max-width:760px){
+  .v3-hero>img{
+    object-position:58% 72%;
+  }
+  .hero-media img{
+    object-position:58% center;
+  }
+  .lightbox{
+    padding:16px;
+  }
+  .lightbox-close{
+    top:12px;
+    right:12px;
+  }
+}
+
+
+/* V3.3 targeted fixes */
+
+/* Restore interactive Day and Night showcase */
+.daynight-v3{
+  position:relative;
+  width:100%;
+  overflow:hidden;
+  border:1px solid var(--line);
+  background:#080808;
+}
+.daynight-v3>img{
+  width:100%;
+  height:auto;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  transition:opacity .22s ease;
+}
+.daynight-controls{
+  position:absolute;
+  z-index:3;
+  left:18px;
+  top:18px;
+  display:flex;
+  gap:6px;
+  padding:6px;
+  background:rgba(5,5,5,.86);
+  backdrop-filter:blur(8px);
+}
+.daynight-controls button{
+  min-height:40px;
+  padding:0 14px;
+  border:1px solid #484844;
+  background:#111;
+  color:#bcbcb5;
+  font:700 10px monospace;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  cursor:pointer;
+}
+.daynight-controls button.active{
+  background:#f1f1ed;
+  color:#111;
+  border-color:#f1f1ed;
+}
+.daynight-caption{
+  position:absolute;
+  z-index:2;
+  left:18px;
+  bottom:18px;
+  display:flex;
+  align-items:baseline;
+  gap:14px;
+  padding:10px 12px;
+  background:rgba(5,5,5,.78);
+  border:1px solid rgba(255,255,255,.10);
+}
+.daynight-caption b{
+  font:700 11px monospace;
+  letter-spacing:.08em;
+}
+.daynight-caption span{
+  color:#c0c0ba;
+  font-size:12px;
+}
+
+/* Bedtime hero framing: focus visibly lower into the room */
+.v3-hero>img{
+  object-position:center 82% !important;
+}
+.v3-hero .project-overlay{
+  background:
+    linear-gradient(90deg,rgba(4,4,4,.90) 0%,rgba(4,4,4,.58) 38%,rgba(4,4,4,.12) 74%),
+    linear-gradient(0deg,rgba(5,5,5,.95) 0%,rgba(5,5,5,.50) 30%,rgba(5,5,5,.03) 66%) !important;
+}
+
+/* Lightbox close button always stays clickable and visible */
+.lightbox{
+  pointer-events:none;
+}
+.lightbox.open{
+  pointer-events:auto;
+}
+.lightbox-close{
+  z-index:1002;
+  pointer-events:auto;
+}
+.lightbox img{
+  pointer-events:auto;
+}
+
+@media(max-width:760px){
+  .v3-hero>img{
+    object-position:58% 86% !important;
+  }
+  .daynight-caption{
+    right:18px;
+    flex-wrap:wrap;
+    gap:4px 10px;
+  }
+}
+
+
+/* V4 Games system */
+.games-hero{
+  min-height:72vh;position:relative;display:flex;align-items:flex-end;overflow:hidden;
+  border-bottom:1px solid var(--line);background:#080808
+}
+.games-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.games-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,5,5,.94),rgba(5,5,5,.55) 46%,rgba(5,5,5,.12)),linear-gradient(0deg,rgba(5,5,5,.96),transparent 65%)}
+.games-hero-copy{position:relative;z-index:2;width:min(1200px,calc(100% - 64px));margin:0 auto;padding:110px 0 70px}
+.games-hero h1{font-size:clamp(58px,9vw,128px);line-height:.82;letter-spacing:-.075em;margin:12px 0 28px}
+.games-hero h1 span,.game-copy h2 span{color:var(--accent)}
+.games-hero p:not(.kicker){max-width:670px;font-size:17px;line-height:1.7;color:#ddd}
+.game-facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:25px}
+.game-facts i{font:700 10px monospace;font-style:normal;letter-spacing:.08em;border:1px solid rgba(255,255,255,.25);padding:8px 10px;background:rgba(5,5,5,.55)}
+.game-copy{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(300px,.9fr);gap:clamp(40px,8vw,110px);align-items:start}
+.game-copy h2{font-size:clamp(42px,5.5vw,76px);line-height:.94;letter-spacing:-.055em;margin:10px 0 0}
+.game-copy .prose{color:var(--muted);font-size:16px;line-height:1.85}
+.game-copy .prose strong{color:#eee}
+.game-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.game-gallery img{width:100%;height:430px;object-fit:cover;border:1px solid var(--line);cursor:zoom-in}
+.game-gallery .wide{grid-column:1/-1;height:auto;aspect-ratio:16/8}
+.game-feature{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);gap:clamp(35px,7vw,100px);align-items:center}
+.game-feature.reverse{grid-template-columns:minmax(280px,.65fr) minmax(0,1.35fr)}
+.game-feature img,.game-feature video{width:100%;max-height:720px;object-fit:contain;background:#080808;border:1px solid var(--line)}
+.game-feature h3{font-size:clamp(34px,4vw,58px);line-height:1;letter-spacing:-.05em;margin:10px 0 18px}
+.game-feature p{color:var(--muted);line-height:1.8}
+.process-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.process-pair img{width:100%;height:430px;object-fit:cover;border:1px solid var(--line)}
+.pixel-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.pixel-strip figure{margin:0;border:1px solid var(--line);background:#101010;padding:14px;display:flex;align-items:center;justify-content:center;min-height:190px}
+.pixel-strip img{max-width:100%;max-height:170px;image-rendering:pixelated}
+.hub-map{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:25px}
+.hub-map div{border:1px solid var(--line);padding:18px;background:#0d0d0d}
+.hub-map b{display:block;font-size:14px;margin-bottom:5px}.hub-map span{font:10px monospace;color:var(--muted)}
+.ui-state-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.ui-state-row figure{margin:0;padding:24px;border:1px solid var(--line);background:#0b0b0b;text-align:center}
+.ui-state-row img{height:150px;width:100%;object-fit:contain}
+.ui-state-row figcaption{font:700 10px monospace;letter-spacing:.08em;margin-top:12px;color:var(--muted)}
+.game-cta{display:flex;justify-content:space-between;align-items:center;gap:30px;border-top:1px solid var(--line);padding-top:35px}
+.game-cta h3{font-size:clamp(32px,4vw,56px);margin:0;letter-spacing:-.05em}
+.games-index{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.games-index a{position:relative;min-height:430px;overflow:hidden;border:1px solid var(--line);color:#fff;text-decoration:none}
+.games-index img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
+.games-index a:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(5,5,5,.94),rgba(5,5,5,.05) 65%)}
+.games-index a:hover img{transform:scale(1.025)}
+.games-index div{position:absolute;z-index:2;left:24px;right:24px;bottom:22px}
+.games-index b{display:block;font-size:28px;letter-spacing:-.035em}.games-index small{color:#bbb}
+@media(max-width:900px){
+ .game-copy,.game-feature,.game-feature.reverse{grid-template-columns:1fr}
+ .games-index{grid-template-columns:1fr}
+ .hub-map{grid-template-columns:repeat(2,1fr)}
+ .pixel-strip{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:650px){
+ .games-hero-copy{width:calc(100% - 34px)}
+ .game-gallery,.process-pair,.ui-state-row{grid-template-columns:1fr}
+ .game-gallery .wide{grid-column:auto;aspect-ratio:4/3}
+ .game-gallery img,.process-pair img{height:auto;aspect-ratio:4/3}
+ .hub-map{grid-template-columns:1fr 1fr}
+ .pixel-strip{grid-template-columns:1fr 1fr}
+ .game-cta{align-items:flex-start;flex-direction:column}
+}
+
+
+/* V4.2 contact icons and Work grid refinement */
+.contact-links{
+  width:min(100%,980px);
+  margin:42px auto 0;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+}
+.contact-item{
+  min-width:0;
+  min-height:78px;
+  padding:14px 16px;
+  display:grid;
+  grid-template-columns:42px minmax(0,1fr) auto;
+  align-items:center;
+  gap:14px;
+  border:1px solid var(--line);
+  background:#0d0d0d;
+  text-align:left;
+  text-decoration:none;
+  transition:border-color .2s ease,background .2s ease,transform .2s ease;
+}
+.contact-item:hover{
+  border-color:#5f5f59;
+  background:#131313;
+  transform:translateY(-2px);
+}
+.contact-icon{
+  width:36px;
+  height:36px;
+  display:grid;
+  place-items:center;
+}
+.contact-icon svg{
+  width:30px;
+  height:30px;
+  display:block;
+}
+.contact-copy{
+  min-width:0;
+}
+.contact-copy small{
+  display:block;
+  color:#8f8f89;
+  font:700 9px monospace;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-bottom:4px;
+}
+.contact-copy b{
+  display:block;
+  color:#efefeb;
+  font-size:13px;
+  overflow-wrap:anywhere;
+}
+.contact-item em{
+  font-style:normal;
+  color:#aaa;
+  font-size:17px;
+}
+
+/* Make Work behave like a visible browse grid rather than one oversized hero */
+#work .grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
+}
+#work .card,
+#work .card:first-child,
+#work .card:nth-child(2),
+#work .card.wide{
+  grid-column:span 1;
+  min-height:0;
+}
+#work .card figure,
+#work .card.wide figure,
+#work .card:first-child figure{
+  height:auto;
+  min-height:0;
+  aspect-ratio:16/10;
+}
+#work .card figure img,
+#work .card figure video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+#work .card>div{
+  min-height:76px;
+  padding:16px;
+}
+#work .card b{
+  font-size:18px;
+}
+#work .card small{
+  line-height:1.5;
+}
+
+/* Teddy remains fully visible and centered */
+#work .teddy-card figure{
+  background:#080808;
+}
+#work .teddy-card video{
+  object-fit:contain;
+  object-position:center center;
+}
+
+/* Slightly refine preview crops without replacing the chosen images */
+#work .bedtime-card img{
+  object-position:center 58%;
+}
+#work .strange-card img{
+  object-position:center center;
+}
+#work .dungeon-card img{
+  object-position:center center;
+}
+#work .lost-card img{
+  object-position:center center;
+}
+
+@media(max-width:1150px){
+  #work .grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+@media(max-width:720px){
+  .contact-links{
+    grid-template-columns:1fr;
+  }
+  #work .grid{
+    grid-template-columns:1fr;
+  }
+  #work .card figure,
+  #work .card.wide figure{
+    aspect-ratio:16/10;
+  }
+}
+
+html{scroll-behavior:smooth}.case-progress{position:fixed;top:0;left:0;height:2px;width:var(--progress,0%);background:var(--accent);z-index:10000}
+.quick-contact{position:fixed;right:22px;bottom:22px;z-index:9000}.quick-contact-toggle{border:1px solid #4b4b46;background:#10100f;color:#f3f3ef;border-radius:999px;padding:13px 17px;display:flex;align-items:center;gap:9px;font:700 10px monospace;letter-spacing:.08em;cursor:pointer}.quick-contact-toggle i{width:8px;height:8px;border-radius:50%;background:#82d977}.quick-contact-panel{position:absolute;right:0;bottom:56px;width:300px;padding:12px;background:#0b0b0a;border:1px solid #3a3a36;opacity:0;visibility:hidden;transform:translateY(8px);transition:.2s}.quick-contact.open .quick-contact-panel{opacity:1;visibility:visible;transform:none}.quick-contact-panel>small{display:block;padding:8px 10px 12px;color:#8f8f89;font:700 9px monospace}.quick-contact-panel a,.quick-contact-panel button{width:100%;box-sizing:border-box;border:0;border-top:1px solid #252522;background:transparent;color:#eee;padding:13px 10px;display:flex;justify-content:space-between;text-decoration:none;cursor:pointer}
+.project-nav{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.project-nav a{padding:28px clamp(20px,5vw,65px);color:inherit;text-decoration:none}.project-nav a+a{border-left:1px solid var(--line);text-align:right}.project-nav small{display:block;color:var(--muted);font:700 9px monospace;letter-spacing:.1em;margin-bottom:6px}.project-nav b{font-size:clamp(18px,2vw,28px)}
+.skill-zone{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(40px,7vw,90px)}.skill-list{display:grid;gap:10px}.skill-row{border:1px solid var(--line);padding:16px 17px;background:#0c0c0b}.skill-row-top{display:flex;justify-content:space-between;gap:20px}.skill-row b{font-size:14px}.skill-row em{font-style:normal;color:var(--muted);font:700 9px monospace}.skill-track{height:3px;background:#242421;margin:12px 0 10px;overflow:hidden}.skill-fill{display:block;height:100%;width:0;background:var(--accent);transition:width 1s cubic-bezier(.2,.8,.2,1)}.skill-row.visible .skill-fill{width:var(--skill)}.skill-row small{color:#8d8d87}.core-skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}.core-skills span{border:1px solid var(--line);padding:9px 11px;font:700 9px monospace}.skill-projects{display:flex;gap:8px;margin-top:9px}.skill-projects a{font:700 8px monospace;color:#bdbdb7;text-decoration:none;border-bottom:1px solid #555}
+.before-after{position:relative;overflow:hidden;border:1px solid var(--line);aspect-ratio:16/9;background:#080808}.before-after img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.before-after .after{clip-path:inset(0 calc(100% - var(--split,50%)) 0 0)}.before-after input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;z-index:4}.before-after-line{position:absolute;top:0;bottom:0;left:var(--split,50%);width:1px;background:#fff;z-index:3}.before-after-line:after{content:"↔";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#0b0b0b;border:1px solid #666}.before-after label{position:absolute;z-index:2;top:14px;padding:7px 9px;background:#000b;font:700 9px monospace}.before-after .lab-a{left:14px}.before-after .lab-b{right:14px}
+.quick-facts{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--line);margin-top:30px}.quick-facts div{padding:15px;border-right:1px solid var(--line)}.quick-facts div:last-child{border:0}.quick-facts small{display:block;color:var(--muted);font:700 8px monospace;margin-bottom:5px}.quick-facts b{font-size:11px}
+@media(max-width:850px){.skill-zone{grid-template-columns:1fr}.quick-facts{grid-template-columns:1fr 1fr}}@media(max-width:600px){.project-nav{grid-template-columns:1fr}.project-nav a+a{border-left:0;border-top:1px solid var(--line);text-align:left}.quick-facts{grid-template-columns:1fr}}
+
+/* V5.4 consistency and branding */
+.brand{display:flex!important;align-items:center;gap:11px}.brand-mark{width:38px;height:30px;display:grid;place-items:center}.brand-mark svg{width:38px;height:30px}.brand-word{display:flex;align-items:baseline;gap:6px}.brand-word .the{font:700 8px monospace;letter-spacing:.12em;color:#8f8f89}.brand-word .boybias{font-weight:800;letter-spacing:-.025em}
+.quick-contact-toggle{transition:transform .2s,border-color .2s,background .2s}.quick-contact-toggle:hover{transform:translateY(-2px);border-color:#74746e;background:#171715}.cta-arrow{display:inline-block;transition:transform .2s}.quick-contact-toggle:hover .cta-arrow{transform:translateX(4px)}
+.contact-links.v54{grid-template-columns:repeat(4,minmax(0,1fr));max-width:1180px}.contact-links.v54 .contact-item{display:flex;min-height:150px;flex-direction:column;align-items:flex-start;justify-content:space-between;padding:20px}.contact-links.v54 .contact-copy b{font-size:15px}.contact-desc{display:block;margin-top:5px;color:#8d8d87;font-size:11px}.contact-arrow{align-self:flex-end;font-size:20px;transition:transform .2s}.contact-item:hover .contact-arrow{transform:translate(3px,-3px)}
+.project-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:24px}.project-action{display:inline-flex;align-items:center;border:1px solid #555;padding:12px 15px;color:#f0f0eb;text-decoration:none;font:700 9px monospace;letter-spacing:.08em;transition:.2s}.project-action:hover{background:#f0f0eb;color:#090909}
+.case-meta-unified{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border:1px solid var(--line);margin-top:26px}.case-meta-unified div{padding:15px;border-right:1px solid var(--line)}.case-meta-unified div:last-child{border:0}.case-meta-unified small{display:block;color:var(--muted);font:700 8px monospace;letter-spacing:.08em;margin-bottom:6px}.case-meta-unified b{font-size:11px;line-height:1.45}
+.comfort-v54{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(26px,5vw,72px);align-items:center}.comfort-copy{max-width:560px}.comfort-principles{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:24px}.comfort-principles div{border:1px solid var(--line);padding:14px}.comfort-principles small{display:block;color:var(--muted);font:700 8px monospace;margin-bottom:5px}.comfort-principles b{font-size:11px}.comfort-media img{width:100%;display:block;aspect-ratio:4/3;object-fit:cover}
+@media(max-width:950px){.contact-links.v54{grid-template-columns:repeat(2,1fr)}.case-meta-unified{grid-template-columns:repeat(2,1fr)}.comfort-v54{grid-template-columns:1fr}}@media(max-width:600px){.contact-links.v54,.case-meta-unified{grid-template-columns:1fr}}
+
+/* V5.5 Bedtime correction and brand refinement */
+.brand-mark-v55{width:40px;height:32px}.brand-mark-v55 svg{width:40px;height:32px}.brand-word-v55 .boybias{letter-spacing:-.035em}
+.bedtime-project-intro{padding-top:44px!important;padding-bottom:44px!important}
+.bedtime-project-head{display:grid;grid-template-columns:1fr minmax(300px,.72fr);gap:30px;align-items:end}
+.bedtime-play{min-height:86px;border:1px solid #696963;padding:16px 18px;color:inherit;text-decoration:none;display:flex;align-items:center;justify-content:space-between;gap:18px;background:#10100f;transition:background .2s,border-color .2s,transform .2s}
+.bedtime-play:hover{background:#f0f0eb;color:#090909;border-color:#f0f0eb;transform:translateY(-2px)}
+.bedtime-play span{display:block}.bedtime-play small{display:block;font:700 8px monospace;letter-spacing:.11em;margin-bottom:6px;opacity:.65}.bedtime-play b{font-size:15px}.bedtime-play strong{font-size:25px;font-weight:400;transition:transform .2s}.bedtime-play:hover strong{transform:translate(4px,-4px)}
+.bedtime-meta{margin-top:28px}
+
+/* Compact discipline system: informative chips instead of oversized empty boxes */
+.disciplines,.discipline-list,.tags.disciplines{display:flex!important;flex-wrap:wrap!important;gap:8px!important;grid-template-columns:none!important}
+.disciplines>* ,.discipline-list>* ,.tags.disciplines>*{
+ min-height:0!important;width:auto!important;flex:0 0 auto!important;padding:9px 12px!important;
+ border:1px solid #3b3b37!important;background:#0d0d0c!important;border-radius:999px!important;
+ font:700 9px monospace!important;letter-spacing:.065em!important;line-height:1!important;
+ transition:border-color .18s,background .18s,transform .18s!important
+}
+.disciplines>*:hover,.discipline-list>*:hover,.tags.disciplines>*:hover{border-color:#77776f!important;background:#151513!important;transform:translateY(-1px)!important}
+
+/* Fallback for the common large discipline card containers in the existing site */
+.discipline-grid{display:flex!important;flex-wrap:wrap!important;gap:8px!important}
+.discipline-grid>*{min-height:0!important;padding:10px 13px!important;flex:0 0 auto!important;border-radius:999px!important}
+@media(max-width:800px){.bedtime-project-head{grid-template-columns:1fr}.bedtime-play-wrap{max-width:520px}}
+
+/* V5.6 readable TBB identity */
+.brand{gap:12px!important}.tbb-mark{height:32px;display:flex;align-items:center;border:1px solid #4b4b46;overflow:hidden;background:#0d0d0c}
+.tbb-mark span{width:25px;height:30px;display:grid;place-items:center;font:900 14px/1 monospace;letter-spacing:-.08em;color:#f1f1ed}
+.tbb-mark span+span{border-left:1px solid #343430}.tbb-mark span:nth-child(2){background:#f0f0eb;color:#0a0a09}
+.tbb-wordmark{display:flex;align-items:baseline;gap:6px;white-space:nowrap}.tbb-wordmark small{font:700 7px monospace;letter-spacing:.13em;color:#85857f}.tbb-wordmark strong{font-size:12px;letter-spacing:.025em}
+
+/* V5.6 discipline cards: compact enough to scan, expressive enough to remember */
+.discipline{gap:12px;border:0!important;margin-top:42px!important}
+.discipline a{
+ min-height:235px!important;border:1px solid #343430!important;padding:22px!important;
+ background:linear-gradient(145deg,#0c0c0b 0%,#10100f 100%);overflow:hidden;
+ display:flex;flex-direction:column;isolation:isolate
+}
+.discipline a:before{
+ content:"";position:absolute;width:150px;height:150px;border:1px solid #282825;border-radius:50%;
+ right:-55px;top:-55px;transition:transform .35s ease,border-color .35s ease;z-index:-1
+}
+.discipline a:after{
+ content:"";position:absolute;width:80px;height:1px;background:#383834;right:20px;top:50px;
+ transform:rotate(-35deg);transform-origin:right;transition:width .3s ease,background .3s ease;z-index:-1
+}
+.discipline a:hover{background:#151513!important;border-color:#676760!important;transform:translateY(-3px)}
+.discipline a:hover:before{transform:scale(1.14);border-color:#4b4b45}.discipline a:hover:after{width:115px;background:#77776f}
+.discipline-top{display:flex;justify-content:space-between;align-items:center;gap:14px}
+.discipline-top i{font:800 9px monospace!important;color:#e5e5df!important;border:1px solid #454540;border-radius:999px;padding:6px 8px}
+.discipline-top span{font:700 8px monospace;letter-spacing:.1em;color:#73736e}
+.discipline b{font-size:clamp(34px,3.2vw,48px)!important;margin-top:42px!important;letter-spacing:-.045em!important}
+.discipline p{font-size:12px!important;line-height:1.6!important;max-width:390px;margin-top:10px}
+.discipline em{right:20px!important;bottom:18px!important;width:34px;height:34px;display:grid;place-items:center;border:1px solid #41413c;border-radius:50%;font-size:15px!important}
+.discipline a:hover em{background:#efefea;color:#090909;border-color:#efefea;transform:translate(2px,-2px)}
+@media(max-width:760px){.tbb-wordmark small{display:none}.discipline a{min-height:210px!important}.discipline b{margin-top:32px!important}}
+
+/* V6 expanded games and game jam section */
+.more-games-head{margin-top:80px;padding-top:45px;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:end}
+.more-games-head h3{font-size:clamp(30px,3vw,46px);letter-spacing:-.045em;margin:6px 0 0}
+.more-games-head>p:last-child{color:var(--muted);max-width:520px;justify-self:end}
+.more-games-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:28px}
+.more-game-card{border:1px solid var(--line);background:#101010;color:inherit;text-decoration:none;overflow:hidden;transition:.25s}
+.more-game-card:hover{border-color:#60605a;transform:translateY(-3px)}
+.more-game-card figure{margin:0;height:290px;background:#080808;overflow:hidden}
+.more-game-card img{width:100%;height:100%;object-fit:cover;transition:transform .45s}
+.more-game-card:first-child img{object-fit:contain;padding:28px;background:radial-gradient(circle at 50% 45%,#2b2016,#080808 72%)}
+.more-game-card:hover img{transform:scale(1.02)}
+.more-game-card>div{padding:18px}.more-game-card small{font:700 9px monospace;color:#8e8e88;letter-spacing:.07em}
+.more-game-card b{display:block;font-size:22px;margin:7px 0 4px}.more-game-card span{font-size:11px;color:#aaa}
+
+.jam-section{overflow:hidden}.jam-intro{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:end;margin-bottom:50px}
+.jam-intro h2{font-size:clamp(48px,6vw,86px);line-height:.9;letter-spacing:-.06em;margin:0}.jam-intro h2 span{color:#9d9d96}
+.jam-summary{border-left:1px solid var(--line);padding-left:28px}.jam-summary b{font:700 10px monospace;letter-spacing:.09em}.jam-summary p{color:var(--muted);font-size:14px;line-height:1.75;max-width:460px}
+.jam-feature>a{position:relative;display:block;min-height:520px;border:1px solid var(--line);overflow:hidden;color:#fff;text-decoration:none;background:#080808}
+.jam-feature img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .55s}.jam-feature a:hover img{transform:scale(1.025)}
+.jam-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,5,5,.85),rgba(5,5,5,.18) 65%),linear-gradient(0deg,rgba(5,5,5,.82),transparent 60%)}
+.jam-copy{position:absolute;z-index:2;left:30px;bottom:28px;max-width:600px}.jam-copy small{font:700 9px monospace;color:#c1c1ba;letter-spacing:.09em}
+.jam-copy h3{font-size:clamp(42px,5vw,70px);line-height:.9;letter-spacing:-.06em;margin:10px 0}.jam-copy p{color:#d1d1cb;margin:0 0 18px}.jam-copy span{font:700 10px monospace}
+.jam-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:12px}
+.jam-card{border:1px solid var(--line);background:#0d0d0c;color:inherit;text-decoration:none;overflow:hidden;transition:.22s}
+.jam-card:hover{transform:translateY(-3px);border-color:#64645f}.jam-card figure{margin:0;height:185px;background:#080808;overflow:hidden}
+.jam-card img{width:100%;height:100%;object-fit:cover}.jam-card:nth-child(2) img{object-fit:contain;padding:28px;background:#17141f}
+.jam-card>div{padding:15px}.jam-card small{font:700 8px monospace;color:#81817b;letter-spacing:.08em}.jam-card b{display:block;font-size:17px;margin:7px 0 5px}
+.jam-card p{color:#9a9a94;font-size:11px;line-height:1.5;min-height:34px}.jam-card span{font:700 8px monospace;color:#c1c1ba}
+.portfolio-facts{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:34px}.portfolio-facts span{border:1px solid var(--line);padding:9px 12px;font:700 9px monospace;color:#9e9e97}.portfolio-facts b{color:#efefea;font-size:13px;margin-right:5px}
+@media(max-width:1050px){.jam-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:800px){.more-games-head,.jam-intro{grid-template-columns:1fr}.more-games-head>p:last-child{justify-self:start}.more-games-grid{grid-template-columns:1fr}.jam-summary{border-left:0;border-top:1px solid var(--line);padding:20px 0 0}.jam-feature>a{min-height:440px}}
+@media(max-width:560px){.jam-grid{grid-template-columns:1fr}.jam-card figure{height:220px}.jam-feature>a{min-height:400px}.jam-copy{left:20px;right:20px;bottom:20px}}
+
+/* V6.1 navigation and header usability */
+.tbb-wordmark{display:block!important}
+.tbb-wordmark strong{
+  font-size:12px!important;
+  letter-spacing:.055em!important;
+  white-space:nowrap;
+}
+.brand-status{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-left:4px;
+  white-space:nowrap;
+  color:#a5a59f;
+  font:700 9px monospace;
+  letter-spacing:.075em;
+}
+.brand-status i{
+  width:7px;height:7px;border-radius:50%;
+  background:#82d977;
+  box-shadow:0 0 0 4px rgba(130,217,119,.08),0 0 10px rgba(130,217,119,.28);
+}
+header nav{margin-left:auto!important}
+header nav a{position:relative}
+header nav a:after{
+  content:"";
+  position:absolute;
+  left:10px;right:10px;bottom:5px;
+  height:1px;background:#7b7b74;
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .2s ease;
+}
+header nav a:hover:after{transform:scaleX(1)}
+section[id]{scroll-margin-top:86px}
+
+@media(max-width:1180px){
+  .brand-status{font-size:8px}
+}
+@media(max-width:980px){
+  .brand-status{display:none}
+}
+
+/* V6.2 dedicated 2D portfolio */
+.two-d-hero{padding-top:150px!important;padding-bottom:48px!important}.two-d-hero h1{font-size:clamp(58px,8.2vw,122px);line-height:.84;letter-spacing:-.07em;margin:16px 0 24px}.two-d-hero h1 span{color:#91918a}.two-d-hero .lead{max-width:650px;color:var(--muted);font-size:15px;line-height:1.7}
+.two-d-filters{display:flex;gap:7px;flex-wrap:wrap;margin-top:36px}.two-d-filters button{border:1px solid #3b3b37;background:#0c0c0b;color:#aaa;padding:10px 13px;font:700 9px monospace;letter-spacing:.07em;cursor:pointer}.two-d-filters button:hover,.two-d-filters button.active{background:#efefea;color:#090909;border-color:#efefea}
+.two-d-gallery{padding-top:20px!important}.art-grid{columns:3 300px;column-gap:12px}.art-card{display:inline-block;width:100%;margin:0 0 12px;border:1px solid var(--line);padding:0;background:#0b0b0a;color:inherit;text-align:left;cursor:pointer;break-inside:avoid;overflow:hidden;transition:transform .22s,border-color .22s}.art-card:hover{transform:translateY(-3px);border-color:#676760}.art-card[hidden]{display:none}.art-card figure{margin:0;background:#080808;overflow:hidden}.art-card img{width:100%;height:auto;display:block;transition:transform .4s}.art-card:hover img{transform:scale(1.015)}.art-card>div{padding:14px}.art-card small{font:700 8px monospace;color:#7f7f79;letter-spacing:.1em}.art-card b{display:block;font-size:17px;margin:5px 0 10px}.art-card span{font:700 8px monospace;color:#aaa}
+.art-lightbox{position:fixed;z-index:9999;inset:0;background:rgba(0,0,0,.94);display:none;place-items:center;padding:60px 30px}.art-lightbox.open{display:grid}.art-lightbox img{max-width:min(90vw,1500px);max-height:78vh;object-fit:contain}.art-lightbox-close{position:absolute;right:24px;top:20px;width:44px;height:44px;border:1px solid #555;background:#111;color:#fff;font-size:28px;cursor:pointer}.art-lightbox-meta{position:absolute;left:30px;bottom:22px}.art-lightbox-meta small{display:block;color:#8d8d87;font:700 8px monospace;letter-spacing:.1em}.art-lightbox-meta b{display:block;font-size:16px;margin-top:4px}
+@media(max-width:700px){.art-grid{columns:1}.two-d-hero{padding-top:120px!important}}
+
+
+/* ========================================================================
+   V8.0 CONSOLIDATED PORTFOLIO SYSTEM
+   One stable layer replaces V6.3–V7.1 experimental override stacks.
+   ======================================================================== */
+
+/* ---------- Global stability ---------- */
+html, body {
+  overflow-x: clip;
+}
+img, video {
+  max-width: 100%;
+}
+a, button {
+  -webkit-tap-highlight-color: rgba(255,255,255,.08);
+}
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid rgba(255,255,255,.9);
+  outline-offset: 3px;
+}
+.skip-link {
+  position: fixed;
+  z-index: 12000;
+  left: 16px;
+  top: 12px;
+  transform: translateY(-160%);
+  background: #f2f2ee;
+  color: #0b0b0a;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font: 700 11px monospace;
+  text-decoration: none;
+  transition: transform .18s ease;
+}
+.skip-link:focus {
+  transform: none;
+}
+
+/* ---------- Responsive sizing without the V7.1 shrink-on-2K issue ---------- */
+.section {
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+  width: min(100%, var(--max));
+  margin: 0 auto;
+  padding-top: clamp(88px, 7vw, 128px);
+  padding-bottom: clamp(88px, 7vw, 128px);
+  padding-left: clamp(28px, 5vw, 96px);
+  padding-right: clamp(28px, 5vw, 96px);
+}
+.dark {
+  background: var(--panel);
+  width: 100%;
+  max-width: none;
+  padding-left: clamp(28px, 5vw, 96px);
+  padding-right: clamp(28px, 5vw, 96px);
+}
+.dark > * {
+  max-width: 1408px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------- True full-viewport category separators ---------- */
+main > .section::after {
+  content: "";
+  position: absolute;
+  z-index: 20;
+  top: 0;
+  left: 50%;
+  width: 100vw;
+  height: 1px;
+  transform: translateX(-50%);
+  background: rgba(255,255,255,.15);
+  pointer-events: none;
+}
+main > .section.dark::after {
+  background: rgba(255,255,255,.18);
+}
+
+/* ---------- Exactly one texture per section, all white ---------- */
+main > .section[class*="tex-"]::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  pointer-events: none;
+  opacity: .28;
+  background-position: center center;
+  -webkit-mask-image:
+    linear-gradient(110deg,
+      transparent 0%,
+      rgba(0,0,0,.32) 12%,
+      rgba(0,0,0,.82) 31%,
+      #000 48%,
+      rgba(0,0,0,.78) 68%,
+      rgba(0,0,0,.28) 86%,
+      transparent 100%);
+  mask-image:
+    linear-gradient(110deg,
+      transparent 0%,
+      rgba(0,0,0,.32) 12%,
+      rgba(0,0,0,.82) 31%,
+      #000 48%,
+      rgba(0,0,0,.78) 68%,
+      rgba(0,0,0,.28) 86%,
+      transparent 100%);
+}
+main > .section.dark[class*="tex-"]::before {
+  opacity: .25;
+}
+main > .section[class*="tex-"] > * {
+  position: relative;
+  z-index: 2;
+}
+
+.tex-horizontal::before {
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,.105) 0 1px,
+      transparent 1px clamp(48px,3vw,68px)
+    );
+}
+.tex-vertical::before {
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,.105) 0 1px,
+      transparent 1px clamp(52px,3.2vw,72px)
+    );
+}
+.tex-diagonal::before {
+  background-image:
+    repeating-linear-gradient(
+      30deg,
+      rgba(255,255,255,.10) 0 1px,
+      transparent 1px clamp(50px,3.1vw,70px)
+    );
+}
+.tex-diagonal-reverse::before {
+  background-image:
+    repeating-linear-gradient(
+      150deg,
+      rgba(255,255,255,.10) 0 1px,
+      transparent 1px clamp(50px,3.1vw,70px)
+    );
+}
+.tex-grid-soft::before {
+  background-image:
+    linear-gradient(rgba(255,255,255,.075) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.075) 1px, transparent 1px);
+  background-size:
+    clamp(66px,4.2vw,92px) clamp(66px,4.2vw,92px);
+}
+.tex-dots::before {
+  opacity: .30 !important;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,.20) 1.15px, transparent 1.55px);
+  background-size:
+    clamp(24px,1.6vw,34px) clamp(24px,1.6vw,34px);
+}
+.tex-contact::before {
+  opacity: .30 !important;
+  background-image:
+    repeating-linear-gradient(
+      150deg,
+      rgba(255,255,255,.095) 0 1px,
+      transparent 1px clamp(56px,3.7vw,82px)
+    );
+  -webkit-mask-image:
+    linear-gradient(90deg,
+      transparent 0%,
+      rgba(0,0,0,.58) 17%,
+      #000 42%,
+      #000 72%,
+      transparent 100%);
+  mask-image:
+    linear-gradient(90deg,
+      transparent 0%,
+      rgba(0,0,0,.58) 17%,
+      #000 42%,
+      #000 72%,
+      transparent 100%);
+}
+
+/* ---------- Header / primary navigation ---------- */
+header {
+  height: 72px;
+}
+.header-contact {
+  border-radius: 7px !important;
+}
+header nav a[aria-current="page"] {
+  color: #f2f2ed;
+}
+header nav a[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
+/* Mobile nav button is intentionally quiet: portfolio art remains the focus. */
+.mobile-menu-toggle {
+  display: none;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid #3d3d39;
+  border-radius: 7px;
+  background: #0f0f0e;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.mobile-menu-toggle span {
+  position: absolute;
+  width: 17px;
+  height: 1px;
+  background: #e9e9e4;
+  transition: transform .2s ease, top .2s ease;
+}
+.mobile-menu-toggle span:first-child { top: 17px; }
+.mobile-menu-toggle span:last-child { top: 25px; }
+header.nav-open .mobile-menu-toggle span:first-child {
+  top: 21px;
+  transform: rotate(45deg);
+}
+header.nav-open .mobile-menu-toggle span:last-child {
+  top: 21px;
+  transform: rotate(-45deg);
+}
+
+/* ---------- Typography / readable measure ---------- */
+p {
+  text-wrap: pretty;
+}
+.lead,
+.prose,
+.head > p,
+.game-feature p,
+.game-copy > p {
+  max-width: 68ch;
+}
+.head {
+  gap: clamp(38px, 5vw, 70px);
+  margin-bottom: clamp(48px, 4vw, 64px);
+}
+.head > p {
+  line-height: 1.72;
+}
+.game-copy {
+  gap: clamp(40px, 6vw, 90px);
+}
+.game-feature {
+  gap: clamp(36px, 5vw, 72px);
+}
+.card > div,
+.more-game-card > div,
+.jam-card > div {
+  align-content: center;
+}
+
+/* ---------- Recruiter scanability ---------- */
+.case-meta-unified {
+  margin-top: clamp(24px, 2.5vw, 32px);
+}
+.case-meta-unified small {
+  letter-spacing: .09em;
+}
+.case-meta-unified b,
+.contact-copy b {
+  overflow-wrap: anywhere;
+}
+.game-facts {
+  row-gap: 8px;
+}
+.games-scanbar {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  border-top: 1px solid rgba(255,255,255,.15);
+  border-bottom: 1px solid rgba(255,255,255,.15);
+  background: #0d0d0c;
+}
+.games-scanbar span {
+  min-width: 0;
+  padding: 16px clamp(18px,3vw,34px);
+  border-right: 1px solid rgba(255,255,255,.11);
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+}
+.games-scanbar span:last-child { border-right: 0; }
+.games-scanbar b {
+  font-size: 15px;
+  letter-spacing: -.025em;
+}
+.games-scanbar small {
+  color: #85857f;
+  font: 700 8px monospace;
+  letter-spacing: .08em;
+  line-height: 1.3;
+}
+
+/* ---------- Project-specific structural fixes retained from the polished build ---------- */
+.hub-map {
+  display: grid !important;
+  grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+  gap: 9px !important;
+  margin-top: 26px !important;
+}
+.hub-map > div {
+  min-width: 0 !important;
+  min-height: 94px !important;
+  padding: 16px 17px !important;
+  border: 1px solid var(--line) !important;
+  display: grid !important;
+  grid-template-columns: auto 1fr !important;
+  grid-template-rows: auto auto !important;
+  column-gap: 12px !important;
+  align-content: center !important;
+  background: rgba(255,255,255,.018) !important;
+}
+.hub-map small {
+  grid-row: 1/3;
+  align-self: center;
+  font: 700 8px monospace;
+  color: #66665f;
+}
+.hub-map b {
+  font-size: 14px !important;
+  line-height: 1.15 !important;
+  margin: 0 !important;
+  white-space: normal !important;
+}
+.hub-map span {
+  font: 700 9px monospace !important;
+  color: #8f8f88 !important;
+  margin-top: 5px !important;
+}
+
+.section .game-cta {
+  border-top: 0 !important;
+}
+.play-section .game-cta {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+.dungeon-hero > img {
+  transform: none !important;
+  object-position: center center !important;
+}
+.lost-hero > img {
+  image-rendering: pixelated;
+  object-position: center center !important;
+}
+.pixel-strip .pixel-wide img {
+  image-rendering: pixelated;
+  object-fit: contain !important;
+}
+
+/* Hero readability restored consistently across case studies. */
+body.case-study .games-hero::after,
+.lost-hero::after,
+.dungeon-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg,
+      rgba(5,5,5,.94) 0%,
+      rgba(5,5,5,.68) 42%,
+      rgba(5,5,5,.16) 78%),
+    linear-gradient(0deg,
+      rgba(5,5,5,.92) 0%,
+      rgba(5,5,5,.08) 62%);
+}
+body.case-study .games-hero-copy {
+  position: relative;
+  z-index: 2;
+}
+
+/* Games landing uses the same visual treatment as the homepage hero. */
+.games-hero-home::after { content: none !important; }
+.games-hero-home > img {
+  filter: saturate(.92) contrast(1.05);
+  object-position: center center;
+}
+.games-home-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(90deg,
+      rgba(5,5,5,.96) 0%,
+      rgba(5,5,5,.80) 35%,
+      rgba(5,5,5,.20) 75%),
+    linear-gradient(0deg,
+      rgba(8,8,8,.88) 0%,
+      rgba(8,8,8,.10) 58%);
+}
+.games-hero-home .games-hero-copy { z-index: 2; }
+
+/* Lost Little Boy combined world gallery */
+.lost-worlds-gallery {
+  grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+}
+.lost-worlds-gallery .wide {
+  grid-column: 1 / -1 !important;
+}
+.lost-worlds-gallery img {
+  min-height: 260px;
+  object-fit: cover;
+}
+
+/* 2D page: preserve visual hierarchy while keeping the gallery art-first. */
+.two-d-gallery {
+  padding-top: clamp(32px, 4vw, 54px) !important;
+}
+
+/* ---------- Responsive behavior ---------- */
+@media (max-width: 1180px) {
+  .brand-status { display: none; }
+}
+
+/* The original desktop nav disappears around tablet width; replace it with a real drawer. */
+@media (max-width: 1000px) {
+  .mobile-menu-toggle {
+    display: inline-flex;
+  }
+  header {
+    gap: 12px;
+  }
+  header nav {
+    display: flex !important;
+    position: fixed;
+    z-index: 49;
+    top: 68px;
+    left: 0;
+    right: 0;
+    margin: 0 !important;
+    padding: 12px 18px 20px;
+    flex-direction: column;
+    gap: 2px !important;
+    background: rgba(9,9,9,.98);
+    border-bottom: 1px solid rgba(255,255,255,.14);
+    backdrop-filter: blur(18px);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity .18s ease, transform .18s ease, visibility .18s ease;
+  }
+  header.nav-open nav {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+  header nav a {
+    width: 100%;
+    min-height: 48px;
+    padding: 0 8px !important;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,.07);
+  }
+  header nav a:last-child {
+    border-bottom: 0;
+  }
+  .section {
+    padding: 90px 26px;
+  }
+  .dark {
+    padding-left: 26px;
+    padding-right: 26px;
+  }
+  .dark > * {
+    max-width: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .section {
+    padding: 76px 18px;
+  }
+  .dark {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+  main > .section[class*="tex-"]::before {
+    opacity: .21;
+  }
+  main > .section.dark[class*="tex-"]::before {
+    opacity: .19;
+  }
+  .tex-dots::before {
+    opacity: .24 !important;
+  }
+  .tex-contact::before {
+    opacity: .22 !important;
+  }
+  .games-scanbar {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+  }
+  .games-scanbar span:nth-child(2) {
+    border-right: 0;
+  }
+  .games-scanbar span:nth-child(-n+2) {
+    border-bottom: 1px solid rgba(255,255,255,.11);
+  }
+  .quick-contact {
+    display: none;
+  }
+  .lost-worlds-gallery {
+    grid-template-columns: 1fr !important;
+  }
+  .lost-worlds-gallery .wide {
+    grid-column: auto !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .tbb-wordmark {
+    display: none !important;
+  }
+  .header-contact {
+    min-height: 44px;
+    padding: 0 12px !important;
+  }
+  .mobile-menu-toggle {
+    flex-basis: 44px;
+  }
+  .hub-map {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (min-width: 1800px) {
+  /* Cap padding instead of letting 8vw consume the usable 2K/ultrawide canvas. */
+  .section {
+    padding-left: 96px;
+    padding-right: 96px;
+  }
+  .dark {
+    padding-left: 96px;
+    padding-right: 96px;
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+  .ticker-track {
+    animation: none !important;
+  }
+}
+
+
+/* Touch-specific ergonomics without inflating desktop controls. */
+@media (pointer: coarse) {
+  .mobile-menu-toggle {
+    width: 48px;
+    height: 48px;
+    flex-basis: 48px;
+  }
+  .header-contact,
+  .btn,
+  .project-action,
+  .filters button,
+  .switch button,
+  .two-d-filters button,
+  .art-lightbox-close {
+    min-height: 48px;
+  }
+}
+
+
+/* ========================================================================
+   V8.1 AESTHETIC + LARGE-SCREEN POLISH
+   Based on rendered FHD / 2K / mobile review.
+   ======================================================================== */
+
+:root{
+  /* Same visual density at FHD, but deliberately expands on 2K. */
+  --portfolio-content:clamp(1400px,74vw,1880px);
+  --portfolio-gutter:clamp(24px,4vw,96px);
+}
+
+/* ---------- Large-screen scaling ----------
+   Sections now span the viewport while the content frame can grow from
+   ~1400px at FHD to ~1880px at 2K. This keeps 2K from looking miniature. */
+.section,
+.dark{
+  width:100%!important;
+  max-width:none!important;
+  padding-left:var(--portfolio-gutter)!important;
+  padding-right:var(--portfolio-gutter)!important;
+}
+.section > *,
+.dark > *{
+  width:min(100%,var(--portfolio-content));
+  max-width:var(--portfolio-content)!important;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+/* Full-width separators and textures must never inherit the content frame. */
+main > .section::after,
+main > .section[class*="tex-"]::before{
+  width:100vw!important;
+  max-width:none!important;
+  margin:0!important;
+}
+
+/* Games hero aligns to the same content frame instead of a fixed 1200px box. */
+.games-hero-copy{
+  width:min(var(--portfolio-content),calc(100% - (var(--portfolio-gutter) * 2)))!important;
+  max-width:none!important;
+}
+
+/* ---------- Coherent drafting texture family ----------
+   Every section still uses exactly one white texture layer. Patterns are
+   deliberately sparse and use alternating primary / secondary hairlines. */
+main > .section[class*="tex-"]::before{
+  opacity:.31!important;
+  background-position:center center!important;
+  -webkit-mask-image:linear-gradient(90deg,
+    transparent 0%,
+    rgba(0,0,0,.28) 10%,
+    rgba(0,0,0,.82) 28%,
+    #000 48%,
+    rgba(0,0,0,.86) 78%,
+    rgba(0,0,0,.28) 93%,
+    transparent 100%)!important;
+  mask-image:linear-gradient(90deg,
+    transparent 0%,
+    rgba(0,0,0,.28) 10%,
+    rgba(0,0,0,.82) 28%,
+    #000 48%,
+    rgba(0,0,0,.86) 78%,
+    rgba(0,0,0,.28) 93%,
+    transparent 100%)!important;
+}
+main > .section.dark[class*="tex-"]::before{opacity:.27!important}
+
+.tex-horizontal::before{
+  background-image:repeating-linear-gradient(
+    0deg,
+    rgba(255,255,255,.10) 0 1px,
+    transparent 1px clamp(54px,2.7vw,72px),
+    rgba(255,255,255,.035) clamp(54px,2.7vw,72px) calc(clamp(54px,2.7vw,72px) + 1px),
+    transparent calc(clamp(54px,2.7vw,72px) + 1px) clamp(108px,5.4vw,144px)
+  )!important;
+}
+.tex-vertical::before{
+  background-image:repeating-linear-gradient(
+    90deg,
+    rgba(255,255,255,.10) 0 1px,
+    transparent 1px clamp(58px,2.9vw,78px),
+    rgba(255,255,255,.035) clamp(58px,2.9vw,78px) calc(clamp(58px,2.9vw,78px) + 1px),
+    transparent calc(clamp(58px,2.9vw,78px) + 1px) clamp(116px,5.8vw,156px)
+  )!important;
+}
+.tex-diagonal::before{
+  background-image:repeating-linear-gradient(
+    32deg,
+    rgba(255,255,255,.10) 0 1px,
+    transparent 1px clamp(72px,3.8vw,96px)
+  )!important;
+}
+.tex-diagonal-reverse::before{
+  background-image:repeating-linear-gradient(
+    148deg,
+    rgba(255,255,255,.10) 0 1px,
+    transparent 1px clamp(72px,3.8vw,96px)
+  )!important;
+}
+.tex-grid-soft::before{
+  opacity:.24!important;
+  background-image:
+    linear-gradient(rgba(255,255,255,.075) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.075) 1px,transparent 1px)!important;
+  background-size:clamp(82px,4.6vw,112px) clamp(82px,4.6vw,112px)!important;
+}
+.tex-dots::before{
+  opacity:.32!important;
+  background-image:radial-gradient(circle,rgba(255,255,255,.20) 1px,transparent 1.45px)!important;
+  background-size:clamp(28px,1.5vw,38px) clamp(28px,1.5vw,38px)!important;
+}
+.tex-contact::before{
+  opacity:.29!important;
+  background-image:repeating-linear-gradient(
+    148deg,
+    rgba(255,255,255,.095) 0 1px,
+    transparent 1px clamp(72px,3.8vw,96px)
+  )!important;
+}
+
+/* ---------- Typography / alignment ---------- */
+body{
+  font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif!important;
+}
+.kicker,
+nav a,
+.btn,
+.filters button,
+.switch button,
+.two-d-filters button,
+.game-facts i,
+.games-scanbar small,
+.games-scanbar b{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono",monospace!important;
+}
+.kicker{letter-spacing:.145em!important}
+
+/* A real two-column editorial header is more stable than space-between flex. */
+.head{
+  display:grid!important;
+  grid-template-columns:minmax(0,1.25fr) minmax(300px,.75fr)!important;
+  gap:clamp(42px,5vw,84px)!important;
+  align-items:end!important;
+}
+.head > p{
+  margin:0!important;
+  max-width:56ch!important;
+  justify-self:end;
+  font-size:clamp(15px,.28vw + 10px,17px)!important;
+  line-height:1.72!important;
+}
+
+.about{
+  grid-template-columns:minmax(0,1.08fr) minmax(320px,.92fr)!important;
+  gap:clamp(56px,8vw,130px)!important;
+}
+.about > div > p,
+.feature > div > p:not(.kicker),
+.game-feature p{
+  font-size:clamp(15px,.22vw + 11px,17px)!important;
+}
+
+/* ---------- Buttons / micro-interaction ---------- */
+.btn,
+.filters button,
+.switch button,
+.two-d-filters button,
+.header-contact{
+  border-radius:6px!important;
+}
+.btn:hover,
+.card:hover,
+.more-game-card:hover,
+.jam-card:hover,
+.art-card:hover{
+  transform:translateY(-2px)!important;
+}
+
+.card,
+.games-index a,
+.more-game-card,
+.jam-card,
+.art-card,
+.contact-item{
+  border-color:rgba(255,255,255,.14)!important;
+}
+.card:hover,
+.games-index a:hover,
+.more-game-card:hover,
+.jam-card:hover,
+.art-card:hover,
+.contact-item:hover{
+  border-color:rgba(255,255,255,.34)!important;
+}
+.card small{font-size:10.5px!important;line-height:1.4!important}
+
+/* ---------- Games production rail ----------
+   Four genuinely equal cells with the same internal vertical rhythm. */
+.games-scanbar{
+  width:100%!important;
+  border-top:1px solid rgba(255,255,255,.16)!important;
+  border-bottom:1px solid rgba(255,255,255,.16)!important;
+  background:#0c0c0b!important;
+}
+.games-scanbar-inner{
+  width:min(var(--portfolio-content),calc(100% - (var(--portfolio-gutter) * 2)));
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  border-left:1px solid rgba(255,255,255,.10);
+  border-right:1px solid rgba(255,255,255,.10);
+}
+.games-scanbar span{
+  min-width:0;
+  min-height:82px;
+  padding:15px clamp(18px,2vw,30px)!important;
+  display:flex!important;
+  flex-direction:column;
+  align-items:flex-start!important;
+  justify-content:center;
+  gap:6px!important;
+  border-right:1px solid rgba(255,255,255,.10)!important;
+}
+.games-scanbar span:last-child{border-right:0!important}
+.games-scanbar b{
+  font-size:clamp(16px,1vw,20px)!important;
+  line-height:1!important;
+  letter-spacing:-.025em!important;
+  white-space:nowrap;
+}
+.games-scanbar small{
+  font-size:9px!important;
+  line-height:1.25!important;
+  letter-spacing:.09em!important;
+  color:#8f8f88!important;
+}
+
+/* ---------- Games overview hierarchy ----------
+   Best project first, then the remaining three at equal weight. */
+@media(min-width:1181px){
+  .games-index{
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:16px!important;
+  }
+  .games-index a:first-child{
+    grid-column:1 / -1;
+    min-height:520px!important;
+  }
+  .games-index a:not(:first-child){min-height:360px!important}
+  .games-index a:first-child b{font-size:34px!important}
+  .games-index a:first-child small{font-size:12px!important}
+}
+.games-index small{
+  font-size:11px!important;
+  line-height:1.45!important;
+}
+
+/* The section itself already supplies the full-width separator.
+   This old inner border was the short / broken-looking white line. */
+.more-games-head{
+  margin-top:0!important;
+  padding-top:0!important;
+  border-top:0!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr)!important;
+  grid-template-areas:
+    "kicker copy"
+    "title copy"!important;
+  column-gap:clamp(50px,7vw,110px)!important;
+  row-gap:8px!important;
+  align-items:end!important;
+}
+.more-games-head .kicker{grid-area:kicker;margin:0!important}
+.more-games-head h3{
+  grid-area:title;
+  margin:0!important;
+  font-size:clamp(38px,3.5vw,58px)!important;
+  line-height:1!important;
+}
+.more-games-head > p:last-child{
+  grid-area:copy;
+  justify-self:end!important;
+  align-self:end;
+  margin:0!important;
+  max-width:54ch!important;
+  font-size:15px!important;
+  line-height:1.75!important;
+}
+.more-games-grid{margin-top:42px!important;gap:16px!important}
+
+/* Game Jam hierarchy: keep it strong, but align intro to the shared grid. */
+.jam-intro{
+  grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr)!important;
+  gap:clamp(50px,7vw,110px)!important;
+}
+.jam-summary{padding-left:clamp(24px,2vw,34px)!important}
+
+/* ---------- Large-display type scaling ---------- */
+@media(min-width:2000px){
+  .hero h1,.project-title h1{font-size:clamp(92px,5vw,128px)!important}
+  .games-hero h1{font-size:clamp(104px,5.2vw,142px)!important}
+  .head h2,.feature h2,.contact h2,.next h2{font-size:clamp(66px,3.8vw,96px)!important}
+  .game-copy h2{font-size:clamp(62px,3.5vw,90px)!important}
+  .game-feature h3{font-size:clamp(46px,2.7vw,66px)!important}
+  nav a{font-size:12px!important}
+}
+
+/* ---------- Tablet / mobile ---------- */
+@media(max-width:1180px){
+  .games-index{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .games-index a{min-height:390px!important}
+}
+@media(max-width:900px){
+  .head,
+  .more-games-head,
+  .jam-intro{
+    grid-template-columns:1fr!important;
+    grid-template-areas:none!important;
+    gap:20px!important;
+  }
+  .head > p,
+  .more-games-head > p:last-child{
+    justify-self:start!important;
+  }
+  .more-games-head .kicker,
+  .more-games-head h3,
+  .more-games-head > p:last-child{grid-area:auto!important}
+  .jam-summary{
+    border-left:0!important;
+    border-top:1px solid rgba(255,255,255,.12)!important;
+    padding:22px 0 0!important;
+  }
+  .about{grid-template-columns:1fr!important;gap:32px!important}
+}
+@media(max-width:760px){
+  :root{--portfolio-gutter:18px}
+  main > .section[class*="tex-"]::before{
+    opacity:.22!important;
+    -webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 18%,#000 82%,transparent 100%)!important;
+    mask-image:linear-gradient(180deg,transparent 0%,#000 18%,#000 82%,transparent 100%)!important;
+  }
+  .games-scanbar-inner{
+    width:100%;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    border-left:0;
+    border-right:0;
+  }
+  .games-scanbar span{min-height:72px!important}
+  .games-scanbar span:nth-child(2){border-right:0!important}
+  .games-scanbar span:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.10)!important}
+  .games-index{grid-template-columns:1fr!important}
+  .games-index a{min-height:320px!important}
+  .more-games-grid{margin-top:30px!important}
+}
+
+
+/* V8.1 final stat-rail correction: outer rail is not a grid item itself. */
+.games-scanbar{
+  display:block!important;
+}
+
+
+
+/* ========================================================================
+   V8.6 BALANCED CASE-STUDY MEDIA
+   The requested sections use the compact V6.9 visual density.
+   Media height follows the complete adjacent content block instead of
+   growing independently on 2K / ultrawide screens.
+   ======================================================================== */
+
+/* ---------- Shared compact content frame ---------- */
+.bedtime-page .comfort-v54,
+.bedtime-page #environment > .head,
+.bedtime-page #environment > .environment-feature,
+.bedtime-page #environment > .turnaround,
+.bedtime-page .paranormal > .head,
+.bedtime-page .paranormal-grid,
+.bedtime-page .horror-shot,
+.bedtime-page #assets > .head,
+.bedtime-page #assets > .asset-grid,
+.bedtime-page #assets > .character-feature,
+.strange-page main > .section.tex-vertical > .game-feature,
+.dungeon-page #ui > .game-feature{
+  width:min(100%,1280px)!important;
+  max-width:1280px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+
+/* ---------- Bedtime: Comfort and Fear ----------
+   The aquarium image now matches the FULL text + 4 principle cards height. */
+.bedtime-page .comfort-v54{
+  display:grid!important;
+  grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr)!important;
+  gap:clamp(34px,5vw,72px)!important;
+  align-items:stretch!important;
+}
+.bedtime-page .comfort-copy{
+  max-width:560px!important;
+  align-self:stretch!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+}
+.bedtime-page .comfort-media{
+  min-height:100%!important;
+  display:flex!important;
+}
+.bedtime-page .comfort-media img{
+  width:100%!important;
+  height:100%!important;
+  min-height:100%!important;
+  aspect-ratio:auto!important;
+  object-fit:cover!important;
+  object-position:center!important;
+}
+
+/* ---------- Bedtime: Environment Design ---------- */
+.bedtime-page #environment > .environment-feature{
+  max-width:1180px!important;
+}
+.bedtime-page #environment > .environment-feature img{
+  width:100%!important;
+  height:auto!important;
+  aspect-ratio:16/9!important;
+  object-fit:cover!important;
+}
+
+/* Room turnaround: video matches total copy height */
+.bedtime-page #environment > .turnaround{
+  max-width:1120px!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr)!important;
+  gap:clamp(34px,5vw,68px)!important;
+  align-items:stretch!important;
+  margin-top:72px!important;
+}
+.bedtime-page #environment > .turnaround > div{
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+}
+.bedtime-page #environment > .turnaround video{
+  width:100%!important;
+  height:100%!important;
+  min-height:100%!important;
+  max-height:520px!important;
+  aspect-ratio:auto!important;
+  object-fit:cover!important;
+}
+
+/* ---------- Bedtime: Paranormal Activity ---------- */
+.bedtime-page .paranormal-grid{
+  max-width:1080px!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:14px!important;
+}
+.bedtime-page .paranormal-grid article{
+  min-width:0!important;
+}
+.bedtime-page .paranormal-grid video{
+  width:100%!important;
+  aspect-ratio:16/9!important;
+  object-fit:cover!important;
+}
+
+/* Visual Horror image exactly follows the text-column height */
+.bedtime-page .horror-shot{
+  max-width:1040px!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1.3fr) minmax(260px,.7fr)!important;
+  gap:clamp(34px,5vw,68px)!important;
+  align-items:stretch!important;
+  margin-top:72px!important;
+}
+.bedtime-page .horror-shot > div{
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+}
+.bedtime-page .horror-shot img{
+  width:100%!important;
+  height:100%!important;
+  min-height:100%!important;
+  max-height:520px!important;
+  object-fit:cover!important;
+}
+
+/* ---------- Bedtime: three asset turnarounds ----------
+   Keep the complete row compact, so each asset stays presentation-sized. */
+.bedtime-page #assets > .asset-grid{
+  max-width:1000px!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:16px!important;
+}
+.bedtime-page #assets > .asset-grid article{
+  min-width:0!important;
+}
+.bedtime-page #assets > .asset-grid video{
+  width:100%!important;
+  aspect-ratio:1/1!important;
+  height:auto!important;
+  max-height:none!important;
+  object-fit:cover!important;
+}
+
+/* Character: image height matches the complete text block */
+.bedtime-page #assets > .character-feature{
+  max-width:920px!important;
+  display:grid!important;
+  grid-template-columns:minmax(300px,.9fr) minmax(0,1.1fr)!important;
+  gap:clamp(34px,5vw,64px)!important;
+  align-items:stretch!important;
+  margin-top:72px!important;
+}
+.bedtime-page #assets > .character-feature > div{
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+}
+.bedtime-page #assets > .character-feature img{
+  width:100%!important;
+  height:100%!important;
+  min-height:100%!important;
+  max-height:520px!important;
+  object-fit:contain!important;
+}
+
+/* ---------- Strange Day: Villa Turnaround ----------
+   Video and copy form one balanced editorial row. */
+.strange-page main > .section.tex-vertical > .game-feature{
+  max-width:1080px!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1.3fr) minmax(280px,.7fr)!important;
+  gap:clamp(34px,5vw,68px)!important;
+  align-items:stretch!important;
+}
+.strange-page main > .section.tex-vertical > .game-feature > div{
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+}
+.strange-page main > .section.tex-vertical > .game-feature video{
+  width:100%!important;
+  height:100%!important;
+  min-height:100%!important;
+  max-height:540px!important;
+  object-fit:cover!important;
+}
+
+/* ---------- Dungeon Diver: World as Navigation ----------
+   Hub screenshot equals the full right-side copy + navigation-card height. */
+.dungeon-page #ui > .game-feature{
+  max-width:1120px!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1.12fr) minmax(320px,.88fr)!important;
+  gap:clamp(34px,5vw,64px)!important;
+  align-items:stretch!important;
+}
+.dungeon-page #ui > .game-feature > div{
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+}
+.dungeon-page #ui > .game-feature > img{
+  width:100%!important;
+  height:100%!important;
+  min-height:100%!important;
+  max-height:600px!important;
+  object-fit:cover!important;
+}
+.dungeon-page #ui .hub-map{
+  margin-top:22px!important;
+}
+
+/* ---------- Keep V6.9-like type density inside these blocks ---------- */
+.bedtime-page #environment .turnaround h3,
+.bedtime-page .horror-shot h3,
+.bedtime-page #assets .character-feature h3,
+.strange-page main > .section.tex-vertical .game-feature h3,
+.dungeon-page #ui .game-feature h3{
+  font-size:clamp(34px,3.6vw,56px)!important;
+  line-height:1!important;
+  letter-spacing:-.05em!important;
+}
+
+/* ---------- Responsive stacking ---------- */
+@media(max-width:1000px){
+  .bedtime-page .comfort-v54,
+  .bedtime-page #environment > .turnaround,
+  .bedtime-page .horror-shot,
+  .bedtime-page #assets > .character-feature,
+  .strange-page main > .section.tex-vertical > .game-feature,
+  .dungeon-page #ui > .game-feature{
+    grid-template-columns:1fr!important;
+    align-items:start!important;
+  }
+
+  .bedtime-page .comfort-media img,
+  .bedtime-page #environment > .turnaround video,
+  .bedtime-page .horror-shot img,
+  .bedtime-page #assets > .character-feature img,
+  .strange-page main > .section.tex-vertical > .game-feature video,
+  .dungeon-page #ui > .game-feature > img{
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+  }
+
+  .bedtime-page .comfort-media img{
+    aspect-ratio:16/10!important;
+  }
+
+  .bedtime-page #assets > .asset-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  }
+}
+
+@media(max-width:760px){
+  .bedtime-page .paranormal-grid,
+  .bedtime-page #assets > .asset-grid{
+    grid-template-columns:1fr!important;
+  }
+}
+
+/* Media enlargement stays available for Bedtime and Strange turnarounds. */
+video.media-zoomable{cursor:zoom-in!important}
+video.media-zoomable:focus-visible{
+  outline:2px solid rgba(255,255,255,.88);
+  outline-offset:3px
+}
+.media-lightbox{
+  position:fixed;
+  inset:0;
+  z-index:1100;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:clamp(20px,4vw,48px);
+  background:rgba(0,0,0,.95);
+  backdrop-filter:blur(10px)
+}
+.media-lightbox.open{display:flex}
+.media-lightbox video{
+  width:auto;
+  height:auto;
+  max-width:min(94vw,1800px);
+  max-height:88vh;
+  object-fit:contain;
+  background:#050505;
+  box-shadow:0 20px 70px rgba(0,0,0,.55)
+}
+.media-lightbox-close{
+  position:absolute;
+  z-index:1102;
+  top:20px;
+  right:24px;
+  width:46px;
+  height:46px;
+  border:1px solid rgba(255,255,255,.28);
+  border-radius:6px;
+  background:rgba(10,10,10,.82);
+  color:#fff;
+  font-size:28px;
+  line-height:1;
+  cursor:pointer
+}
+
+
+
+/* ========================================================================
+   V8.7 CACHE-SAFE SCALING FIX
+   This is the final cascade layer and is loaded via styles-v87.css so
+   browsers/CDNs cannot reuse the older scaling stylesheet.
+   ======================================================================== */
+
+/* Remove any About portrait remnants from layout even if old markup survived. */
+.about-portrait,
+.about.about-profile > .about-portrait{
+  display:none!important;
+}
+.about.about-profile,
+.about{
+  grid-template-columns:1fr 1fr!important;
+}
+
+/* Shared media wrapper.
+   IMPORTANT: media is removed from intrinsic row sizing.
+   The COPY column determines the grid-row height.
+   The media then fills exactly that height. */
+.match-media{
+  position:relative!important;
+  min-width:0!important;
+  min-height:0!important;
+  overflow:hidden!important;
+  align-self:stretch!important;
+  background:#080808!important;
+  border:1px solid var(--line)!important;
+}
+.match-media > img,
+.match-media > video{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  max-height:none!important;
+  min-width:0!important;
+  min-height:0!important;
+  object-fit:cover!important;
+  display:block!important;
+  border:0!important;
+  background:#080808!important;
+}
+
+/* ------------------------------------------------
+   BEDTIME - Comfort & Fear
+   Image = total copy + all four principle cards.
+   ------------------------------------------------ */
+.bedtime-page .comfort-v54{
+  width:min(100%,1180px)!important;
+  max-width:1180px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  grid-template-columns:minmax(380px,.9fr) minmax(0,1.1fr)!important;
+  gap:clamp(34px,4.5vw,64px)!important;
+  align-items:stretch!important;
+}
+.bedtime-page .comfort-copy{
+  max-width:none!important;
+  align-self:auto!important;
+}
+.bedtime-page .comfort-media{
+  position:relative!important;
+  min-width:0!important;
+  min-height:0!important;
+  overflow:hidden!important;
+  align-self:stretch!important;
+  border:1px solid var(--line)!important;
+  background:#080808!important;
+}
+.bedtime-page .comfort-media > img{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  aspect-ratio:auto!important;
+  object-fit:cover!important;
+  display:block!important;
+}
+
+/* ------------------------------------------------
+   BEDTIME - Environment + Room Turnaround
+   ------------------------------------------------ */
+.bedtime-page #environment > .head,
+.bedtime-page #environment > .environment-feature{
+  width:min(100%,1180px)!important;
+  max-width:1180px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+.bedtime-page #environment > .turnaround{
+  width:min(100%,1060px)!important;
+  max-width:1060px!important;
+  margin:72px auto 0!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1.30fr) minmax(280px,.70fr)!important;
+  gap:clamp(32px,4vw,56px)!important;
+  align-items:stretch!important;
+}
+.bedtime-page #environment > .turnaround > div:not(.match-media){
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+}
+.bedtime-page #environment > .turnaround > .match-media{
+  min-height:260px!important;
+}
+
+/* ------------------------------------------------
+   BEDTIME - Paranormal Activity
+   ------------------------------------------------ */
+.bedtime-page .paranormal > .head{
+  width:min(100%,1180px)!important;
+  max-width:1180px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+.bedtime-page .paranormal-grid{
+  width:min(100%,1000px)!important;
+  max-width:1000px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:14px!important;
+}
+.bedtime-page .horror-shot{
+  width:min(100%,960px)!important;
+  max-width:960px!important;
+  margin:68px auto 0!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1.25fr) minmax(260px,.75fr)!important;
+  gap:clamp(30px,4vw,52px)!important;
+  align-items:stretch!important;
+}
+.bedtime-page .horror-shot > div:not(.match-media){
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+}
+.bedtime-page .horror-shot > .match-media{
+  min-height:250px!important;
+}
+
+/* ------------------------------------------------
+   BEDTIME - 3 Turnarounds
+   These stay intentionally smaller, regardless of 2K.
+   ------------------------------------------------ */
+.bedtime-page #assets > .head{
+  width:min(100%,1180px)!important;
+  max-width:1180px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+.bedtime-page #assets > .asset-grid{
+  width:min(100%,900px)!important;
+  max-width:900px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:14px!important;
+}
+.bedtime-page #assets > .asset-grid article{
+  min-width:0!important;
+}
+.bedtime-page #assets > .asset-grid video{
+  width:100%!important;
+  aspect-ratio:1/1!important;
+  object-fit:cover!important;
+}
+
+/* Character image = complete character-copy height */
+.bedtime-page #assets > .character-feature{
+  width:min(100%,860px)!important;
+  max-width:860px!important;
+  margin:68px auto 0!important;
+  display:grid!important;
+  grid-template-columns:minmax(280px,.90fr) minmax(0,1.10fr)!important;
+  gap:clamp(30px,4vw,52px)!important;
+  align-items:stretch!important;
+}
+.bedtime-page #assets > .character-feature > div:not(.match-media){
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+}
+.bedtime-page #assets > .character-feature > .match-media{
+  min-height:310px!important;
+}
+.bedtime-page #assets > .character-feature .match-character > img{
+  object-fit:contain!important;
+}
+
+/* ------------------------------------------------
+   STRANGE DAY - villa turnaround
+   Video = complete EXTERIOR copy height.
+   ------------------------------------------------ */
+.strange-page main > section.tex-vertical > .game-feature{
+  width:min(100%,980px)!important;
+  max-width:980px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1.28fr) minmax(280px,.72fr)!important;
+  gap:clamp(32px,4vw,56px)!important;
+  align-items:stretch!important;
+}
+.strange-page main > section.tex-vertical > .game-feature > div:not(.match-media){
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+}
+.strange-page main > section.tex-vertical > .game-feature > .match-media{
+  min-height:270px!important;
+}
+
+/* ------------------------------------------------
+   DUNGEON DIVER - World as Navigation
+   Screenshot = heading + body + the four nav cards.
+   ------------------------------------------------ */
+.dungeon-page #ui > .game-feature{
+  width:min(100%,1040px)!important;
+  max-width:1040px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1.05fr) minmax(340px,.95fr)!important;
+  gap:clamp(32px,4vw,56px)!important;
+  align-items:stretch!important;
+}
+.dungeon-page #ui > .game-feature > div:not(.match-media){
+  min-width:0!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+}
+.dungeon-page #ui > .game-feature > .match-media{
+  min-height:430px!important;
+}
+.dungeon-page #ui .hub-map{
+  margin-top:20px!important;
+}
+
+/* ------------------------------------------------
+   Responsive: media becomes normal aspect-ratio
+   once sections stack vertically.
+   ------------------------------------------------ */
+@media(max-width:1000px){
+  .about,
+  .about.about-profile,
+  .bedtime-page .comfort-v54,
+  .bedtime-page #environment > .turnaround,
+  .bedtime-page .horror-shot,
+  .bedtime-page #assets > .character-feature,
+  .strange-page main > section.tex-vertical > .game-feature,
+  .dungeon-page #ui > .game-feature{
+    grid-template-columns:1fr!important;
+  }
+
+  .match-media,
+  .bedtime-page .comfort-media{
+    min-height:0!important;
+    aspect-ratio:16/9!important;
+  }
+
+  .match-media > img,
+  .match-media > video,
+  .bedtime-page .comfort-media > img{
+    position:absolute!important;
+  }
+
+  .bedtime-page #assets > .character-feature > .match-media{
+    aspect-ratio:4/5!important;
+    max-width:420px!important;
+    width:100%!important;
+    justify-self:center!important;
+  }
+}
+
+@media(max-width:760px){
+  .bedtime-page .paranormal-grid,
+  .bedtime-page #assets > .asset-grid{
+    grid-template-columns:1fr!important;
+  }
+  .bedtime-page #assets > .asset-grid{
+    max-width:420px!important;
+  }
+}
+
+/* Turnaround video enlargement remains active */
+video.media-zoomable{
+  cursor:zoom-in!important;
+}
+.media-lightbox{
+  position:fixed!important;
+  inset:0!important;
+  z-index:1100!important;
+  display:none!important;
+  align-items:center!important;
+  justify-content:center!important;
+  padding:clamp(20px,4vw,48px)!important;
+  background:rgba(0,0,0,.95)!important;
+  backdrop-filter:blur(10px)!important;
+}
+.media-lightbox.open{display:flex!important}
+.media-lightbox video{
+  position:static!important;
+  width:auto!important;
+  height:auto!important;
+  max-width:min(94vw,1800px)!important;
+  max-height:88vh!important;
+  object-fit:contain!important;
+  border:0!important;
+}
+.media-lightbox-close{
+  position:absolute!important;
+  top:20px!important;
+  right:24px!important;
+  width:46px!important;
+  height:46px!important;
+  border:1px solid rgba(255,255,255,.28)!important;
+  border-radius:6px!important;
+  background:rgba(10,10,10,.82)!important;
+  color:#fff!important;
+  font-size:28px!important;
+  cursor:pointer!important;
+}
+
+
+
+/* ========================================================================
+   V8.8 MEDIA FIT + HOMEPAGE POLISH
+   Scaling from V8.7 is preserved. Only crop/contain behavior and homepage
+   composition are changed.
+   ======================================================================== */
+
+/* ABOUT: restore the original balanced two-column text composition. */
+#about .about{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+  gap:clamp(54px,8vw,126px)!important;
+  align-items:start!important;
+}
+#about .about > .big{
+  margin:0!important;
+  max-width:17ch!important;
+}
+#about .about > div{
+  max-width:58ch!important;
+}
+#about .about > div > p{
+  margin:0 0 18px!important;
+}
+#about .about .tags{
+  margin-top:24px!important;
+}
+#about .about .textlink{
+  display:inline-block!important;
+  margin-top:20px!important;
+}
+
+/* 1. BEDTIME Room Turnaround: show the complete 16:9 video. */
+.bedtime-page #environment .turnaround .match-media{
+  background:#050505!important;
+}
+.bedtime-page #environment .turnaround .match-media > video{
+  object-fit:contain!important;
+  background:#050505!important;
+}
+
+/* 2. BEDTIME Paranormal Activity: never crop either video. */
+.bedtime-page .paranormal-grid article{
+  background:#050505!important;
+}
+.bedtime-page .paranormal-grid video{
+  object-fit:contain!important;
+  background:#050505!important;
+}
+
+/* 3. BEDTIME Visual Horror: show the entire screenshot. */
+.bedtime-page .horror-shot .match-media{
+  background:#050505!important;
+}
+.bedtime-page .horror-shot .match-media > img{
+  object-fit:contain!important;
+  background:#050505!important;
+}
+
+/* Character remains contained, never cropped. */
+.bedtime-page #assets .character-feature .match-character > img{
+  object-fit:contain!important;
+}
+
+/* 8. DUNGEON DIVER World as Navigation: full hub image. */
+.dungeon-page #ui .game-feature .match-media{
+  background:#050505!important;
+}
+.dungeon-page #ui .game-feature .match-media > img{
+  object-fit:contain!important;
+  background:#050505!important;
+}
+
+/* 9. STRANGE DAY Villa Turnaround: show the complete turnaround video. */
+.strange-page main > section.tex-vertical .game-feature .match-media{
+  background:#050505!important;
+}
+.strange-page main > section.tex-vertical .game-feature .match-media > video{
+  object-fit:contain!important;
+  background:#050505!important;
+}
+
+/* 5 + 7. Homepage preview crops are purpose-built 16:10 images, so no
+   additional browser crop is necessary. */
+#work .card img[src*="2d-home-v88"],
+#work .lost-card img[src*="lost-home-v88"]{
+  object-fit:cover!important;
+  object-position:center center!important;
+}
+
+/* Six cards after removing Parchment UI form a clean 3x2 desktop grid. */
+@media(min-width:1001px){
+  #work .grid{
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  }
+}
+
+/* Mobile About returns to one column. */
+@media(max-width:900px){
+  #about .about{
+    grid-template-columns:1fr!important;
+    gap:28px!important;
+  }
+  #about .about > .big{
+    max-width:22ch!important;
+  }
+}
+
+
+
+/* ========================================================================
+   V8.9 - V6.9-LIKE MEDIA PROPORTIONS / NO LETTERBOXING
+   Keep the current section widths, but stop forcing media to the adjacent
+   text height. Each medium uses its real aspect ratio again.
+   ======================================================================== */
+
+/* General rule for the V8 match-media wrappers:
+   no artificial black canvas around the asset. */
+.match-media{
+  background:transparent!important;
+  border:0!important;
+  overflow:hidden!important;
+  align-self:center!important;
+}
+.match-media > img,
+.match-media > video{
+  background:transparent!important;
+  border:1px solid var(--line)!important;
+}
+
+/* ------------------------------------------------------------------------
+   BEDTIME - Room Turnaround
+   Original video is 1280x720.
+   ------------------------------------------------------------------------ */
+.bedtime-page #environment .turnaround{
+  align-items:center!important;
+}
+.bedtime-page #environment .turnaround .match-media{
+  aspect-ratio:16 / 9!important;
+  min-height:0!important;
+  height:auto!important;
+}
+.bedtime-page #environment .turnaround .match-media > video{
+  object-fit:cover!important;
+  background:transparent!important;
+}
+
+/* ------------------------------------------------------------------------
+   BEDTIME - Paranormal Activity
+   Return to natural 16:9 media rather than contain + black canvas.
+   ------------------------------------------------------------------------ */
+.bedtime-page .paranormal-grid article{
+  background:transparent!important;
+}
+.bedtime-page .paranormal-grid video{
+  width:100%!important;
+  height:auto!important;
+  aspect-ratio:16 / 9!important;
+  object-fit:cover!important;
+  background:transparent!important;
+}
+
+/* ------------------------------------------------------------------------
+   BEDTIME - Visual Horror
+   Original image is 1919x1079.
+   ------------------------------------------------------------------------ */
+.bedtime-page .horror-shot{
+  align-items:center!important;
+}
+.bedtime-page .horror-shot .match-media{
+  aspect-ratio:1919 / 1079!important;
+  min-height:0!important;
+  height:auto!important;
+}
+.bedtime-page .horror-shot .match-media > img{
+  object-fit:cover!important;
+  background:transparent!important;
+}
+
+/* ------------------------------------------------------------------------
+   BEDTIME - Character
+   Keep the complete character without a black framing canvas.
+   ------------------------------------------------------------------------ */
+.bedtime-page #assets .character-feature{
+  align-items:center!important;
+}
+.bedtime-page #assets .character-feature .match-character{
+  aspect-ratio:616 / 787!important;
+  min-height:0!important;
+  height:auto!important;
+  background:transparent!important;
+}
+.bedtime-page #assets .character-feature .match-character > img{
+  object-fit:contain!important;
+  background:transparent!important;
+}
+
+/* The three 3D turnaround cards stay exactly in the compact V6.9-style
+   square presentation. They already fill the frame without letterboxing. */
+.bedtime-page #assets > .asset-grid video{
+  object-fit:cover!important;
+  background:transparent!important;
+}
+
+/* ------------------------------------------------------------------------
+   STRANGE DAY - Villa Turnaround
+   Original video is 1280x722.
+   ------------------------------------------------------------------------ */
+.strange-page main > section.tex-vertical .game-feature{
+  align-items:center!important;
+}
+.strange-page main > section.tex-vertical .game-feature .match-media{
+  aspect-ratio:1280 / 722!important;
+  min-height:0!important;
+  height:auto!important;
+}
+.strange-page main > section.tex-vertical .game-feature .match-media > video{
+  object-fit:cover!important;
+  background:transparent!important;
+}
+
+/* ------------------------------------------------------------------------
+   DUNGEON DIVER - World as Navigation
+   Original screenshot is 1800x1014.
+   ------------------------------------------------------------------------ */
+.dungeon-page #ui .game-feature{
+  align-items:center!important;
+}
+.dungeon-page #ui .game-feature .match-media{
+  aspect-ratio:1800 / 1014!important;
+  min-height:0!important;
+  height:auto!important;
+}
+.dungeon-page #ui .game-feature .match-media > img{
+  object-fit:cover!important;
+  background:transparent!important;
+}
+
+/* ------------------------------------------------------------------------
+   GAMES PREVIEWS
+   Guardian used to have a special contain + padding rule. That is the
+   reason it looked much smaller than the neighboring Spirit Bound card.
+   ------------------------------------------------------------------------ */
+.more-game-card:first-child img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center center!important;
+  padding:0!important;
+  background:transparent!important;
+}
+.more-game-card:first-child figure{
+  background:transparent!important;
+}
+
+.jam-card img[src*="cutdown-v89"]{
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center center!important;
+}
+
+/* On stacked layouts keep natural visual ratios and never introduce
+   a black letterbox area. */
+@media(max-width:1000px){
+  .bedtime-page #environment .turnaround .match-media,
+  .bedtime-page .horror-shot .match-media,
+  .strange-page main > section.tex-vertical .game-feature .match-media,
+  .dungeon-page #ui .game-feature .match-media{
+    min-height:0!important;
+  }
+}
+
+
+/* V8.12 - Bedtime character turnaround replaces the former still image. */
+.bedtime-page #assets .character-feature .match-character > video{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  max-height:none!important;
+  object-fit:contain!important;
+  background:transparent!important;
+  border:1px solid var(--line)!important;
+  display:block!important;
+}
+
+/* V8.13 - 3D portfolio, legal pages, legal footer, Toddler framing */
+.bedtime-page #assets .character-feature .match-character > video.character-turnaround{
+  width:88%!important;height:88%!important;left:6%!important;top:6%!important;object-fit:contain!important;border:0!important;
+}
+.simple-header{min-height:76px;padding:0 clamp(22px,4vw,72px);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);background:#080808;position:relative;z-index:10}
+.simple-header .brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit}.simple-header .brand b{font-size:1.35rem;letter-spacing:.08em}.simple-header .brand span{font-size:.72rem;letter-spacing:.18em}
+.simple-header nav{display:flex;gap:24px;align-items:center}.simple-header nav a{font-size:.72rem;letter-spacing:.12em;text-decoration:none;color:var(--muted)}.simple-header nav a:hover,.simple-header nav a.active{color:var(--text)}
+.three-d-hero{min-height:48vh;display:flex;align-items:end;background:#0a0a0a}.three-d-hero-inner{width:min(1500px,92vw);margin:auto;padding:clamp(90px,12vw,170px) 0 clamp(60px,8vw,110px)}
+.three-d-hero h1,.legal-main h1{font-size:clamp(4rem,10vw,10rem);line-height:.84;margin:.16em 0 .22em;letter-spacing:-.055em}.three-d-hero p{max-width:720px;font-size:clamp(1rem,1.45vw,1.35rem);color:var(--muted);line-height:1.55}
+.three-d-gallery{padding:clamp(55px,7vw,100px) max(4vw,22px);background:#111}.three-d-filters{display:flex;gap:10px;flex-wrap:wrap;max-width:1500px;margin:0 auto 42px}.three-d-filters button{border:1px solid var(--line);background:transparent;color:var(--muted);padding:11px 15px;font:inherit;font-size:.68rem;letter-spacing:.1em;cursor:pointer}.three-d-filters button.active,.three-d-filters button:hover{background:#fff;color:#080808}
+.three-d-grid{max-width:1500px;margin:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,2.5vw,38px)}.three-d-card{border-top:1px solid var(--line);padding-top:14px}.three-d-card[hidden]{display:none}.three-d-card.three-d-feature{grid-column:span 1}.three-d-media{display:block;aspect-ratio:16/10;background:#090909;overflow:hidden}.three-d-media video{width:100%;height:100%;display:block;object-fit:contain;background:#090909}.three-d-copy{padding:17px 0 24px}.three-d-copy span{font-size:.63rem;letter-spacing:.13em;color:var(--muted)}.three-d-copy h2{font-size:clamp(1.35rem,2vw,2.1rem);margin:.25em 0}.three-d-copy p{max-width:620px;color:var(--muted);line-height:1.5}.three-d-copy a{font-size:.67rem;letter-spacing:.1em;color:inherit;text-decoration:none}
+.three-d-contact{padding:clamp(90px,11vw,160px) max(4vw,22px);text-align:center;background:#090909}.three-d-contact h2{font-size:clamp(2.5rem,6vw,6rem);margin:.15em auto}.three-d-contact p{max-width:700px;margin:0 auto 30px;color:var(--muted)}
+.legal-footer{border-top:1px solid var(--line);padding:22px max(4vw,22px);display:flex;justify-content:space-between;gap:24px;align-items:center;background:#080808;font-size:.64rem;letter-spacing:.09em;color:var(--muted)}.legal-footer div{display:flex;gap:20px}.legal-footer a{color:inherit;text-decoration:none}.legal-footer a:hover{color:var(--text)}
+.legal-page{background:#0a0a0a}.legal-main{width:min(850px,90vw);margin:auto;padding:clamp(75px,9vw,130px) 0}.legal-main h1{font-size:clamp(3.2rem,8vw,7rem);margin-bottom:.65em}.legal-main h2{font-size:1.05rem;margin:2.4em 0 .7em}.legal-main p{color:var(--muted);line-height:1.75}.legal-main a{color:var(--text)}.legal-note{border-top:1px solid var(--line);padding-top:22px;margin-top:45px}
+@media(max-width:760px){.simple-header nav{gap:12px}.simple-header nav a:nth-child(2),.simple-header nav a:nth-child(3){display:none}.three-d-grid{grid-template-columns:1fr}.legal-footer{align-items:flex-start;flex-direction:column}}
+
+/* V8.14 - Turnaround presentation and bilingual legal copy */
+.three-d-page .three-d-media{
+  aspect-ratio:1/1!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  overflow:hidden!important;
+  background:#0b0b0b!important;
+}
+.three-d-page .three-d-media video{
+  position:static!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:100%!important;
+  max-height:100%!important;
+  object-fit:contain!important;
+  object-position:center center!important;
+  background:transparent!important;
+}
+.three-d-page .three-d-feature .three-d-media{aspect-ratio:16/10!important}
+.three-d-page .three-d-feature .three-d-media video{object-fit:contain!important}
+.bedtime-page #assets .character-feature .match-character > video.character-turnaround{
+  position:absolute!important;inset:5%!important;width:90%!important;height:90%!important;
+  object-fit:contain!important;object-position:center center!important;background:transparent!important;
+}
+.legal-lang-switch{display:flex;gap:8px;margin:0 0 42px}
+.legal-lang-switch button{border:1px solid var(--line);background:transparent;color:var(--muted);padding:9px 13px;font:inherit;font-size:.68rem;letter-spacing:.1em;cursor:pointer}
+.legal-lang-switch button.active{background:#fff;color:#080808}
+.legal-copy[hidden]{display:none}
+
+/* V8.15 - Integrate 3D Work with the shared portfolio UI */
+.three-d-page{padding-top:72px}
+.three-d-page .three-d-hero,
+.three-d-page .three-d-gallery{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+}
+.three-d-page .three-d-hero::before,
+.three-d-page .three-d-gallery::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+}
+.three-d-page .three-d-hero::before{
+  opacity:.22;
+  background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.105) 0 1px,transparent 1px clamp(52px,3.2vw,72px));
+  -webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.9),transparent 92%);
+  mask-image:linear-gradient(180deg,rgba(0,0,0,.9),transparent 92%);
+}
+.three-d-page .three-d-gallery::before{
+  opacity:.22;
+  background-image:radial-gradient(circle,rgba(255,255,255,.20) 1.15px,transparent 1.55px);
+  background-size:clamp(24px,1.6vw,34px) clamp(24px,1.6vw,34px);
+  -webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 8%,#000 92%,transparent 100%);
+  mask-image:linear-gradient(180deg,transparent 0%,#000 8%,#000 92%,transparent 100%);
+}
+.three-d-page .three-d-media{
+  appearance:none;
+  border:0;
+  padding:0;
+  cursor:zoom-in;
+  width:100%;
+}
+.three-d-page .three-d-media::after{
+  content:"VIEW TURNAROUND ↗";
+  position:absolute;
+  right:14px;
+  bottom:12px;
+  padding:7px 9px;
+  border:1px solid rgba(255,255,255,.22);
+  background:rgba(5,5,5,.72);
+  color:#efefea;
+  font:700 9px monospace;
+  letter-spacing:.1em;
+  opacity:0;
+  transform:translateY(4px);
+  transition:.2s ease;
+  pointer-events:none;
+}
+.three-d-page .three-d-media{position:relative}
+.three-d-page .three-d-media:hover::after{opacity:1;transform:none}
+.three-d-page .three-d-copy p{min-height:3em}
+.three-d-page .contact.section{margin:0}
+.three-d-page .media-lightbox video{
+  max-width:min(92vw,1500px);
+  max-height:88vh;
+  aspect-ratio:auto;
+  object-fit:contain;
+}
+@media(max-width:760px){
+  .three-d-page{padding-top:72px}
+  .three-d-page .three-d-media::after{opacity:1;transform:none}
+}
+
+/* V8.16: unified dropdown navigation, site language selector and universal progress */
+:root{--progress-yellow:#e5c052}
+body .case-progress{display:none!important}
+.global-progress{position:fixed;z-index:80;top:72px;left:0;right:0;height:3px;background:rgba(255,255,255,.06);pointer-events:none}
+.global-progress span{display:block;width:0;height:100%;background:var(--progress-yellow);box-shadow:0 0 10px rgba(229,192,82,.28)}
+.global-header{overflow:visible!important}
+.global-header #site-nav{display:flex;align-items:center;gap:clamp(18px,2.2vw,34px)}
+.global-header #site-nav>a,.nav-parent{font:600 11px monospace;text-transform:uppercase;letter-spacing:.11em;color:#c2c2bc}
+.nav-group{position:relative;display:flex;align-items:center}
+.nav-parent{display:flex;align-items:center;gap:7px;padding:25px 0;border:0;background:transparent;cursor:pointer;transition:.2s}
+.nav-parent:hover,.nav-group.open>.nav-parent{color:#fff}.nav-chevron{font-size:12px;line-height:1;transition:transform .18s}.nav-group.open .nav-chevron,.language-menu.open .nav-chevron{transform:rotate(180deg)}
+.nav-submenu{position:absolute;top:calc(100% - 1px);left:-18px;min-width:190px;padding:9px;border:1px solid rgba(255,255,255,.14);border-radius:8px;background:rgba(11,11,11,.98);backdrop-filter:blur(18px);box-shadow:0 18px 55px rgba(0,0,0,.38);opacity:0;visibility:hidden;transform:translateY(-5px);transition:.16s}
+.nav-submenu-wide{min-width:215px}.nav-group:hover .nav-submenu,.nav-group:focus-within .nav-submenu,.nav-group.open .nav-submenu{opacity:1;visibility:visible;transform:none}
+.nav-submenu a{display:block;padding:10px 11px;border-radius:5px;white-space:nowrap;color:#bdbdb7!important;text-decoration:none;font:600 10px monospace!important;letter-spacing:.08em!important}.nav-submenu a:hover,.nav-submenu a:focus{background:#1a1a18;color:#fff!important}
+.header-actions{display:flex!important;align-items:center;gap:10px}.language-menu{position:relative}.language-button{height:38px;display:flex;align-items:center;gap:7px;padding:0 10px;border:1px solid #3b3b37;border-radius:7px;background:#10100f;color:#e6e6e1;cursor:pointer;font:700 10px monospace;letter-spacing:.08em}.language-current-flag{font-size:15px}
+.language-options{position:absolute;top:calc(100% + 9px);right:0;min-width:150px;padding:7px;border:1px solid rgba(255,255,255,.14);border-radius:8px;background:rgba(11,11,11,.98);box-shadow:0 18px 55px rgba(0,0,0,.38);opacity:0;visibility:hidden;transform:translateY(-5px);transition:.16s}.language-menu.open .language-options{opacity:1;visibility:visible;transform:none}.language-options button{width:100%;display:flex;align-items:center;gap:9px;padding:9px 10px;border:0;border-radius:5px;background:transparent;color:#c7c7c1;text-align:left;cursor:pointer;font:600 10px monospace}.language-options button:hover,.language-options button.active{background:#1b1b19;color:#fff}
+.project-subnav{position:sticky;z-index:42;top:75px;min-height:46px;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:0 max(28px,5vw);border-bottom:1px solid rgba(255,255,255,.1);background:rgba(12,12,12,.92);backdrop-filter:blur(14px)}.project-subnav strong{font:700 10px monospace;letter-spacing:.11em;text-transform:uppercase;color:#eee;white-space:nowrap}.project-subnav nav{margin:0;display:flex;gap:22px;overflow-x:auto;scrollbar-width:none}.project-subnav nav::-webkit-scrollbar{display:none}.project-subnav a{padding:13px 0;color:#aeadab;text-decoration:none;white-space:nowrap;font:600 10px monospace;letter-spacing:.09em;text-transform:uppercase}.project-subnav a:hover{color:#fff}
+.legal-page .legal-lang-switch{display:none!important}section[id]{scroll-margin-top:128px}
+@media(max-width:1180px){.brand-status{display:none!important}.global-header #site-nav{gap:20px}}
+@media(max-width:900px){.global-header .language-menu{margin-left:auto}.global-header .header-contact{display:none}.global-header #site-nav{position:fixed;inset:72px 0 auto 0;max-height:calc(100vh - 72px);overflow:auto;display:none;align-items:stretch;flex-direction:column;gap:0;padding:12px max(22px,5vw) 22px;border-bottom:1px solid var(--line);background:rgba(9,9,9,.98)}.global-header.nav-open #site-nav{display:flex}.global-header #site-nav>a{padding:14px 0}.nav-group{display:block;border-bottom:1px solid rgba(255,255,255,.08)}.nav-parent{width:100%;justify-content:space-between;padding:14px 0}.nav-submenu{position:static;display:none;min-width:0;padding:0 0 9px 12px;border:0;box-shadow:none;background:transparent;opacity:1;visibility:visible;transform:none}.nav-group:hover .nav-submenu{display:none}.nav-group.open .nav-submenu{display:block}.nav-submenu a{padding:9px 8px}.mobile-menu-toggle{display:flex!important}.project-subnav{top:75px;padding:0 20px}.project-subnav strong{display:none}.project-subnav nav{width:100%;justify-content:flex-start}}
+@media(max-width:520px){.language-button{padding:0 8px}.language-current-code{display:none}}
+
+/* V8.17 transparent turnaround presentation */
+.three-d-media,.three-d-media video,.asset-grid article video,.match-character,.match-character video{background:transparent!important}
+.three-d-media video,.asset-grid article video,.character-turnaround{object-fit:contain!important}
+.three-d-card:has(video[src*="/transparent/"]) .three-d-media{background-image:radial-gradient(circle at 50% 50%,rgba(255,255,255,.055),transparent 66%)!important}
+.media-lightbox video[src*="/transparent/"]{background:transparent!important;object-fit:contain!important}
+
+/* V8.20 - single footer bar */
+.site-footer .footer-legal{display:flex;gap:18px}.site-footer .footer-legal a{color:inherit;text-decoration:none}.site-footer .footer-legal a:hover{color:var(--text)}
+@media(max-width:760px){.site-footer .footer-legal{gap:14px}}
