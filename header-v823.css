@@ -1,0 +1,21 @@
+/* V8.23 desktop availability-status visibility fix */
+@media (min-width:901px) and (max-width:1180px){
+  .global-header{gap:clamp(12px,1.6vw,20px)}
+  .global-header .brand-status{
+    display:inline-flex!important;
+    flex:0 1 auto;
+    align-items:center;
+    gap:7px;
+    margin-left:2px;
+    white-space:nowrap;
+    font-size:8px;
+    letter-spacing:.05em;
+  }
+  .global-header #site-nav{gap:clamp(9px,1.2vw,16px)}
+  .global-header .header-actions{gap:7px;margin-left:0}
+  .global-header .language-button{padding-left:8px;padding-right:8px}
+  .global-header .header-contact{padding-left:11px;padding-right:11px}
+}
+@media (max-width:900px){
+  .global-header .brand-status{display:none!important}
+}
