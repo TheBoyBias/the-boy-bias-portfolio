@@ -1,0 +1,14 @@
+/* V8.26 Toddler animation presentation */
+.toddler-showcase{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr);gap:clamp(24px,4vw,64px);align-items:center;padding:clamp(22px,3vw,42px);border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.025)}
+.toddler-showcase .toddler-main .three-d-media{width:100%;aspect-ratio:1/1}
+.toddler-animation-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px}
+.toddler-animation-card{position:relative;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.025);overflow:hidden}
+.toddler-animation-card video{display:block;width:100%;aspect-ratio:1/1;object-fit:contain}
+.toddler-animation-card span{display:flex;justify-content:space-between;gap:12px;padding:11px 13px;border-top:1px solid rgba(255,255,255,.1);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.character-motion-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:26px}
+.character-motion-grid article{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.025)}
+.character-motion-grid video{display:block;width:100%;aspect-ratio:1/1;object-fit:contain;cursor:zoom-in}
+.character-motion-grid div{padding:12px 14px;border-top:1px solid rgba(255,255,255,.1)}
+.character-motion-grid small{display:block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;opacity:.58;margin-bottom:4px}
+.character-motion-grid b{font-size:14px;text-transform:uppercase;letter-spacing:.08em}
+@media(max-width:800px){.toddler-showcase{grid-template-columns:1fr}.character-motion-grid{grid-template-columns:1fr}.toddler-animation-grid{grid-template-columns:1fr 1fr}}
