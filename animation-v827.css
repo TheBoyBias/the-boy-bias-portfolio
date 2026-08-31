@@ -1,0 +1,10 @@
+/* V8.27 supplemental character animation presentation. Keeps the established page CSS untouched. */
+.character-animation-section{margin-top:clamp(42px,6vw,84px);padding-top:clamp(28px,4vw,52px);border-top:1px solid rgba(255,255,255,.16)}
+.character-animation-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.72fr);gap:18px 48px;align-items:end;margin-bottom:clamp(22px,3vw,38px)}
+.character-animation-head .kicker{grid-column:1/-1;margin:0 0 -4px}.character-animation-head h3{margin:0;font-size:clamp(30px,3.4vw,54px);line-height:.98}.character-animation-head>p:last-child{margin:0;max-width:520px;opacity:.72;line-height:1.65}
+.character-animation-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(16px,2.2vw,30px)}
+.character-animation-grid article{min-width:0;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.025);overflow:hidden}
+.character-animation-grid video{display:block;width:100%;aspect-ratio:1/1;object-fit:contain;background:transparent;cursor:zoom-in}
+.character-animation-label{display:flex;gap:16px;align-items:center;padding:16px 18px;border-top:1px solid rgba(255,255,255,.12)}
+.character-animation-label>span{font-size:11px;letter-spacing:.12em;opacity:.45}.character-animation-label div{display:flex;flex-direction:column;gap:3px}.character-animation-label b{font-size:13px;letter-spacing:.09em}.character-animation-label small{font-size:9px;letter-spacing:.13em;opacity:.5}
+@media(max-width:760px){.character-animation-head{grid-template-columns:1fr}.character-animation-head .kicker{grid-column:auto}.character-animation-grid{grid-template-columns:1fr}.character-animation-grid video{aspect-ratio:1/1}}
