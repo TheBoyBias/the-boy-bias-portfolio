@@ -1,0 +1,32 @@
+/* V8.29 - Global contact heading centering fix
+   Keeps the two-line CTA optically and geometrically centered at every viewport/zoom size. */
+.contact.section{
+  text-align:center;
+}
+
+.contact.section > .kicker,
+.contact.section > .muted{
+  width:100%!important;
+  max-width:100%!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  text-align:center!important;
+}
+
+.contact.section > h2{
+  display:block;
+  width:fit-content!important;
+  max-width:100%!important;
+  margin:18px auto 28px!important;
+  text-align:center!important;
+}
+
+.contact.section > h2 span{
+  text-align:center!important;
+}
+
+@media(max-width:600px){
+  .contact.section > h2{
+    width:100%!important;
+  }
+}
